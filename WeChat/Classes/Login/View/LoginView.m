@@ -30,11 +30,21 @@
         
         UITextField *userName = [[UITextField alloc]init];
         userName.placeholder = @"用户名";
+        userName.layer.borderWidth = 1.0f;
+        userName.layer.cornerRadius = 5;
+        userName.layer.borderColor = [UIColor colorWithRed:105/255.0 green:177/255.0 blue:250/255.0 alpha:1].CGColor;
+        userName.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 8, 0)];
+        userName.leftViewMode = UITextFieldViewModeAlways;
         self.userName = userName;
         
         UITextField *password = [[UITextField alloc]init];
         password.placeholder = @"密码";
         password.secureTextEntry = YES;
+        password.layer.borderWidth = 1.0f;
+        password.layer.cornerRadius = 5;
+        password.layer.borderColor = [UIColor colorWithRed:105/255.0 green:177/255.0 blue:250/255.0 alpha:1].CGColor;
+        password.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 8, 0)];
+        password.leftViewMode = UITextFieldViewModeAlways;
         self.password = password;
         
         UIButton *login_Btn = [[UIButton alloc]init];
@@ -69,7 +79,7 @@
     self.iCon.y = 100;
     
     self.userName.width = self.width;
-    self.userName.height = 30;
+    self.userName.height = 40;
     self.userName.x = (self.width - self.userName.width) / 2;
     self.userName.y = self.iCon.y + self.iCon.height + 10;
     
@@ -86,7 +96,7 @@
     self.register_Btn.width = 150;
     self.register_Btn.height = 40;
     self.register_Btn.x = (self.width - self.register_Btn.width) / 2;
-    self.register_Btn.y = self.height - 60;
+    self.register_Btn.y = self.height - 40;
 
 }
 @end

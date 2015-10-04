@@ -1,5 +1,5 @@
 //
-//  LoginMainView.h
+//  LoginNavigationController.h
 //  WeChat
 //
 //  Created by LiDan on 15/10/4.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginMainView : UIView
+
+
+@interface LoginController : UINavigationController
+
+
 
 @end
