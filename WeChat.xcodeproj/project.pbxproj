@@ -144,6 +144,7 @@
 		D6B2CED21BBFE80A0046AD26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CE4F1BBFE80A0046AD26 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CED31BBFE80A0046AD26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CE501BBFE80A0046AD26 /* main.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CED71BBFEBC10046AD26 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CED61BBFEBC10046AD26 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
+		D6D6221B1BC1006300FD3D54 /* LoginMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D6221A1BC1006300FD3D54 /* LoginMainView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -448,6 +449,8 @@
 		D6B2CE501BBFE80A0046AD26 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6B2CED51BBFEBC10046AD26 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		D6B2CED61BBFEBC10046AD26 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		D6D622191BC1006300FD3D54 /* LoginMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginMainView.h; sourceTree = "<group>"; };
+		D6D6221A1BC1006300FD3D54 /* LoginMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginMainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1368,6 +1371,8 @@
 			children = (
 				D6B2CE4A1BBFE80A0046AD26 /* LoginView.h */,
 				D6B2CE4B1BBFE80A0046AD26 /* LoginView.m */,
+				D6D622191BC1006300FD3D54 /* LoginMainView.h */,
+				D6D6221A1BC1006300FD3D54 /* LoginMainView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1558,6 +1563,7 @@
 				D6B2CECC1BBFE80A0046AD26 /* DDXMLDocument.m in Sources */,
 				D6B2CE961BBFE80A0046AD26 /* XMPPPubSub.m in Sources */,
 				D6B2CEC81BBFE80A0046AD26 /* ContextFilterLogFormatter.m in Sources */,
+				D6D6221B1BC1006300FD3D54 /* LoginMainView.m in Sources */,
 				D6B2CE671BBFE80A0046AD26 /* XMPPReconnect.m in Sources */,
 				D6B2CEA01BBFE80A0046AD26 /* XMPPCapabilities.xcdatamodel in Sources */,
 				D6B2CEAD1BBFE80A0046AD26 /* XMPPMessage+XEP_0184.m in Sources */,
@@ -1886,6 +1892,7 @@
 				D6B2CB151BBFE2240046AD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6B2CB161BBFE2240046AD26 /* Build configuration list for PBXNativeTarget "WeChatTests" */ = {
 			isa = XCConfigurationList;
@@ -1894,6 +1901,7 @@
 				D6B2CB181BBFE2240046AD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6B2CB191BBFE2240046AD26 /* Build configuration list for PBXNativeTarget "WeChatUITests" */ = {
 			isa = XCConfigurationList;
@@ -1902,6 +1910,7 @@
 				D6B2CB1B1BBFE2240046AD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

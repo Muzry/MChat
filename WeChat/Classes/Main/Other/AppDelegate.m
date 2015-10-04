@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XMPPFramework.h"
-#import "LoginView.h"
+#import "LoginMainView.h"
 
 @interface AppDelegate ()<XMPPStreamDelegate>{
     XMPPStream *_xmppStream;
@@ -38,8 +38,11 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    UIViewController *loginViewController = [[UIViewController alloc]init];
-    loginViewController.view = [[LoginView alloc]init];
+    UIViewController *viewController = [[UIViewController alloc]init];
+    viewController.view = [[LoginMainView alloc]init];
+    viewController.title = @"登陆";
+    
+    UINavigationController* loginViewController = [[UINavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController = loginViewController;
     
     [self.window makeKeyAndVisible];
