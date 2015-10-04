@@ -7,6 +7,7 @@
 //
 
 #import "LoginView.h"
+#import "AppDelegate.h"
 
 @interface LoginView()
 @property (nonatomic,weak) UIImageView *iCon;
@@ -18,14 +19,13 @@
 @end
 
 @implementation LoginView
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self)
     {
         UIImageView *iCon = [[UIImageView alloc]init];
-        iCon.image = [UIImage imageNamed:@"DefaultHead"];
+        iCon.image = [UIImage imageNamed:@"DefaultProfileHead_phone"];
         self.iCon = iCon;
         
         UITextField *userName = [[UITextField alloc]init];
@@ -49,7 +49,8 @@
         
         UIButton *login_Btn = [[UIButton alloc]init];
         [login_Btn setTitle:@"登陆" forState:UIControlStateNormal];
-        [login_Btn setBackgroundColor:[UIColor colorWithRed:85 / 255.0 green:201 / 255.0 blue:91/255.0 alpha:1.0]];
+        [login_Btn setBackgroundImage:[UIImage resizeImageWihtImageName:@"fts_green_btn"] forState:UIControlStateNormal];
+        [login_Btn addTarget:self action:@selector(loginClick) forControlEvents:UIControlEventTouchUpInside];
         self.login_Btn = login_Btn;
         
         
@@ -69,6 +70,20 @@
     return self;
 }
 
+-(void)loginClick
+{
+    NSString *user = self.userName.text;
+    NSString *password = self.password.text;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:user forKey:@"User"];
+    [defaults setObject:password forKey:@"Password"];
+    [defaults synchronize];
+    
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    [app userLogin];
+    
+}
 
 -(void)layoutSubviews
 {

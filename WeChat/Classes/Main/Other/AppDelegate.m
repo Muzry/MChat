@@ -9,8 +9,11 @@
 #import "AppDelegate.h"
 #import "XMPPFramework.h"
 #import "LoginController.h"
+#import "MainNavigationController.h"
+#import "MainTabBarController.h"
 
-@interface AppDelegate ()<XMPPStreamDelegate>{
+@interface AppDelegate ()<XMPPStreamDelegate>
+{
     XMPPStream *_xmppStream;
 }
 // 1. 初始化XMPPStream
@@ -33,8 +36,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self connectToHost];
-    
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
@@ -59,7 +60,8 @@
 }
 
 #pragma mark 连接到服务器
--(void)connectToHost{
+-(void)connectToHost
+{
     NSLog(@"开始连接到服务器");
     if (!_xmppStream) {
         [self setupXMPPStream];
@@ -69,7 +71,9 @@
     // 设置登录用户JID
     //resource 标识用户登录的客户端 iphone android
     
-    XMPPJID *myJID = [XMPPJID jidWithUser:@"muzry" domain:@"muzry.local" resource:@"iPhone" ];
+    //从沙盒获取用户名
+    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"User"];
+    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"muzry.local" resource:@"iPhone" ];
     _xmppStream.myJID = myJID;
     
     // 设置服务器域名
@@ -88,11 +92,14 @@
 
 
 #pragma mark 连接到服务成功后，再发送密码授权
--(void)sendPwdToHost{
-    NSLog(@"再发送密码授权");
+-(void)sendPwdToHost
+{
     NSError *err = nil;
-    [_xmppStream authenticateWithPassword:@"123123" error:&err];
-    if (err) {
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"Password"];
+    [_xmppStream authenticateWithPassword:password error:&err];
+    
+    if (err)
+    {
         NSLog(@"%@",err);
     }
 }
@@ -126,8 +133,15 @@
 #pragma mark 授权成功
 -(void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
     NSLog(@"授权成功");
-    
     [self sendOnlineToHost];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //来到主界面
+        MainTabBarController *tabBarController = [[MainTabBarController alloc]init];
+        tabBarController.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"User"];
+        MainNavigationController* navController = [[MainNavigationController alloc]initWithRootViewController:tabBarController];
+        [self.window.rootViewController presentViewController:navController animated:YES completion:nil];
+    });
 }
 
 
@@ -138,7 +152,14 @@
 
 
 #pragma mark -公共方法
--(void)logout{
+-(void)userLogin
+{
+    //连接到主机
+    [self connectToHost];
+}
+
+-(void)logout
+{
     // 1." 发送 "离线" 消息"
     XMPPPresence *offline = [XMPPPresence presenceWithType:@"unavailable"];
     [_xmppStream sendElement:offline];

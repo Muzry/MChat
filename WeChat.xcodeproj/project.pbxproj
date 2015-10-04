@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
+		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
+		D69341E71BC174460017F604 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341E61BC174460017F604 /* MainNavigationController.m */; settings = {ASSET_TAGS = (); }; };
+		D69341EA1BC174B70017F604 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341E91BC174B70017F604 /* MainTabBarController.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */; };
 		D6B2CB041BBFE2240046AD26 /* WeChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CB031BBFE2240046AD26 /* WeChatTests.m */; };
 		D6B2CB0F1BBFE2240046AD26 /* WeChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CB0E1BBFE2240046AD26 /* WeChatUITests.m */; };
@@ -143,7 +147,6 @@
 		D6B2CED11BBFE80A0046AD26 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CE4B1BBFE80A0046AD26 /* LoginView.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CED21BBFE80A0046AD26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CE4F1BBFE80A0046AD26 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CED31BBFE80A0046AD26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CE501BBFE80A0046AD26 /* main.m */; settings = {ASSET_TAGS = (); }; };
-		D6B2CED71BBFEBC10046AD26 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CED61BBFEBC10046AD26 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		D6D622211BC1478100FD3D54 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D622201BC1478100FD3D54 /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -165,6 +168,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
+		D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
+		D69341DD1BC16A940017F604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		D69341DE1BC16A940017F604 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		D69341E51BC174460017F604 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		D69341E61BC174460017F604 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		D69341E81BC174B70017F604 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		D69341E91BC174B70017F604 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		D6B2CAE61BBFE2240046AD26 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6B2CAFA1BBFE2240046AD26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -447,8 +458,6 @@
 		D6B2CE4E1BBFE80A0046AD26 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D6B2CE4F1BBFE80A0046AD26 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D6B2CE501BBFE80A0046AD26 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D6B2CED51BBFEBC10046AD26 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		D6B2CED61BBFEBC10046AD26 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		D6D6221F1BC1478100FD3D54 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		D6D622201BC1478100FD3D54 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -481,6 +490,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D69341DA1BC16A940017F604 /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */,
+				D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */,
+				D69341DD1BC16A940017F604 /* UIView+Extension.h */,
+				D69341DE1BC16A940017F604 /* UIView+Extension.m */,
+			);
+			path = Catagory;
+			sourceTree = "<group>";
+		};
+		D69341E11BC173BD0017F604 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				D69341E21BC173BD0017F604 /* Controller */,
+				D69341E31BC173BD0017F604 /* Model */,
+				D69341E41BC173BD0017F604 /* View */,
+			);
+			path = Index;
+			sourceTree = "<group>";
+		};
+		D69341E21BC173BD0017F604 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D69341E51BC174460017F604 /* MainNavigationController.h */,
+				D69341E61BC174460017F604 /* MainNavigationController.m */,
+				D69341E81BC174B70017F604 /* MainTabBarController.h */,
+				D69341E91BC174B70017F604 /* MainTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D69341E31BC173BD0017F604 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D69341E41BC173BD0017F604 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D6B2CADD1BBFE2240046AD26 = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +598,7 @@
 		D6B2CCF61BBFE8090046AD26 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D69341E11BC173BD0017F604 /* Index */,
 				D6B2CCF71BBFE8090046AD26 /* Lib */,
 				D6B2CE461BBFE80A0046AD26 /* Login */,
 				D6B2CE4C1BBFE80A0046AD26 /* Main */,
@@ -1380,7 +1436,7 @@
 		D6B2CE4C1BBFE80A0046AD26 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D6B2CED41BBFEB970046AD26 /* Catagory */,
+				D69341DA1BC16A940017F604 /* Catagory */,
 				D6B2CE4D1BBFE80A0046AD26 /* Other */,
 			);
 			path = Main;
@@ -1394,15 +1450,6 @@
 				D6B2CE501BBFE80A0046AD26 /* main.m */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		D6B2CED41BBFEB970046AD26 /* Catagory */ = {
-			isa = PBXGroup;
-			children = (
-				D6B2CED51BBFEBC10046AD26 /* UIView+Extension.h */,
-				D6B2CED61BBFEBC10046AD26 /* UIView+Extension.m */,
-			);
-			path = Catagory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1588,6 +1635,7 @@
 				D6B2CE521BBFE80A0046AD26 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				D6B2CEB61BBFE80A0046AD26 /* XMPPAttentionModule.m in Sources */,
 				D6B2CEAC1BBFE80A0046AD26 /* XMPPPresence+XEP_0172.m in Sources */,
+				D69341EA1BC174B70017F604 /* MainTabBarController.m in Sources */,
 				D6B2CEBF1BBFE80A0046AD26 /* XMPPIDTracker.m in Sources */,
 				D6B2CE701BBFE80A0046AD26 /* XMPPRoster.m in Sources */,
 				D6B2CE5C1BBFE80A0046AD26 /* XMPPIQ.m in Sources */,
@@ -1612,6 +1660,7 @@
 				D6B2CED31BBFE80A0046AD26 /* main.m in Sources */,
 				D6B2CE551BBFE80A0046AD26 /* XMPPPlainAuthentication.m in Sources */,
 				D6B2CE8B1BBFE80A0046AD26 /* XMPPvCardTemp.m in Sources */,
+				D69341E71BC174460017F604 /* MainNavigationController.m in Sources */,
 				D6B2CE621BBFE80A0046AD26 /* XMPPStream.m in Sources */,
 				D6B2CE9C1BBFE80A0046AD26 /* XMPPMessage+XEP_0085.m in Sources */,
 				D6B2CE6A1BBFE80A0046AD26 /* XMPPRoster.xcdatamodel in Sources */,
@@ -1624,6 +1673,7 @@
 				D6B2CE601BBFE80A0046AD26 /* XMPPParser.m in Sources */,
 				D6B2CE5D1BBFE80A0046AD26 /* XMPPJID.m in Sources */,
 				D6B2CEB11BBFE80A0046AD26 /* XMPPPing.m in Sources */,
+				D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */,
 				D6B2CE9D1BBFE80A0046AD26 /* XMPPSoftwareVersion.m in Sources */,
 				D6B2CE641BBFE80A0046AD26 /* XMPPCoreDataStorage.m in Sources */,
 				D6B2CEC51BBFE80A0046AD26 /* DDFileLogger.m in Sources */,
@@ -1637,6 +1687,7 @@
 				D6B2CEAE1BBFE80A0046AD26 /* XMPPMessageDeliveryReceipts.m in Sources */,
 				D6B2CEC71BBFE80A0046AD26 /* DDTTYLogger.m in Sources */,
 				D6B2CE951BBFE80A0046AD26 /* XMPPIQ+XEP_0060.m in Sources */,
+				D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */,
 				D6B2CE6C1BBFE80A0046AD26 /* XMPPUserCoreDataStorageObject.m in Sources */,
 				D6B2CECD1BBFE80A0046AD26 /* DDXMLElement.m in Sources */,
 				D6B2CE6E1BBFE80A0046AD26 /* XMPPRosterMemoryStorage.m in Sources */,
@@ -1650,7 +1701,6 @@
 				D6B2CE741BBFE80A0046AD26 /* XMPPJabberRPCModule.m in Sources */,
 				D6B2CE821BBFE80A0046AD26 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
 				D6B2CE5F1BBFE80A0046AD26 /* XMPPModule.m in Sources */,
-				D6B2CED71BBFEBC10046AD26 /* UIView+Extension.m in Sources */,
 				D6B2CEC31BBFE80A0046AD26 /* DDAbstractDatabaseLogger.m in Sources */,
 				D6B2CE7F1BBFE80A0046AD26 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				D6B2CE5A1BBFE80A0046AD26 /* NSXMLElement+XMPP.m in Sources */,
@@ -1788,11 +1838,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WeChat/WeChat.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = WeChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1809,11 +1860,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WeChat/WeChat.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = WeChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
