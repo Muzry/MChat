@@ -138,9 +138,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         //来到主界面
         MainTabBarController *tabBarController = [[MainTabBarController alloc]init];
-        tabBarController.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"User"];
-        MainNavigationController* navController = [[MainNavigationController alloc]initWithRootViewController:tabBarController];
-        [self.window.rootViewController presentViewController:navController animated:YES completion:nil];
+        [self.window.rootViewController presentViewController:tabBarController animated:YES completion:nil];
+//        self.window.rootViewController = tabBarController;
     });
 }
 

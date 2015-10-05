@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
-		D69341E71BC174460017F604 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341E61BC174460017F604 /* MainNavigationController.m */; settings = {ASSET_TAGS = (); }; };
-		D69341EA1BC174B70017F604 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341E91BC174B70017F604 /* MainTabBarController.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */; };
 		D6B2CB041BBFE2240046AD26 /* WeChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CB031BBFE2240046AD26 /* WeChatTests.m */; };
 		D6B2CB0F1BBFE2240046AD26 /* WeChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CB0E1BBFE2240046AD26 /* WeChatUITests.m */; };
@@ -147,6 +145,12 @@
 		D6B2CED11BBFE80A0046AD26 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CE4B1BBFE80A0046AD26 /* LoginView.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CED21BBFE80A0046AD26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CE4F1BBFE80A0046AD26 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CED31BBFE80A0046AD26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CE501BBFE80A0046AD26 /* main.m */; settings = {ASSET_TAGS = (); }; };
+		D6C0A5941BC2CBEA0033A2D5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5931BC2CBEA0033A2D5 /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D6C0A59A1BC2CC210033A2D5 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5971BC2CC210033A2D5 /* MainNavigationController.m */; settings = {ASSET_TAGS = (); }; };
+		D6C0A59B1BC2CC210033A2D5 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5991BC2CC210033A2D5 /* MainTabBarController.m */; settings = {ASSET_TAGS = (); }; };
+		D6C0A5A61BC2CF5D0033A2D5 /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */; settings = {ASSET_TAGS = (); }; };
+		D6C0A5AD1BC2CF7A0033A2D5 /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5AC1BC2CF7A0033A2D5 /* MeController.m */; settings = {ASSET_TAGS = (); }; };
+		D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */; settings = {ASSET_TAGS = (); }; };
 		D6D622211BC1478100FD3D54 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D622201BC1478100FD3D54 /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -172,10 +176,6 @@
 		D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		D69341DD1BC16A940017F604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		D69341DE1BC16A940017F604 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		D69341E51BC174460017F604 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
-		D69341E61BC174460017F604 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
-		D69341E81BC174B70017F604 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
-		D69341E91BC174B70017F604 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		D6B2CAE61BBFE2240046AD26 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6B2CAFA1BBFE2240046AD26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -458,7 +458,19 @@
 		D6B2CE4E1BBFE80A0046AD26 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D6B2CE4F1BBFE80A0046AD26 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D6B2CE501BBFE80A0046AD26 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D6D6221F1BC1478100FD3D54 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		D6C0A5921BC2CBEA0033A2D5 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D6C0A5931BC2CBEA0033A2D5 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D6C0A5961BC2CC210033A2D5 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		D6C0A5971BC2CC210033A2D5 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		D6C0A5981BC2CC210033A2D5 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		D6C0A5991BC2CC210033A2D5 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		D6C0A5A41BC2CF5D0033A2D5 /* ContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactController.h; sourceTree = "<group>"; };
+		D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
+		D6C0A5AB1BC2CF7A0033A2D5 /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
+		D6C0A5AC1BC2CF7A0033A2D5 /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
+		D6C0A5AE1BC2CF850033A2D5 /* FriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsController.h; sourceTree = "<group>"; };
+		D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsController.m; sourceTree = "<group>"; };
+		D6D6221F1BC1478100FD3D54 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = Controller/LoginController.h; sourceTree = "<group>"; };
 		D6D622201BC1478100FD3D54 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -514,10 +526,8 @@
 		D69341E21BC173BD0017F604 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D69341E51BC174460017F604 /* MainNavigationController.h */,
-				D69341E61BC174460017F604 /* MainNavigationController.m */,
-				D69341E81BC174B70017F604 /* MainTabBarController.h */,
-				D69341E91BC174B70017F604 /* MainTabBarController.m */,
+				D6C0A5921BC2CBEA0033A2D5 /* MainViewController.h */,
+				D6C0A5931BC2CBEA0033A2D5 /* MainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -599,6 +609,9 @@
 			isa = PBXGroup;
 			children = (
 				D69341E11BC173BD0017F604 /* Index */,
+				D6C0A59C1BC2CF430033A2D5 /* Contact */,
+				D6C0A5A01BC2CF430033A2D5 /* Friends */,
+				D6C0A5A71BC2CF6C0033A2D5 /* Me */,
 				D6B2CCF71BBFE8090046AD26 /* Lib */,
 				D6B2CE461BBFE80A0046AD26 /* Login */,
 				D6B2CE4C1BBFE80A0046AD26 /* Main */,
@@ -1401,6 +1414,7 @@
 		D6B2CE461BBFE80A0046AD26 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D6D6221F1BC1478100FD3D54 /* LoginController.h */,
 				D6B2CE471BBFE80A0046AD26 /* Controller */,
 				D6B2CE481BBFE80A0046AD26 /* Model */,
 				D6B2CE491BBFE80A0046AD26 /* View */,
@@ -1411,7 +1425,6 @@
 		D6B2CE471BBFE80A0046AD26 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D6D6221F1BC1478100FD3D54 /* LoginController.h */,
 				D6D622201BC1478100FD3D54 /* LoginController.m */,
 			);
 			path = Controller;
@@ -1436,6 +1449,7 @@
 		D6B2CE4C1BBFE80A0046AD26 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D6C0A5951BC2CC210033A2D5 /* Controller */,
 				D69341DA1BC16A940017F604 /* Catagory */,
 				D6B2CE4D1BBFE80A0046AD26 /* Other */,
 			);
@@ -1450,6 +1464,117 @@
 				D6B2CE501BBFE80A0046AD26 /* main.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		D6C0A5951BC2CC210033A2D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0A5961BC2CC210033A2D5 /* MainNavigationController.h */,
+				D6C0A5971BC2CC210033A2D5 /* MainNavigationController.m */,
+				D6C0A5981BC2CC210033A2D5 /* MainTabBarController.h */,
+				D6C0A5991BC2CC210033A2D5 /* MainTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6C0A59C1BC2CF430033A2D5 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0A59D1BC2CF430033A2D5 /* Controller */,
+				D6C0A59E1BC2CF430033A2D5 /* Model */,
+				D6C0A59F1BC2CF430033A2D5 /* View */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		D6C0A59D1BC2CF430033A2D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0A5A41BC2CF5D0033A2D5 /* ContactController.h */,
+				D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6C0A59E1BC2CF430033A2D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6C0A59F1BC2CF430033A2D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6C0A5A01BC2CF430033A2D5 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0A5A11BC2CF430033A2D5 /* Controller */,
+				D6C0A5A21BC2CF430033A2D5 /* Model */,
+				D6C0A5A31BC2CF430033A2D5 /* View */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		D6C0A5A11BC2CF430033A2D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0A5AE1BC2CF850033A2D5 /* FriendsController.h */,
+				D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6C0A5A21BC2CF430033A2D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6C0A5A31BC2CF430033A2D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6C0A5A71BC2CF6C0033A2D5 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0A5A81BC2CF6C0033A2D5 /* Controller */,
+				D6C0A5A91BC2CF6C0033A2D5 /* Model */,
+				D6C0A5AA1BC2CF6C0033A2D5 /* View */,
+			);
+			name = Me;
+			path = Friends/View/Me;
+			sourceTree = "<group>";
+		};
+		D6C0A5A81BC2CF6C0033A2D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0A5AB1BC2CF7A0033A2D5 /* MeController.h */,
+				D6C0A5AC1BC2CF7A0033A2D5 /* MeController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6C0A5A91BC2CF6C0033A2D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6C0A5AA1BC2CF6C0033A2D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1596,6 +1721,7 @@
 				D6B2CEBC1BBFE80A0046AD26 /* DDList.m in Sources */,
 				D6B2CEB71BBFE80A0046AD26 /* XMPPMessage+XEP_0224.m in Sources */,
 				D6B2CE801BBFE80A0046AD26 /* XMPPRoomMemoryStorage.m in Sources */,
+				D6C0A5A61BC2CF5D0033A2D5 /* ContactController.m in Sources */,
 				D6B2CEBA1BBFE80A0046AD26 /* XMPPMessage+XEP_0333.m in Sources */,
 				D6B2CEA21BBFE80A0046AD26 /* XMPPCapsCoreDataStorageObject.m in Sources */,
 				D6B2CE6F1BBFE80A0046AD26 /* XMPPUserMemoryStorageObject.m in Sources */,
@@ -1615,6 +1741,7 @@
 				D6B2CEAD1BBFE80A0046AD26 /* XMPPMessage+XEP_0184.m in Sources */,
 				D6B2CEB31BBFE80A0046AD26 /* XMPPTime.m in Sources */,
 				D6B2CEB01BBFE80A0046AD26 /* XMPPAutoPing.m in Sources */,
+				D6C0A5AD1BC2CF7A0033A2D5 /* MeController.m in Sources */,
 				D6B2CED11BBFE80A0046AD26 /* LoginView.m in Sources */,
 				D6B2CE711BBFE80A0046AD26 /* XMPPSystemInputActivityMonitor.m in Sources */,
 				D6B2CE9A1BBFE80A0046AD26 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
@@ -1627,6 +1754,7 @@
 				D6B2CEA91BBFE80A0046AD26 /* XMPPMessageArchiving.m in Sources */,
 				D6B2CEC21BBFE80A0046AD26 /* GCDAsyncSocket.m in Sources */,
 				D6B2CEA41BBFE80A0046AD26 /* XMPPCapabilities.m in Sources */,
+				D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */,
 				D6B2CEC11BBFE80A0046AD26 /* XMPPStringPrep.m in Sources */,
 				D6B2CE8C1BBFE80A0046AD26 /* XMPPvCardTempAdr.m in Sources */,
 				D6B2CEBD1BBFE80A0046AD26 /* GCDMulticastDelegate.m in Sources */,
@@ -1635,13 +1763,13 @@
 				D6B2CE521BBFE80A0046AD26 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				D6B2CEB61BBFE80A0046AD26 /* XMPPAttentionModule.m in Sources */,
 				D6B2CEAC1BBFE80A0046AD26 /* XMPPPresence+XEP_0172.m in Sources */,
-				D69341EA1BC174B70017F604 /* MainTabBarController.m in Sources */,
 				D6B2CEBF1BBFE80A0046AD26 /* XMPPIDTracker.m in Sources */,
 				D6B2CE701BBFE80A0046AD26 /* XMPPRoster.m in Sources */,
 				D6B2CE5C1BBFE80A0046AD26 /* XMPPIQ.m in Sources */,
 				D6B2CECB1BBFE80A0046AD26 /* NSString+DDXML.m in Sources */,
 				D6B2CE8E1BBFE80A0046AD26 /* XMPPvCardTempBase.m in Sources */,
 				D6B2CEC91BBFE80A0046AD26 /* DispatchQueueLogFormatter.m in Sources */,
+				D6C0A5941BC2CBEA0033A2D5 /* MainViewController.m in Sources */,
 				D6B2CE7D1BBFE80A0046AD26 /* XMPPRoomHybridStorage.m in Sources */,
 				D6B2CE721BBFE80A0046AD26 /* XMPPIQ+JabberRPC.m in Sources */,
 				D6B2CEC41BBFE80A0046AD26 /* DDASLLogger.m in Sources */,
@@ -1659,8 +1787,8 @@
 				D6B2CE871BBFE80A0046AD26 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				D6B2CED31BBFE80A0046AD26 /* main.m in Sources */,
 				D6B2CE551BBFE80A0046AD26 /* XMPPPlainAuthentication.m in Sources */,
+				D6C0A59A1BC2CC210033A2D5 /* MainNavigationController.m in Sources */,
 				D6B2CE8B1BBFE80A0046AD26 /* XMPPvCardTemp.m in Sources */,
-				D69341E71BC174460017F604 /* MainNavigationController.m in Sources */,
 				D6B2CE621BBFE80A0046AD26 /* XMPPStream.m in Sources */,
 				D6B2CE9C1BBFE80A0046AD26 /* XMPPMessage+XEP_0085.m in Sources */,
 				D6B2CE6A1BBFE80A0046AD26 /* XMPPRoster.xcdatamodel in Sources */,
@@ -1697,6 +1825,7 @@
 				D6B2CE541BBFE80A0046AD26 /* XMPPDigestMD5Authentication.m in Sources */,
 				D6B2CE971BBFE80A0046AD26 /* TURNSocket.m in Sources */,
 				D6B2CE661BBFE80A0046AD26 /* XMPPProcessOne.m in Sources */,
+				D6C0A59B1BC2CC210033A2D5 /* MainTabBarController.m in Sources */,
 				D6B2CE7A1BBFE80A0046AD26 /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				D6B2CE741BBFE80A0046AD26 /* XMPPJabberRPCModule.m in Sources */,
 				D6B2CE821BBFE80A0046AD26 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
