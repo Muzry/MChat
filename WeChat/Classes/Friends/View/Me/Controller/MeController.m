@@ -7,6 +7,7 @@
 //
 
 #import "MeController.h"
+#import "AppDelegate.h"
 
 @interface MeController ()
 
@@ -14,13 +15,23 @@
 
 @implementation MeController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注销" style:UIBarButtonItemStyleDone target:self action:@selector(loginOut)];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+    
+    
+-(void)loginOut
+{
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    [app userLogout];
 }
 
 #pragma mark - Table view data source

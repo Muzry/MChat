@@ -40,6 +40,8 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
+    [MainNavigationController setupNavTheme];
+    
     UIViewController *viewController = [[UIViewController alloc]init];
     viewController.title = @"登陆";
     
@@ -128,6 +130,11 @@
     // 如果有错误，代表连接失败
     NSLog(@"与主机断开连接 %@",error);
     
+    if(error && _resultBlock)
+    {
+        _resultBlock(XMPPResultTypeNetErr);
+    }
+    
 }
 
 
@@ -135,13 +142,9 @@
 -(void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
     NSLog(@"授权成功");
     [self sendOnlineToHost];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        //来到主界面
-        MainTabBarController *tabBarController = [[MainTabBarController alloc]init];
-        [self.window.rootViewController presentViewController:tabBarController animated:YES completion:nil];
-//        self.window.rootViewController = tabBarController;
-    });
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeLoginSuccess);
+    }
 }
 
 
@@ -161,11 +164,13 @@
     //先存储block
     _resultBlock = resultBlock;
     
+    [_xmppStream disconnect];
+    
     //连接到主机
     [self connectToHost];
 }
 
--(void)logout
+-(void)userLogout
 {
     // 1." 发送 "离线" 消息"
     XMPPPresence *offline = [XMPPPresence presenceWithType:@"unavailable"];
@@ -173,5 +178,13 @@
     
     // 2. 与服务器断开连接
     [_xmppStream disconnect];
+    
+    [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+    UIViewController *viewController = [[UIViewController alloc]init];
+    viewController.title = @"登陆";
+    
+    LoginController* loginViewController = [[LoginController alloc]initWithRootViewController:viewController];
+    self.window.rootViewController =loginViewController;
+    
 }
 @end

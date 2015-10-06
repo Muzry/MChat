@@ -24,6 +24,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+
++(void)setupNavTheme
+{
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    [navBar setBackgroundImage:[UIImage imageNamed:@"topbarbg_ios7"] forBarMetrics:UIBarMetricsDefault];
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    att[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    [navBar setTitleTextAttributes:att];
+    
+    
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+    [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+}
+
 /*
 #pragma mark - Navigation
 

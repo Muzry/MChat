@@ -60,7 +60,7 @@
 -(void)otherWayLogin:(UIButton*)btn
 {
     UIViewController *viewController = [[UIViewController alloc] init];
-    UINavigationController * otherNavigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
+    MainNavigationController * otherNavigationController = [[MainNavigationController alloc]initWithRootViewController:viewController];
     viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(back)];
     
     viewController.title = @"其他方式登陆";

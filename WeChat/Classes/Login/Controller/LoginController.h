@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainNavigationController.h"
 
 
 
-@interface LoginController : UINavigationController
-
+@interface LoginController : MainNavigationController
 
 
 @end

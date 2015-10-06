@@ -8,6 +8,7 @@
 
 #import "LoginView.h"
 #import "AppDelegate.h"
+#import "MainTabBarController.h"
 
 @interface LoginView()
 @property (nonatomic,weak) UIImageView *iCon;
@@ -32,7 +33,7 @@
         userName.placeholder = @"用户名";
         userName.layer.borderWidth = 1.0f;
         userName.layer.cornerRadius = 5;
-        userName.layer.borderColor = [UIColor colorWithRed:105/255.0 green:177/255.0 blue:250/255.0 alpha:1].CGColor;
+        userName.layer.borderColor = SelfColor(56, 56, 56).CGColor;
         userName.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 8, 0)];
         userName.leftViewMode = UITextFieldViewModeAlways;
         self.userName = userName;
@@ -42,7 +43,7 @@
         password.secureTextEntry = YES;
         password.layer.borderWidth = 1.0f;
         password.layer.cornerRadius = 5;
-        password.layer.borderColor = [UIColor colorWithRed:105/255.0 green:177/255.0 blue:250/255.0 alpha:1].CGColor;
+        password.layer.borderColor = SelfColor(56, 56, 56).CGColor;
         password.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 8, 0)];
         password.leftViewMode = UITextFieldViewModeAlways;
         self.password = password;
@@ -80,10 +81,14 @@
     [defaults setObject:password forKey:@"Password"];
     [defaults synchronize];
     
-    [MBProgressHUD showMessage:@"正在登陆"];
+
+    
+    [MBProgressHUD showMessage:@"正在登陆中..."];
     AppDelegate *app = [UIApplication sharedApplication].delegate;
+    __weak typeof (self) selfVc = self;
+    
     [app userLogin:^(XMPPResultType type) {
-        [self handleResultType:type];
+        [selfVc handleResultType:type];
     }];
     
 }
@@ -95,11 +100,22 @@
         [MBProgressHUD hideHUD];
         switch (type) {
             case XMPPResultTypeLoginSuccess:
+            {
+                //来到主界面
+                MainTabBarController *tabBarController = [[MainTabBarController alloc]init];
+                [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+                [self.window.rootViewController presentViewController:tabBarController animated:YES completion:nil];
                 break;
-                
+            }
             case XMPPResultTypeLoginFailure:
+            {
                 [MBProgressHUD showError:@"用户名或密码不正确"];
                 break;
+            }
+            case XMPPResultTypeNetErr:
+            {
+                [MBProgressHUD showError:@"网络有问题"];
+            }
             default:
                 break;
         }
