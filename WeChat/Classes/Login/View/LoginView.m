@@ -80,9 +80,31 @@
     [defaults setObject:password forKey:@"Password"];
     [defaults synchronize];
     
+    [MBProgressHUD showMessage:@"正在登陆"];
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    [app userLogin];
+    [app userLogin:^(XMPPResultType type) {
+        [self handleResultType:type];
+    }];
     
+}
+
+
+-(void)handleResultType:(XMPPResultType) type
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUD];
+        switch (type) {
+            case XMPPResultTypeLoginSuccess:
+                break;
+                
+            case XMPPResultTypeLoginFailure:
+                [MBProgressHUD showError:@"用户名或密码不正确"];
+                break;
+            default:
+                break;
+        }
+    });
+
 }
 
 -(void)layoutSubviews

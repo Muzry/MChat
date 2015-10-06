@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D64C61E31BC3EC4900B5788C /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */; settings = {ASSET_TAGS = (); }; };
+		D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
+		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */; };
@@ -172,6 +175,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D64C61DE1BC3EC4900B5788C /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
+		D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
+		D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		D64C61E11BC3EC4900B5788C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		D69341DD1BC16A940017F604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -470,7 +478,7 @@
 		D6C0A5AC1BC2CF7A0033A2D5 /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
 		D6C0A5AE1BC2CF850033A2D5 /* FriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsController.h; sourceTree = "<group>"; };
 		D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsController.m; sourceTree = "<group>"; };
-		D6D6221F1BC1478100FD3D54 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = Controller/LoginController.h; sourceTree = "<group>"; };
+		D6D6221F1BC1478100FD3D54 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		D6D622201BC1478100FD3D54 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -502,6 +510,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D64C61DD1BC3EC4900B5788C /* MBProgessHUD */ = {
+			isa = PBXGroup;
+			children = (
+				D64C61DE1BC3EC4900B5788C /* MBProgressHUD+HM.h */,
+				D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */,
+				D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */,
+				D64C61E11BC3EC4900B5788C /* MBProgressHUD.h */,
+				D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */,
+			);
+			path = MBProgessHUD;
+			sourceTree = "<group>";
+		};
 		D69341DA1BC16A940017F604 /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +642,7 @@
 		D6B2CCF71BBFE8090046AD26 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				D64C61DD1BC3EC4900B5788C /* MBProgessHUD */,
 				D6B2CCF81BBFE8090046AD26 /* XMPP */,
 			);
 			path = Lib;
@@ -1414,7 +1435,6 @@
 		D6B2CE461BBFE80A0046AD26 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D6D6221F1BC1478100FD3D54 /* LoginController.h */,
 				D6B2CE471BBFE80A0046AD26 /* Controller */,
 				D6B2CE481BBFE80A0046AD26 /* Model */,
 				D6B2CE491BBFE80A0046AD26 /* View */,
@@ -1425,6 +1445,7 @@
 		D6B2CE471BBFE80A0046AD26 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D6D6221F1BC1478100FD3D54 /* LoginController.h */,
 				D6D622201BC1478100FD3D54 /* LoginController.m */,
 			);
 			path = Controller;
@@ -1684,6 +1705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6B2CECA1BBFE80A0046AD26 /* README.txt in Resources */,
+				D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */,
 				D6B2CECF1BBFE80A0046AD26 /* build-libidn.sh in Resources */,
 				D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */,
 			);
@@ -1738,6 +1760,7 @@
 				D6B2CEC81BBFE80A0046AD26 /* ContextFilterLogFormatter.m in Sources */,
 				D6B2CE671BBFE80A0046AD26 /* XMPPReconnect.m in Sources */,
 				D6B2CEA01BBFE80A0046AD26 /* XMPPCapabilities.xcdatamodel in Sources */,
+				D64C61E31BC3EC4900B5788C /* MBProgressHUD+HM.m in Sources */,
 				D6B2CEAD1BBFE80A0046AD26 /* XMPPMessage+XEP_0184.m in Sources */,
 				D6B2CEB31BBFE80A0046AD26 /* XMPPTime.m in Sources */,
 				D6B2CEB01BBFE80A0046AD26 /* XMPPAutoPing.m in Sources */,
@@ -1791,6 +1814,7 @@
 				D6B2CE8B1BBFE80A0046AD26 /* XMPPvCardTemp.m in Sources */,
 				D6B2CE621BBFE80A0046AD26 /* XMPPStream.m in Sources */,
 				D6B2CE9C1BBFE80A0046AD26 /* XMPPMessage+XEP_0085.m in Sources */,
+				D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */,
 				D6B2CE6A1BBFE80A0046AD26 /* XMPPRoster.xcdatamodel in Sources */,
 				D6B2CE981BBFE80A0046AD26 /* XMPPIQ+XEP_0066.m in Sources */,
 				D6B2CEBE1BBFE80A0046AD26 /* RFImageToDataTransformer.m in Sources */,

@@ -15,6 +15,7 @@
 @interface AppDelegate ()<XMPPStreamDelegate>
 {
     XMPPStream *_xmppStream;
+    XMPPResultBlock _resultBlock;
 }
 // 1. 初始化XMPPStream
 -(void)setupXMPPStream;
@@ -145,14 +146,21 @@
 
 
 #pragma mark 授权失败
--(void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error{
-    NSLog(@"授权失败 %@",error);
+-(void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error
+{
+    //判断block有无值，再回调给登陆控制器
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeLoginFailure);
+    }
 }
 
 
 #pragma mark -公共方法
--(void)userLogin
+-(void)userLogin:(XMPPResultBlock)resultBlock
 {
+    //先存储block
+    _resultBlock = resultBlock;
+    
     //连接到主机
     [self connectToHost];
 }

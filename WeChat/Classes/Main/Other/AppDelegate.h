@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef enum
+{
+    XMPPResultTypeLoginSuccess,//登陆成功
+    XMPPResultTypeLoginFailure // 登录失败
+}XMPPResultType;
+typedef void (^XMPPResultBlock)(XMPPResultType type);
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 //用户登陆
--(void)userLogin;
+-(void)userLogin:(XMPPResultBlock )resultBlock;
 
 @end
 
