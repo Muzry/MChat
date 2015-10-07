@@ -12,6 +12,7 @@
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E81BC52F2800B5788C /* UserInfo.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61EC1BC56D9100B5788C /* OtherWayLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */; settings = {ASSET_TAGS = (); }; };
+		D64C61F31BC576D400B5788C /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61F01BC576D400B5788C /* MeController.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */; };
@@ -154,7 +155,6 @@
 		D6C0A59A1BC2CC210033A2D5 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5971BC2CC210033A2D5 /* MainNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		D6C0A59B1BC2CC210033A2D5 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5991BC2CC210033A2D5 /* MainTabBarController.m */; settings = {ASSET_TAGS = (); }; };
 		D6C0A5A61BC2CF5D0033A2D5 /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */; settings = {ASSET_TAGS = (); }; };
-		D6C0A5AD1BC2CF7A0033A2D5 /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5AC1BC2CF7A0033A2D5 /* MeController.m */; settings = {ASSET_TAGS = (); }; };
 		D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */; settings = {ASSET_TAGS = (); }; };
 		D6D622211BC1478100FD3D54 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D622201BC1478100FD3D54 /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -187,6 +187,8 @@
 		D64C61E81BC52F2800B5788C /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		D64C61EA1BC56D9100B5788C /* OtherWayLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherWayLogin.h; sourceTree = "<group>"; };
 		D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherWayLogin.m; sourceTree = "<group>"; };
+		D64C61EF1BC576D400B5788C /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
+		D64C61F01BC576D400B5788C /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		D69341DD1BC16A940017F604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -481,8 +483,6 @@
 		D6C0A5991BC2CC210033A2D5 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		D6C0A5A41BC2CF5D0033A2D5 /* ContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactController.h; sourceTree = "<group>"; };
 		D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
-		D6C0A5AB1BC2CF7A0033A2D5 /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
-		D6C0A5AC1BC2CF7A0033A2D5 /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
 		D6C0A5AE1BC2CF850033A2D5 /* FriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsController.h; sourceTree = "<group>"; };
 		D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsController.m; sourceTree = "<group>"; };
 		D6D6221F1BC1478100FD3D54 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
@@ -527,6 +527,39 @@
 				D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */,
 			);
 			path = MBProgessHUD;
+			sourceTree = "<group>";
+		};
+		D64C61ED1BC576D400B5788C /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				D64C61EE1BC576D400B5788C /* Controller */,
+				D64C61F11BC576D400B5788C /* Model */,
+				D64C61F21BC576D400B5788C /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		D64C61EE1BC576D400B5788C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D64C61EF1BC576D400B5788C /* MeController.h */,
+				D64C61F01BC576D400B5788C /* MeController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D64C61F11BC576D400B5788C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D64C61F21BC576D400B5788C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D69341DA1BC16A940017F604 /* Catagory */ = {
@@ -635,10 +668,10 @@
 		D6B2CCF61BBFE8090046AD26 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D64C61ED1BC576D400B5788C /* Me */,
 				D69341E11BC173BD0017F604 /* Index */,
 				D6C0A59C1BC2CF430033A2D5 /* Contact */,
 				D6C0A5A01BC2CF430033A2D5 /* Friends */,
-				D6C0A5A71BC2CF6C0033A2D5 /* Me */,
 				D6B2CCF71BBFE8090046AD26 /* Lib */,
 				D6B2CE461BBFE80A0046AD26 /* Login */,
 				D6B2CE4C1BBFE80A0046AD26 /* Main */,
@@ -1576,40 +1609,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D6C0A5A71BC2CF6C0033A2D5 /* Me */ = {
-			isa = PBXGroup;
-			children = (
-				D6C0A5A81BC2CF6C0033A2D5 /* Controller */,
-				D6C0A5A91BC2CF6C0033A2D5 /* Model */,
-				D6C0A5AA1BC2CF6C0033A2D5 /* View */,
-			);
-			name = Me;
-			path = Friends/View/Me;
-			sourceTree = "<group>";
-		};
-		D6C0A5A81BC2CF6C0033A2D5 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D6C0A5AB1BC2CF7A0033A2D5 /* MeController.h */,
-				D6C0A5AC1BC2CF7A0033A2D5 /* MeController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D6C0A5A91BC2CF6C0033A2D5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D6C0A5AA1BC2CF6C0033A2D5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1766,6 +1765,7 @@
 				D6B2CE751BBFE80A0046AD26 /* XMPPIQ+LastActivity.m in Sources */,
 				D6B2CE941BBFE80A0046AD26 /* XMPPResultSet.m in Sources */,
 				D6B2CEA51BBFE80A0046AD26 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
+				D64C61F31BC576D400B5788C /* MeController.m in Sources */,
 				D6B2CE9E1BBFE80A0046AD26 /* XMPPTransports.m in Sources */,
 				D6B2CECC1BBFE80A0046AD26 /* DDXMLDocument.m in Sources */,
 				D6B2CE961BBFE80A0046AD26 /* XMPPPubSub.m in Sources */,
@@ -1776,7 +1776,6 @@
 				D6B2CEAD1BBFE80A0046AD26 /* XMPPMessage+XEP_0184.m in Sources */,
 				D6B2CEB31BBFE80A0046AD26 /* XMPPTime.m in Sources */,
 				D6B2CEB01BBFE80A0046AD26 /* XMPPAutoPing.m in Sources */,
-				D6C0A5AD1BC2CF7A0033A2D5 /* MeController.m in Sources */,
 				D6B2CED11BBFE80A0046AD26 /* LoginView.m in Sources */,
 				D6B2CE711BBFE80A0046AD26 /* XMPPSystemInputActivityMonitor.m in Sources */,
 				D6B2CE9A1BBFE80A0046AD26 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
