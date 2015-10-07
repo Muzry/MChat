@@ -10,6 +10,8 @@
 		D64C61E31BC3EC4900B5788C /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
+		D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E81BC52F2800B5788C /* UserInfo.m */; settings = {ASSET_TAGS = (); }; };
+		D64C61EC1BC56D9100B5788C /* OtherWayLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */; };
@@ -180,6 +182,11 @@
 		D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		D64C61E11BC3EC4900B5788C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D64C61E61BC52F0E00B5788C /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		D64C61E71BC52F2800B5788C /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		D64C61E81BC52F2800B5788C /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		D64C61EA1BC56D9100B5788C /* OtherWayLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherWayLogin.h; sourceTree = "<group>"; };
+		D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherWayLogin.m; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		D69341DD1BC16A940017F604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -1463,6 +1470,8 @@
 			children = (
 				D6B2CE4A1BBFE80A0046AD26 /* LoginView.h */,
 				D6B2CE4B1BBFE80A0046AD26 /* LoginView.m */,
+				D64C61EA1BC56D9100B5788C /* OtherWayLogin.h */,
+				D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1480,9 +1489,12 @@
 		D6B2CE4D1BBFE80A0046AD26 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				D64C61E61BC52F0E00B5788C /* Singleton.h */,
 				D6B2CE4E1BBFE80A0046AD26 /* AppDelegate.h */,
 				D6B2CE4F1BBFE80A0046AD26 /* AppDelegate.m */,
 				D6B2CE501BBFE80A0046AD26 /* main.m */,
+				D64C61E71BC52F2800B5788C /* UserInfo.h */,
+				D64C61E81BC52F2800B5788C /* UserInfo.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1778,8 +1790,10 @@
 				D6B2CEC21BBFE80A0046AD26 /* GCDAsyncSocket.m in Sources */,
 				D6B2CEA41BBFE80A0046AD26 /* XMPPCapabilities.m in Sources */,
 				D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */,
+				D64C61EC1BC56D9100B5788C /* OtherWayLogin.m in Sources */,
 				D6B2CEC11BBFE80A0046AD26 /* XMPPStringPrep.m in Sources */,
 				D6B2CE8C1BBFE80A0046AD26 /* XMPPvCardTempAdr.m in Sources */,
+				D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */,
 				D6B2CEBD1BBFE80A0046AD26 /* GCDMulticastDelegate.m in Sources */,
 				D6B2CE8F1BBFE80A0046AD26 /* XMPPvCardTempEmail.m in Sources */,
 				D6B2CE581BBFE80A0046AD26 /* NSData+XMPP.m in Sources */,

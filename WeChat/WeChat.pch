@@ -17,6 +17,7 @@
 #import "UIView+Extension.h"
 #import "UIImage+ResizeImage.h"
 #import "MBProgressHUD+HM.h"
+#import "UserInfo.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height

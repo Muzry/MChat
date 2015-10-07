@@ -37,22 +37,40 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UserInfo sharedUserInfo] loadUserInfoFromSandBox];
+    [self switchController];
+    return YES;
+}
+
+#pragma mark  -私有方法
+
+#pragma mark 切换控制器
+-(void)switchController
+{
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
     [MainNavigationController setupNavTheme];
     
-    UIViewController *viewController = [[UIViewController alloc]init];
-    viewController.title = @"登陆";
-    
-    LoginController* loginViewController = [[LoginController alloc]initWithRootViewController:viewController];
-    self.window.rootViewController = loginViewController;
+    if([UserInfo sharedUserInfo].loginStatus)
+    {
+        
+        MainTabBarController *tabBarController = [[MainTabBarController alloc]init];
+        self.window.rootViewController  = tabBarController;
+        [self userLogin:nil];
+    }
+    else
+    {
+        UIViewController *viewController = [[UIViewController alloc]init];
+        viewController.title = @"登陆";
+        
+        LoginController* loginViewController = [[LoginController alloc]initWithRootViewController:viewController];
+        self.window.rootViewController = loginViewController;
+    }
     
     [self.window makeKeyAndVisible];
-    return YES;
 }
 
-#pragma mark  -私有方法
 #pragma mark 初始化XMPPStream
 -(void)setupXMPPStream{
     
@@ -74,8 +92,8 @@
     // 设置登录用户JID
     //resource 标识用户登录的客户端 iphone android
     
-    //从沙盒获取用户名
-    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"User"];
+    NSString *user = [UserInfo sharedUserInfo].user;
+    
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"muzry.local" resource:@"iPhone" ];
     _xmppStream.myJID = myJID;
     
@@ -98,7 +116,7 @@
 -(void)sendPwdToHost
 {
     NSError *err = nil;
-    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"Password"];
+    NSString *password = [UserInfo sharedUserInfo].pwd;
     [_xmppStream authenticateWithPassword:password error:&err];
     
     if (err)
@@ -186,5 +204,8 @@
     LoginController* loginViewController = [[LoginController alloc]initWithRootViewController:viewController];
     self.window.rootViewController =loginViewController;
     
+    [UserInfo sharedUserInfo].loginStatus = NO;
+    [UserInfo sharedUserInfo].saveuserInfoToSanbox;
 }
+
 @end

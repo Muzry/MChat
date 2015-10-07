@@ -8,6 +8,7 @@
 
 #import "LoginController.h"
 #import "LoginView.h"
+#import "OtherWayLogin.h"
 
 @interface LoginController ()
 @property (nonatomic,weak) UIView * loginView;
@@ -64,6 +65,7 @@
     viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(back)];
     
     viewController.title = @"其他方式登陆";
+    viewController.view = [[OtherWayLogin alloc]init];
     [viewController.view setBackgroundColor:[UIColor whiteColor]];
     [self presentViewController:otherNavigationController animated:YES completion:nil];
 }
