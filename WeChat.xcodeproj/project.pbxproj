@@ -13,6 +13,8 @@
 		D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E81BC52F2800B5788C /* UserInfo.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61EC1BC56D9100B5788C /* OtherWayLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61F31BC576D400B5788C /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61F01BC576D400B5788C /* MeController.m */; settings = {ASSET_TAGS = (); }; };
+		D662E57D1BC6A60100CE0652 /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E57C1BC6A60100CE0652 /* UITextField+WF.m */; settings = {ASSET_TAGS = (); }; };
+		D662E5801BC6ADFC00CE0652 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E57F1BC6ADFC00CE0652 /* RegisterView.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */; };
@@ -189,6 +191,10 @@
 		D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherWayLogin.m; sourceTree = "<group>"; };
 		D64C61EF1BC576D400B5788C /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
 		D64C61F01BC576D400B5788C /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
+		D662E57B1BC6A60100CE0652 /* UITextField+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WF.h"; sourceTree = "<group>"; };
+		D662E57C1BC6A60100CE0652 /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
+		D662E57E1BC6ADFC00CE0652 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		D662E57F1BC6ADFC00CE0652 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		D69341DD1BC16A940017F604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -565,6 +571,8 @@
 		D69341DA1BC16A940017F604 /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
+				D662E57B1BC6A60100CE0652 /* UITextField+WF.h */,
+				D662E57C1BC6A60100CE0652 /* UITextField+WF.m */,
 				D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */,
 				D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */,
 				D69341DD1BC16A940017F604 /* UIView+Extension.h */,
@@ -1505,6 +1513,8 @@
 				D6B2CE4B1BBFE80A0046AD26 /* LoginView.m */,
 				D64C61EA1BC56D9100B5788C /* OtherWayLogin.h */,
 				D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */,
+				D662E57E1BC6ADFC00CE0652 /* RegisterView.h */,
+				D662E57F1BC6ADFC00CE0652 /* RegisterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1819,6 +1829,7 @@
 				D6B2CE861BBFE80A0046AD26 /* XMPPvCard.xcdatamodeld in Sources */,
 				D6B2CE901BBFE80A0046AD26 /* XMPPvCardTempLabel.m in Sources */,
 				D6B2CE5B1BBFE80A0046AD26 /* XMPPElement.m in Sources */,
+				D662E57D1BC6A60100CE0652 /* UITextField+WF.m in Sources */,
 				D6B2CE6B1BBFE80A0046AD26 /* XMPPRosterCoreDataStorage.m in Sources */,
 				D6B2CE871BBFE80A0046AD26 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				D6B2CED31BBFE80A0046AD26 /* main.m in Sources */,
@@ -1848,6 +1859,7 @@
 				D6B2CE831BBFE80A0046AD26 /* XMPPMessage+XEP0045.m in Sources */,
 				D6B2CEA31BBFE80A0046AD26 /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
 				D6B2CEAF1BBFE80A0046AD26 /* XMPPBlocking.m in Sources */,
+				D662E5801BC6ADFC00CE0652 /* RegisterView.m in Sources */,
 				D6B2CE631BBFE80A0046AD26 /* XMPPBandwidthMonitor.m in Sources */,
 				D6B2CEAE1BBFE80A0046AD26 /* XMPPMessageDeliveryReceipts.m in Sources */,
 				D6B2CEC71BBFE80A0046AD26 /* DDTTYLogger.m in Sources */,

@@ -16,7 +16,6 @@
 @property (nonatomic,weak) UITextField *userName;
 @property (nonatomic,weak) UITextField *password;
 @property (nonatomic,weak) UIButton *login_Btn;
-@property (nonatomic,weak) UIButton *register_Btn;
 @end
 
 
@@ -32,20 +31,22 @@
         
         UITextField *userName = [[UITextField alloc]init];
         userName.placeholder = @"请输入用户名";
-        userName.layer.borderWidth = 1.0f;
-        userName.layer.cornerRadius = 5;
-        userName.layer.borderColor = SelfColor(56, 56, 56).CGColor;
-        userName.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 8, 0)];
+        [userName setBackground:[UIImage resizeImageWihtImageName:@"operationbox_text"]];
+        userName.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0)];
         userName.leftViewMode = UITextFieldViewModeAlways;
         self.userName = userName;
         
         UITextField *password = [[UITextField alloc]init];
         password.placeholder = @"请输入密码";
         password.secureTextEntry = YES;
-        password.layer.borderWidth = 1.0f;
-        password.layer.cornerRadius = 5;
-        password.layer.borderColor = SelfColor(56, 56, 56).CGColor;
-        password.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 8, 0)];
+        [password setBackground:[UIImage resizeImageWihtImageName:@"operationbox_text"]];
+        
+        UIImageView *lockView = [[UIImageView alloc]init];
+        lockView.image = [UIImage imageNamed:@"Card_Lock"];
+        lockView.frame = CGRectMake(0, 0, 30,password.height);
+        lockView.contentMode = UIViewContentModeCenter;
+        
+        password.leftView = lockView;
         password.leftViewMode = UITextFieldViewModeAlways;
         self.password = password;
         
@@ -56,18 +57,10 @@
         self.login_Btn = login_Btn;
         
         
-        UIButton *register_Btn = [[UIButton alloc]init];
-        [register_Btn setTitle:@"没有账号？点击注册" forState:UIControlStateNormal];
-        [register_Btn setBackgroundColor:[UIColor clearColor]];
-        [register_Btn setTitleColor:[UIColor colorWithRed:105/255.0 green:177/255.0 blue:250/255.0 alpha:1]forState:UIControlStateNormal];
-        register_Btn.titleLabel.font = [UIFont systemFontOfSize: 14.0];
-        self.register_Btn= register_Btn;
-        
         [self addSubview:iCon];
         [self addSubview:userName];
         [self addSubview:password];
         [self addSubview:login_Btn];
-        [self addSubview:register_Btn];
     }
     return self;
 }
@@ -94,7 +87,7 @@
 -(void)handleResultType:(XMPPResultType) type
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUD];
+        [MBProgressHUD hideHUDForView:self.superview];
         switch (type) {
             case XMPPResultTypeLoginSuccess:
             {
@@ -150,11 +143,6 @@
     self.login_Btn.height = 40;
     self.login_Btn.x = (self.width - self.login_Btn.width) / 2;
     self.login_Btn.y = self.password.y + self.password.height + 10;
-    
-    self.register_Btn.width = self.userName.width;
-    self.register_Btn.height = 40;
-    self.register_Btn.x = (self.width - self.register_Btn.width) / 2;
-    self.register_Btn.y = self.height * 0.9;
     
 }
 @end
