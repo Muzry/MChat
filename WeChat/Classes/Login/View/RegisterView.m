@@ -7,7 +7,6 @@
 //
 
 #import "RegisterView.h"
-#import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "UserInfo.h"
 
@@ -58,32 +57,6 @@
     
 }
 
--(void)handleResultType:(XMPPResultType) type
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.superview];
-        switch (type) {
-            case XMPPResultTypeLoginSuccess:
-            {
-                break;
-            }
-            case XMPPResultTypeLoginFailure:
-            {
-                [MBProgressHUD showError:@"用户名或密码不正确" toView:self.superview];
-                break;
-            }
-            case XMPPResultTypeNetErr:
-            {
-                [MBProgressHUD showError:@"网络有问题"  toView:self.superview];
-            }
-            default:
-                break;
-        }
-    });
-    
-}
-
-
 -(void)layoutSubviews
 {
     [super layoutSubviews];
@@ -97,11 +70,6 @@
     self.password.height = 40;
     self.password.x = (self.width - self.password.width) / 2;
     self.password.y = self.userName.y + self.userName.height + 10;
-    
-    self.register_Btn.width = self.userName.width;
-    self.register_Btn.height = 40;
-    self.register_Btn.x = (self.width - self.register_Btn.width) / 2;
-    self.register_Btn.y = self.password.y + self.password.height + 10;
     
     self.register_Btn.width = self.userName.width;
     self.register_Btn.height = 40;

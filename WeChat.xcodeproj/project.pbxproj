@@ -11,10 +11,11 @@
 		D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E81BC52F2800B5788C /* UserInfo.m */; settings = {ASSET_TAGS = (); }; };
-		D64C61EC1BC56D9100B5788C /* OtherWayLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61F31BC576D400B5788C /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61F01BC576D400B5788C /* MeController.m */; settings = {ASSET_TAGS = (); }; };
 		D662E57D1BC6A60100CE0652 /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E57C1BC6A60100CE0652 /* UITextField+WF.m */; settings = {ASSET_TAGS = (); }; };
 		D662E5801BC6ADFC00CE0652 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E57F1BC6ADFC00CE0652 /* RegisterView.m */; settings = {ASSET_TAGS = (); }; };
+		D662E5831BC6BE2D00CE0652 /* OtherWayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E5821BC6BE2D00CE0652 /* OtherWayController.m */; settings = {ASSET_TAGS = (); }; };
+		D662E5861BC6BE3F00CE0652 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E5851BC6BE3F00CE0652 /* RegisterController.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */; };
@@ -187,14 +188,16 @@
 		D64C61E61BC52F0E00B5788C /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		D64C61E71BC52F2800B5788C /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		D64C61E81BC52F2800B5788C /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
-		D64C61EA1BC56D9100B5788C /* OtherWayLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherWayLogin.h; sourceTree = "<group>"; };
-		D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherWayLogin.m; sourceTree = "<group>"; };
 		D64C61EF1BC576D400B5788C /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
 		D64C61F01BC576D400B5788C /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
 		D662E57B1BC6A60100CE0652 /* UITextField+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WF.h"; sourceTree = "<group>"; };
 		D662E57C1BC6A60100CE0652 /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
 		D662E57E1BC6ADFC00CE0652 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		D662E57F1BC6ADFC00CE0652 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
+		D662E5811BC6BE2D00CE0652 /* OtherWayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherWayController.h; sourceTree = "<group>"; };
+		D662E5821BC6BE2D00CE0652 /* OtherWayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherWayController.m; sourceTree = "<group>"; };
+		D662E5841BC6BE3F00CE0652 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		D662E5851BC6BE3F00CE0652 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		D69341DD1BC16A940017F604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -1495,6 +1498,10 @@
 			children = (
 				D6D6221F1BC1478100FD3D54 /* LoginController.h */,
 				D6D622201BC1478100FD3D54 /* LoginController.m */,
+				D662E5811BC6BE2D00CE0652 /* OtherWayController.h */,
+				D662E5821BC6BE2D00CE0652 /* OtherWayController.m */,
+				D662E5841BC6BE3F00CE0652 /* RegisterController.h */,
+				D662E5851BC6BE3F00CE0652 /* RegisterController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1511,8 +1518,6 @@
 			children = (
 				D6B2CE4A1BBFE80A0046AD26 /* LoginView.h */,
 				D6B2CE4B1BBFE80A0046AD26 /* LoginView.m */,
-				D64C61EA1BC56D9100B5788C /* OtherWayLogin.h */,
-				D64C61EB1BC56D9100B5788C /* OtherWayLogin.m */,
 				D662E57E1BC6ADFC00CE0652 /* RegisterView.h */,
 				D662E57F1BC6ADFC00CE0652 /* RegisterView.m */,
 			);
@@ -1799,7 +1804,6 @@
 				D6B2CEC21BBFE80A0046AD26 /* GCDAsyncSocket.m in Sources */,
 				D6B2CEA41BBFE80A0046AD26 /* XMPPCapabilities.m in Sources */,
 				D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */,
-				D64C61EC1BC56D9100B5788C /* OtherWayLogin.m in Sources */,
 				D6B2CEC11BBFE80A0046AD26 /* XMPPStringPrep.m in Sources */,
 				D6B2CE8C1BBFE80A0046AD26 /* XMPPvCardTempAdr.m in Sources */,
 				D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */,
@@ -1842,6 +1846,7 @@
 				D6B2CE6A1BBFE80A0046AD26 /* XMPPRoster.xcdatamodel in Sources */,
 				D6B2CE981BBFE80A0046AD26 /* XMPPIQ+XEP_0066.m in Sources */,
 				D6B2CEBE1BBFE80A0046AD26 /* RFImageToDataTransformer.m in Sources */,
+				D662E5861BC6BE3F00CE0652 /* RegisterController.m in Sources */,
 				D6B2CEB51BBFE80A0046AD26 /* XEP_0223.m in Sources */,
 				D6B2CEB21BBFE80A0046AD26 /* XMPPAutoTime.m in Sources */,
 				D6B2CE851BBFE80A0046AD26 /* XMPPRoom.m in Sources */,
@@ -1887,6 +1892,7 @@
 				D6B2CE881BBFE80A0046AD26 /* XMPPvCardCoreDataStorage.m in Sources */,
 				D6B2CEB81BBFE80A0046AD26 /* NSXMLElement+XEP_0297.m in Sources */,
 				D6B2CE891BBFE80A0046AD26 /* XMPPvCardCoreDataStorageObject.m in Sources */,
+				D662E5831BC6BE2D00CE0652 /* OtherWayController.m in Sources */,
 				D6B2CE9F1BBFE80A0046AD26 /* NSString+XEP_0106.m in Sources */,
 				D6B2CE6D1BBFE80A0046AD26 /* XMPPResourceMemoryStorageObject.m in Sources */,
 				D6B2CE651BBFE80A0046AD26 /* XMPPGoogleSharedStatus.m in Sources */,
@@ -2027,7 +2033,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeChat/Classes/Lib/XMPP/Vendor/libidn",
 				);
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "-lxm2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lidan.WeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2049,7 +2055,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeChat/Classes/Lib/XMPP/Vendor/libidn",
 				);
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "-lxm2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lidan.WeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

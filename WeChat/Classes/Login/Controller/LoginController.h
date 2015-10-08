@@ -11,7 +11,7 @@
 
 
 
-@interface LoginController : MainNavigationController
+@interface LoginController : UIViewController
 
 
 @end

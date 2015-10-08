@@ -61,10 +61,9 @@
     }
     else
     {
-        UIViewController *viewController = [[UIViewController alloc]init];
-        viewController.title = @"登陆";
+        LoginController *viewController = [[LoginController alloc]init];
         
-        LoginController* loginViewController = [[LoginController alloc]initWithRootViewController:viewController];
+        MainNavigationController* loginViewController = [[MainNavigationController alloc]initWithRootViewController:viewController];
         self.window.rootViewController = loginViewController;
     }
     
@@ -198,10 +197,9 @@
     [_xmppStream disconnect];
     
     [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-    UIViewController *viewController = [[UIViewController alloc]init];
-    viewController.title = @"登陆";
+    LoginController *viewController = [[LoginController alloc]init];
     
-    LoginController* loginViewController = [[LoginController alloc]initWithRootViewController:viewController];
+    MainNavigationController* loginViewController = [[MainNavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController =loginViewController;
     
     [UserInfo sharedUserInfo].loginStatus = NO;
