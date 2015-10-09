@@ -88,6 +88,8 @@
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     __weak typeof (self) selfVc = self;
     
+    app.registerOperation = NO;
+    
     [self endEditing:YES];
     [app userLogin:^(XMPPResultType type) {
         [selfVc handleResultType:type];

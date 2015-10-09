@@ -19,6 +19,12 @@ singleton_interface(UserInfo);
 /**密码*/
 @property (nonatomic,copy)NSString *pwd;
 
+/**注册账号名*/
+@property (nonatomic,copy)NSString *registerUserName;
+
+/**注册密码*/
+@property (nonatomic,copy)NSString *registerPwd;
+
 /**登陆状态*/
 @property (nonatomic,assign) BOOL loginStatus;
 

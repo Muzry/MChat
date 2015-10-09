@@ -90,8 +90,15 @@
     
     // 设置登录用户JID
     //resource 标识用户登录的客户端 iphone android
-    
-    NSString *user = [UserInfo sharedUserInfo].user;
+    NSString *user = nil;
+    if (self.isRegisterOperation)
+    {
+        user = [UserInfo sharedUserInfo].registerUserName;
+    }
+    else
+    {
+        user = [UserInfo sharedUserInfo].user;
+    }
     
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"muzry.local" resource:@"iPhone" ];
     _xmppStream.myJID = myJID;
@@ -139,8 +146,15 @@
 -(void)xmppStreamDidConnect:(XMPPStream *)sender{
     NSLog(@"与主机连接成功");
     
-    // 主机连接成功后，发送密码进行授权
-    [self sendPwdToHost];
+    if (self.isRegisterOperation)
+    {
+        NSString *pwd = [UserInfo sharedUserInfo].registerPwd;
+        [_xmppStream registerWithPassword:pwd error:nil];
+    }
+    else
+    {
+        [self sendPwdToHost];
+    }
 }
 #pragma mark  与主机断开连接
 -(void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
@@ -174,6 +188,17 @@
     }
 }
 
+#pragma mark 注册成功
+-(void)xmppStreamDidRegister:(XMPPStream *)sender
+{
+    NSLog(@"注册成功");
+}
+#pragma mark 注册失败
+-(void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error
+{
+    NSLog(@"注册失败%@",error);
+}
+
 
 #pragma mark -公共方法
 -(void)userLogin:(XMPPResultBlock)resultBlock
@@ -183,7 +208,18 @@
     
     [_xmppStream disconnect];
     
-    //连接到主机
+    //连接到主机 发送授权密码
+    [self connectToHost];
+}
+
+-(void)userRegister:(XMPPResultBlock)resultBlock
+{
+    //先存储block
+    _resultBlock = resultBlock;
+    
+    [_xmppStream disconnect];
+    
+    //连接到主机 发送注册密码
     [self connectToHost];
 }
 
@@ -198,7 +234,6 @@
     
     [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
     LoginController *viewController = [[LoginController alloc]init];
-    
     MainNavigationController* loginViewController = [[MainNavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController =loginViewController;
     

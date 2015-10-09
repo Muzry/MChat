@@ -55,32 +55,18 @@
 
 -(void)registerClick
 {
+    // 1.把用户注册的数据保存成单例
     
-}
-
--(void)handleResultType:(XMPPResultType) type
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.superview];
-        switch (type) {
-            case XMPPResultTypeLoginSuccess:
-            {
-                break;
-            }
-            case XMPPResultTypeLoginFailure:
-            {
-                [MBProgressHUD showError:@"用户名或密码不正确" toView:self.superview];
-                break;
-            }
-            case XMPPResultTypeNetErr:
-            {
-                [MBProgressHUD showError:@"网络有问题"  toView:self.superview];
-            }
-            default:
-                break;
-        }
-    });
+    UserInfo *userInfo = [UserInfo sharedUserInfo];
+    userInfo.registerUserName = self.userName.text;
+    userInfo.registerPwd = self.password.text;
     
+    // 2.调用userRegister方法
+    AppDelegate *app  =[UIApplication sharedApplication].delegate;
+    app.registerOperation = YES;
+    [app userRegister:^(XMPPResultType type) {
+        
+    }];
 }
 
 
