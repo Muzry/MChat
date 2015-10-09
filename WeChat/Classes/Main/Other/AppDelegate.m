@@ -192,11 +192,17 @@
 -(void)xmppStreamDidRegister:(XMPPStream *)sender
 {
     NSLog(@"注册成功");
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeRegisterSuccess);
+    }
 }
 #pragma mark 注册失败
 -(void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error
 {
     NSLog(@"注册失败%@",error);
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeRegisterFailure);
+    }
 }
 
 

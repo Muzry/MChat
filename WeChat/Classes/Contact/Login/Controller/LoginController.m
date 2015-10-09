@@ -11,6 +11,7 @@
 #import "OtherLoginController.h"
 #import "MainNavigationController.h"
 #import "RegisterController.h"
+#import "RegisterView.h"
 
 @interface LoginController ()
 @property (nonatomic,weak) UIView * loginView;
@@ -35,7 +36,6 @@
 -(void)setInit
 {
     self.view.backgroundColor = [UIColor whiteColor];
-    
     self.title = @"登陆";
     LoginView * loginView = [[LoginView alloc]init];
     self.loginView = loginView;

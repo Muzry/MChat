@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.delegate">
+            </PersistentString>
+            <PersistentString
+               value = "@selector(registerViewDidFinishRegister)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[LoginView initWithFrame:]:LoginView.m">
          <PersistentStrings>
             <PersistentString
