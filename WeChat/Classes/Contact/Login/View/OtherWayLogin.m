@@ -1,27 +1,25 @@
 //
-//  LoginView.m
+//  OtherWayLogin.m
 //  WeChat
 //
-//  Created by LiDan on 15/10/3.
+//  Created by LiDan on 15/10/7.
 //  Copyright © 2015年 com.lidan. All rights reserved.
 //
 
-#import "LoginView.h"
+#import "OtherWayLogin.h"
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "UserInfo.h"
 
-
-
-@interface LoginView()
+@interface OtherWayLogin()
 @property (nonatomic,weak) UIImageView *iCon;
 @property (nonatomic,weak) UITextField *userName;
 @property (nonatomic,weak) UITextField *password;
 @property (nonatomic,weak) UIButton *login_Btn;
-
 @end
 
-@implementation LoginView
+
+@implementation OtherWayLogin
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -30,22 +28,12 @@
         UIImageView *iCon = [[UIImageView alloc]init];
         iCon.image = [UIImage imageNamed:@"DefaultProfileHead_phone"];
         self.iCon = iCon;
-        NSString * user = [UserInfo sharedUserInfo].user;
-
+        
         UITextField *userName = [[UITextField alloc]init];
         userName.placeholder = @"请输入用户名";
-        if (user)
-        {
-            userName.text = user;
-            userName.textAlignment = NSTextAlignmentCenter;
-            userName.enabled = NO;
-        }
-        else
-        {
-            [userName setBackground:[UIImage resizeImageWihtImageName:@"operationbox_text"]];
-            userName.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0)];
-            userName.leftViewMode = UITextFieldViewModeAlways;
-        }
+        [userName setBackground:[UIImage resizeImageWihtImageName:@"operationbox_text"]];
+        userName.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0)];
+        userName.leftViewMode = UITextFieldViewModeAlways;
         self.userName = userName;
         
         UITextField *password = [[UITextField alloc]init];
@@ -57,7 +45,7 @@
         lockView.image = [UIImage imageNamed:@"Card_Lock"];
         lockView.frame = CGRectMake(0, 0, 30,password.height);
         lockView.contentMode = UIViewContentModeCenter;
-
+        
         password.leftView = lockView;
         password.leftViewMode = UITextFieldViewModeAlways;
         self.password = password;
@@ -67,6 +55,7 @@
         [login_Btn setBackgroundImage:[UIImage resizeImageWihtImageName:@"fts_green_btn"] forState:UIControlStateNormal];
         [login_Btn addTarget:self action:@selector(loginClick) forControlEvents:UIControlEventTouchUpInside];
         self.login_Btn = login_Btn;
+        
         
         [self addSubview:iCon];
         [self addSubview:userName];
@@ -95,7 +84,6 @@
     
 }
 
-
 -(void)handleResultType:(XMPPResultType) type
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -119,7 +107,7 @@
                 break;
         }
     });
-
+    
 }
 
 -(void)enterMainController
@@ -141,22 +129,20 @@
     self.iCon.x =  (self.width - self.iCon.width) / 2;
     self.iCon.y = 50;
     
-    self.userName.width = self.width;
+    self.userName.width = 300;
     self.userName.height = 40;
     self.userName.x = (self.width - self.userName.width) / 2;
     self.userName.y = self.iCon.y + self.iCon.height + 10;
-
+    
     self.password.width = self.userName.width;
     self.password.height = 40;
     self.password.x = (self.width - self.password.width) / 2;
     self.password.y = self.userName.y + self.userName.height + 10;
     
-    self.login_Btn.width = self.password.width;
+    self.login_Btn.width = self.userName.width;
     self.login_Btn.height = 40;
     self.login_Btn.x = (self.width - self.login_Btn.width) / 2;
     self.login_Btn.y = self.password.y + self.password.height + 10;
     
-
-
 }
 @end
