@@ -21,5 +21,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isRegisterOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

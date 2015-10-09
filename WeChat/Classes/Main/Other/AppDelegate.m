@@ -100,11 +100,11 @@
         user = [UserInfo sharedUserInfo].user;
     }
     
-    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"muzry.local" resource:@"iPhone" ];
+    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"10.82.23.65" resource:@"iPhone" ];
     _xmppStream.myJID = myJID;
     
     // 设置服务器域名
-    _xmppStream.hostName = @"muzry.local";//不仅可以是域名，还可是IP地址
+    _xmppStream.hostName = @"10.82.23.65";//不仅可以是域名，还可是IP地址
     
     // 设置端口 如果服务器端口是5222，可以省略
     _xmppStream.hostPort = 5222;

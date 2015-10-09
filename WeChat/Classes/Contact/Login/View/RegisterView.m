@@ -85,7 +85,8 @@
 
 -(void)textDidChange
 {
-    if ([self.userName hasText] && [self.password hasText]) {
+    if ([self.userName hasText] && [self.password hasText])
+    {
         self.register_Btn.enabled = YES;
     }
     else
