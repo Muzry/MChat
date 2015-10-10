@@ -13,8 +13,13 @@
 
 @interface XmppTools ()<XMPPStreamDelegate>
 {
-    XMPPStream *_xmppStream;
+    XMPPStream * _xmppStream;
     XMPPResultBlock _resultBlock;
+    
+    XMPPvCardTempModule * _vCard;
+    XMPPvCardCoreDataStorage * _vCardStorage;
+    
+    XMPPvCardAvatarModule * _avatar;
 }
 // 1. 初始化XMPPStream
 -(void)setupXMPPStream;
@@ -43,6 +48,16 @@ singleton_implementation(XmppTools)
 -(void)setupXMPPStream{
     
     _xmppStream = [[XMPPStream alloc] init];
+    
+    //添加电子名片模块
+    _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
+    _vCard = [[XMPPvCardTempModule alloc]initWithvCardStorage:_vCardStorage];
+    //激活
+    [_vCard activate:_xmppStream];
+    
+    //头像模块
+    _avatar = [[XMPPvCardAvatarModule alloc]initWithvCardTempModule:_vCard];
+    [_avatar activate:_xmppStream];
     
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];

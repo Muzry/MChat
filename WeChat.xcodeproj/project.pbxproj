@@ -20,6 +20,8 @@
 		D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E81BC52F2800B5788C /* UserInfo.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61F31BC576D400B5788C /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61F01BC576D400B5788C /* MeController.m */; settings = {ASSET_TAGS = (); }; };
 		D65E937B1BC80FB70024A9FD /* XmppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E937A1BC80FB70024A9FD /* XmppTools.m */; settings = {ASSET_TAGS = (); }; };
+		D65E937E1BC943C30024A9FD /* MeMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E937D1BC943C30024A9FD /* MeMainCell.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93811BC94FFF0024A9FD /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93801BC94FFF0024A9FD /* NSString+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		D662E57D1BC6A60100CE0652 /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E57C1BC6A60100CE0652 /* UITextField+WF.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
@@ -207,6 +209,10 @@
 		D64C61F01BC576D400B5788C /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
 		D65E93791BC80FB70024A9FD /* XmppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppTools.h; sourceTree = "<group>"; };
 		D65E937A1BC80FB70024A9FD /* XmppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmppTools.m; sourceTree = "<group>"; };
+		D65E937C1BC943C30024A9FD /* MeMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeMainCell.h; sourceTree = "<group>"; };
+		D65E937D1BC943C30024A9FD /* MeMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeMainCell.m; sourceTree = "<group>"; };
+		D65E937F1BC94FFF0024A9FD /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		D65E93801BC94FFF0024A9FD /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		D662E57B1BC6A60100CE0652 /* UITextField+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WF.h"; sourceTree = "<group>"; };
 		D662E57C1BC6A60100CE0652 /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
@@ -617,6 +623,8 @@
 		D64C61F21BC576D400B5788C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D65E937C1BC943C30024A9FD /* MeMainCell.h */,
+				D65E937D1BC943C30024A9FD /* MeMainCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -626,6 +634,8 @@
 			children = (
 				D662E57B1BC6A60100CE0652 /* UITextField+WF.h */,
 				D662E57C1BC6A60100CE0652 /* UITextField+WF.m */,
+				D65E937F1BC94FFF0024A9FD /* NSString+Extension.h */,
+				D65E93801BC94FFF0024A9FD /* NSString+Extension.m */,
 				D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */,
 				D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */,
 				D69341DD1BC16A940017F604 /* UIView+Extension.h */,
@@ -1795,6 +1805,7 @@
 				D64C61F31BC576D400B5788C /* MeController.m in Sources */,
 				D6B2CE9E1BBFE80A0046AD26 /* XMPPTransports.m in Sources */,
 				D6B2CECC1BBFE80A0046AD26 /* DDXMLDocument.m in Sources */,
+				D65E937E1BC943C30024A9FD /* MeMainCell.m in Sources */,
 				D6B2CE961BBFE80A0046AD26 /* XMPPPubSub.m in Sources */,
 				D6B2CEC81BBFE80A0046AD26 /* ContextFilterLogFormatter.m in Sources */,
 				D6B2CE671BBFE80A0046AD26 /* XMPPReconnect.m in Sources */,
@@ -1907,6 +1918,7 @@
 				D6B2CEB81BBFE80A0046AD26 /* NSXMLElement+XEP_0297.m in Sources */,
 				D6B2CE891BBFE80A0046AD26 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				D6B2CE9F1BBFE80A0046AD26 /* NSString+XEP_0106.m in Sources */,
+				D65E93811BC94FFF0024A9FD /* NSString+Extension.m in Sources */,
 				D6B2CE6D1BBFE80A0046AD26 /* XMPPResourceMemoryStorageObject.m in Sources */,
 				D6B2CE651BBFE80A0046AD26 /* XMPPGoogleSharedStatus.m in Sources */,
 				D6B2CED21BBFE80A0046AD26 /* AppDelegate.m in Sources */,

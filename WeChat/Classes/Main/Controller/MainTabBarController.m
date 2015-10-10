@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:SelfColor(240, 239, 244)];
     MainViewController *mainVc = [[MainViewController alloc]init];
     [self addOneChildVc:mainVc title:@"微信" imageName:@"tabbar_mainframe" selectedImageName:@"tabbar_mainframeHL"];
     ContactController *contactVc = [[ContactController alloc]init];
