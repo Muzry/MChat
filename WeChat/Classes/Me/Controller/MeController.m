@@ -7,7 +7,6 @@
 //
 
 #import "MeController.h"
-#import "AppDelegate.h"
 
 @interface MeController ()
 
@@ -30,8 +29,7 @@
     
 -(void)loginOut
 {
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    [app userLogout];
+    [[XmppTools sharedXmppTools] userLogout];
 }
 
 #pragma mark - Table view data source

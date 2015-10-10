@@ -19,6 +19,7 @@
 #import "UITextField+WF.h"
 #import "MBProgressHUD+HM.h"
 #import "UserInfo.h"
+#import "XmppTools.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -26,6 +27,6 @@
 #define SelfColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 // 随机色
-#define DDRandomColor DDColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+#define RandomColor SelfColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
 #endif /* WeChat_pch */

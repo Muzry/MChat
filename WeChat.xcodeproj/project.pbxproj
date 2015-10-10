@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6046C061BC7C421003D53D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6046C051BC7C421003D53D1 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		D62E36991BC754BF00CA32DA /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E368C1BC754BF00CA32DA /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
 		D62E369A1BC754BF00CA32DA /* OtherLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E368E1BC754BF00CA32DA /* OtherLoginController.m */; settings = {ASSET_TAGS = (); }; };
 		D62E369B1BC754BF00CA32DA /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E36901BC754BF00CA32DA /* RegisterController.m */; settings = {ASSET_TAGS = (); }; };
@@ -18,10 +19,10 @@
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E81BC52F2800B5788C /* UserInfo.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61F31BC576D400B5788C /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61F01BC576D400B5788C /* MeController.m */; settings = {ASSET_TAGS = (); }; };
+		D65E937B1BC80FB70024A9FD /* XmppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E937A1BC80FB70024A9FD /* XmppTools.m */; settings = {ASSET_TAGS = (); }; };
 		D662E57D1BC6A60100CE0652 /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E57C1BC6A60100CE0652 /* UITextField+WF.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
-		D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */; };
 		D6B2CB041BBFE2240046AD26 /* WeChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CB031BBFE2240046AD26 /* WeChatTests.m */; };
 		D6B2CB0F1BBFE2240046AD26 /* WeChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2CB0E1BBFE2240046AD26 /* WeChatUITests.m */; };
 		D6B2CCEF1BBFE3650046AD26 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B2CCEE1BBFE3650046AD26 /* libxml2.tbd */; };
@@ -181,6 +182,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6046C051BC7C421003D53D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = WeChat/Assets.xcassets; sourceTree = "<group>"; };
 		D62E368B1BC754BF00CA32DA /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		D62E368C1BC754BF00CA32DA /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		D62E368D1BC754BF00CA32DA /* OtherLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherLoginController.h; sourceTree = "<group>"; };
@@ -203,6 +205,8 @@
 		D64C61E81BC52F2800B5788C /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		D64C61EF1BC576D400B5788C /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
 		D64C61F01BC576D400B5788C /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
+		D65E93791BC80FB70024A9FD /* XmppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppTools.h; sourceTree = "<group>"; };
+		D65E937A1BC80FB70024A9FD /* XmppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmppTools.m; sourceTree = "<group>"; };
 		D662E57B1BC6A60100CE0652 /* UITextField+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WF.h"; sourceTree = "<group>"; };
 		D662E57C1BC6A60100CE0652 /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
@@ -210,7 +214,6 @@
 		D69341DD1BC16A940017F604 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		D69341DE1BC16A940017F604 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		D6B2CAE61BBFE2240046AD26 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6B2CAFA1BBFE2240046AD26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6B2CAFF1BBFE2240046AD26 /* WeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B2CB031BBFE2240046AD26 /* WeChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatTests.m; sourceTree = "<group>"; };
@@ -669,6 +672,7 @@
 			children = (
 				D6B2CCF01BBFE40B0046AD26 /* libresolv.tbd */,
 				D6B2CCEE1BBFE3650046AD26 /* libxml2.tbd */,
+				D6046C051BC7C421003D53D1 /* Assets.xcassets */,
 				D6B2CAE81BBFE2240046AD26 /* WeChat */,
 				D6B2CB021BBFE2240046AD26 /* WeChatTests */,
 				D6B2CB0D1BBFE2240046AD26 /* WeChatUITests */,
@@ -689,7 +693,6 @@
 		D6B2CAE81BBFE2240046AD26 /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
-				D6B2CAF51BBFE2240046AD26 /* Assets.xcassets */,
 				D6B2CCF61BBFE8090046AD26 /* Classes */,
 				D6B2CAFA1BBFE2240046AD26 /* Info.plist */,
 				D6B2CAE91BBFE2240046AD26 /* Supporting Files */,
@@ -1549,6 +1552,8 @@
 				D6B2CE501BBFE80A0046AD26 /* main.m */,
 				D64C61E71BC52F2800B5788C /* UserInfo.h */,
 				D64C61E81BC52F2800B5788C /* UserInfo.m */,
+				D65E93791BC80FB70024A9FD /* XmppTools.h */,
+				D65E937A1BC80FB70024A9FD /* XmppTools.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1738,8 +1743,8 @@
 			files = (
 				D6B2CECA1BBFE80A0046AD26 /* README.txt in Resources */,
 				D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */,
+				D6046C061BC7C421003D53D1 /* Assets.xcassets in Resources */,
 				D6B2CECF1BBFE80A0046AD26 /* build-libidn.sh in Resources */,
-				D6B2CAF61BBFE2240046AD26 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1840,6 +1845,7 @@
 				D6B2CE791BBFE80A0046AD26 /* XMPPRoomCoreDataStorage.m in Sources */,
 				D6B2CE861BBFE80A0046AD26 /* XMPPvCard.xcdatamodeld in Sources */,
 				D6B2CE901BBFE80A0046AD26 /* XMPPvCardTempLabel.m in Sources */,
+				D65E937B1BC80FB70024A9FD /* XmppTools.m in Sources */,
 				D6B2CE5B1BBFE80A0046AD26 /* XMPPElement.m in Sources */,
 				D662E57D1BC6A60100CE0652 /* UITextField+WF.m in Sources */,
 				D6B2CE6B1BBFE80A0046AD26 /* XMPPRosterCoreDataStorage.m in Sources */,

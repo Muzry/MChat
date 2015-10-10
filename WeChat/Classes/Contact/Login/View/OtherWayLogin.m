@@ -7,7 +7,6 @@
 //
 
 #import "OtherWayLogin.h"
-#import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "UserInfo.h"
 
@@ -81,11 +80,10 @@
     userInfo.pwd = self.password.text;
     
     [MBProgressHUD showMessage:@"正在登陆中..." toView:self.superview];
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
     __weak typeof (self) selfVc = self;
     
     [self endEditing:YES];
-    [app userLogin:^(XMPPResultType type) {
+    [[XmppTools sharedXmppTools] userLogin:^(XMPPResultType type) {
         [selfVc handleResultType:type];
     }];
     

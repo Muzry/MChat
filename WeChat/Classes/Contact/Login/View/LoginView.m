@@ -7,7 +7,6 @@
 //
 
 #import "LoginView.h"
-#import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "UserInfo.h"
 #import "RegisterView.h"
@@ -96,13 +95,12 @@
     userInfo.pwd = self.password.text;
     
     [MBProgressHUD showMessage:@"正在登陆中..." toView:self.superview];
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
     __weak typeof (self) selfVc = self;
     
-    app.registerOperation = NO;
+    [XmppTools sharedXmppTools].registerOperation = NO;
     
-    [self endEditing:YES];
-    [app userLogin:^(XMPPResultType type) {
+    [self.superview endEditing:YES];
+    [[XmppTools sharedXmppTools] userLogin:^(XMPPResultType type) {
         [selfVc handleResultType:type];
     }];
     

@@ -7,7 +7,6 @@
 //
 
 #import "RegisterView.h"
-#import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "UserInfo.h"
 
@@ -72,12 +71,11 @@
     
     // 2.调用userRegister方法
 
-    AppDelegate *app  =[UIApplication sharedApplication].delegate;
-    app.registerOperation = YES;
+    [XmppTools sharedXmppTools].registerOperation = YES;
     [MBProgressHUD showMessage:@"正在注册中..." toView:self.superview];
     __weak typeof (self) selfVc = self;
     
-    [app userRegister:^(XMPPResultType type)
+    [[XmppTools sharedXmppTools] userRegister:^(XMPPResultType type)
     {
         [selfVc handleResultType:type];
     }];
