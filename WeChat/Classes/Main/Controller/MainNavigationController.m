@@ -28,6 +28,7 @@
 +(void)setupNavTheme
 {
     UINavigationBar *navBar = [UINavigationBar appearance];
+    navBar.tintColor = [UIColor whiteColor];
     [navBar setBackgroundImage:[UIImage imageNamed:@"topbarbg_ios7"] forBarMetrics:UIBarMetricsDefault];
     NSMutableDictionary *att = [NSMutableDictionary dictionary];
     att[NSForegroundColorAttributeName] = [UIColor whiteColor];
@@ -43,14 +44,15 @@
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    
+    if(self.viewControllers.count != 0)
+    {
+        viewController.hidesBottomBarWhenPushed = YES;
+    }
+    
+    [super pushViewController:viewController animated:animated];
 }
-*/
 
 @end

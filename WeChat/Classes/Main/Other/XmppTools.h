@@ -22,6 +22,9 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);
 
 @interface XmppTools : NSObject
 singleton_interface(XmppTools)
+
+@property (nonatomic,strong)XMPPvCardTempModule * vCard;
+
 //注册操作
 @property (nonatomic,assign,getter=isRegisterOperation) BOOL registerOperation;
 

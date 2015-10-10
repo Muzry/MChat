@@ -8,6 +8,7 @@
 
 #import "MeMainCell.h"
 #import "UserInfo.h"
+#import "XMPPvCardTemp.h"
 
 @interface MeMainCell()
 
@@ -26,11 +27,25 @@
     if (self)
     {
         UIImageView *avatar = [[UIImageView alloc]init];
-        [avatar setImage:[UIImage imageNamed:@"DefaultHead"]];
+        [[avatar layer] setBorderColor:SelfColor(206, 206, 206).CGColor];
+        [[avatar layer] setBorderWidth:1.0];
+        [[avatar layer] setCornerRadius:5];
+        [[avatar layer] setMasksToBounds:YES];
         self.avatar = avatar;
+        XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
+        
+        if (myVCard.photo)
+        {
+            [avatar setImage:[UIImage imageWithData:myVCard.photo]];
+        }
+        else
+        {
+            [avatar setImage:[UIImage imageNamed:@"DefaultHead"]];
+        }
+
         
         UILabel *nickName = [[UILabel alloc]init];
-        nickName.text = @"Muzry";
+        nickName.text = myVCard.nickname;
         nickName.font = [UIFont systemFontOfSize:20];
         self.nickName = nickName;
         
@@ -47,6 +62,10 @@
     return self;
 }
 
+- (void)prepareForReuse
+{
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+}
 
 - (void)awakeFromNib {
     // Initialization code
@@ -60,8 +79,9 @@
 
 -(void)layoutSubviews
 {
-    self.avatar.width = 70;
-    self.avatar.height = 70;
+    [super layoutSubviews];
+    self.avatar.width = self.avatar.image.size.width;
+    self.avatar.height = self.avatar.image.size.height;
     self.avatar.x = 10;
     self.avatar.y = 10;
     

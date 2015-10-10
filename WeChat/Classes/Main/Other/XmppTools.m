@@ -16,7 +16,6 @@
     XMPPStream * _xmppStream;
     XMPPResultBlock _resultBlock;
     
-    XMPPvCardTempModule * _vCard;
     XMPPvCardCoreDataStorage * _vCardStorage;
     
     XMPPvCardAvatarModule * _avatar;

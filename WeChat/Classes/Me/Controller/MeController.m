@@ -8,6 +8,8 @@
 
 #import "MeController.h"
 #import "MeMainCell.h"
+#import "XMPPvCardTemp.h"
+#import "DetailController.h"
 
 @interface MeController ()
 
@@ -18,8 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.view.backgroundColor = [UIColor clearColor];
+    [self.view setBackgroundColor:SelfColor(240, 239, 244)];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -37,12 +38,14 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
 #warning Incomplete implementation, return the number of sections
     return 2;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
 #warning Incomplete implementation, return the number of rows
     return 1;
 }
@@ -55,14 +58,16 @@
     if  (indexPath.section == 0)
     {
         cell =[[MeMainCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    else
+    else if(indexPath.section == 1)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         cell.textLabel.text = @"退出登录";
         cell.textLabel.textColor = SelfColor(255, 97, 89);
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
     }
+
     return cell;
 }
 
@@ -71,7 +76,9 @@
 {
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-        return 90;
+        XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:myVCard.photo]];
+        return imageView.image.size.height + 20;
     }
     else
     {
@@ -93,7 +100,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1)
+    if (indexPath.section == 0)
+    {
+        DetailController *detialVc = [[DetailController alloc] init];
+        [self.navigationController pushViewController:detialVc animated:YES];
+    }
+    else if (indexPath.section == 1)
     {
         [self loginOut];
     }
