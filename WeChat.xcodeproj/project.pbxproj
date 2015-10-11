@@ -23,6 +23,9 @@
 		D65E937E1BC943C30024A9FD /* MeMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E937D1BC943C30024A9FD /* MeMainCell.m */; settings = {ASSET_TAGS = (); }; };
 		D65E93811BC94FFF0024A9FD /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93801BC94FFF0024A9FD /* NSString+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		D65E93841BC974010024A9FD /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93831BC974010024A9FD /* DetailController.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93871BC9FB6F0024A9FD /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93861BC9FB6F0024A9FD /* DetailCell.m */; settings = {ASSET_TAGS = (); }; };
+		D65E938D1BCA142B0024A9FD /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E938C1BCA142B0024A9FD /* DetailModel.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93901BCA5EC90024A9FD /* DetailProfileCrontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E938F1BCA5EC90024A9FD /* DetailProfileCrontroller.m */; settings = {ASSET_TAGS = (); }; };
 		D662E57D1BC6A60100CE0652 /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E57C1BC6A60100CE0652 /* UITextField+WF.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
@@ -216,6 +219,12 @@
 		D65E93801BC94FFF0024A9FD /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		D65E93821BC974010024A9FD /* DetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailController.h; sourceTree = "<group>"; };
 		D65E93831BC974010024A9FD /* DetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailController.m; sourceTree = "<group>"; };
+		D65E93851BC9FB6F0024A9FD /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		D65E93861BC9FB6F0024A9FD /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		D65E938B1BCA142B0024A9FD /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailModel.h; sourceTree = "<group>"; };
+		D65E938C1BCA142B0024A9FD /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
+		D65E938E1BCA5EC80024A9FD /* DetailProfileCrontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailProfileCrontroller.h; sourceTree = "<group>"; };
+		D65E938F1BCA5EC90024A9FD /* DetailProfileCrontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailProfileCrontroller.m; sourceTree = "<group>"; };
 		D662E57B1BC6A60100CE0652 /* UITextField+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WF.h"; sourceTree = "<group>"; };
 		D662E57C1BC6A60100CE0652 /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
@@ -614,6 +623,8 @@
 				D64C61F01BC576D400B5788C /* MeController.m */,
 				D65E93821BC974010024A9FD /* DetailController.h */,
 				D65E93831BC974010024A9FD /* DetailController.m */,
+				D65E938E1BCA5EC80024A9FD /* DetailProfileCrontroller.h */,
+				D65E938F1BCA5EC90024A9FD /* DetailProfileCrontroller.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -621,6 +632,8 @@
 		D64C61F11BC576D400B5788C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D65E938B1BCA142B0024A9FD /* DetailModel.h */,
+				D65E938C1BCA142B0024A9FD /* DetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -630,6 +643,8 @@
 			children = (
 				D65E937C1BC943C30024A9FD /* MeMainCell.h */,
 				D65E937D1BC943C30024A9FD /* MeMainCell.m */,
+				D65E93851BC9FB6F0024A9FD /* DetailCell.h */,
+				D65E93861BC9FB6F0024A9FD /* DetailCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1823,6 +1838,7 @@
 				D6B2CE711BBFE80A0046AD26 /* XMPPSystemInputActivityMonitor.m in Sources */,
 				D6B2CE9A1BBFE80A0046AD26 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
 				D6B2CE591BBFE80A0046AD26 /* NSNumber+XMPP.m in Sources */,
+				D65E93901BCA5EC90024A9FD /* DetailProfileCrontroller.m in Sources */,
 				D6B2CEC01BBFE80A0046AD26 /* XMPPSRVResolver.m in Sources */,
 				D62E369A1BC754BF00CA32DA /* OtherLoginController.m in Sources */,
 				D6B2CE691BBFE80A0046AD26 /* XMPPResourceCoreDataStorageObject.m in Sources */,
@@ -1842,6 +1858,7 @@
 				D6B2CE521BBFE80A0046AD26 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				D6B2CEB61BBFE80A0046AD26 /* XMPPAttentionModule.m in Sources */,
 				D6B2CEAC1BBFE80A0046AD26 /* XMPPPresence+XEP_0172.m in Sources */,
+				D65E938D1BCA142B0024A9FD /* DetailModel.m in Sources */,
 				D6B2CEBF1BBFE80A0046AD26 /* XMPPIDTracker.m in Sources */,
 				D6B2CE701BBFE80A0046AD26 /* XMPPRoster.m in Sources */,
 				D6B2CE5C1BBFE80A0046AD26 /* XMPPIQ.m in Sources */,
@@ -1930,6 +1947,7 @@
 				D6B2CED21BBFE80A0046AD26 /* AppDelegate.m in Sources */,
 				D6B2CE811BBFE80A0046AD26 /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				D6B2CEA61BBFE80A0046AD26 /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
+				D65E93871BC9FB6F0024A9FD /* DetailCell.m in Sources */,
 				D6B2CEB91BBFE80A0046AD26 /* XMPPMessage+XEP_0308.m in Sources */,
 				D6B2CE7C1BBFE80A0046AD26 /* XMPPRoomHybrid.xcdatamodeld in Sources */,
 				D6B2CE7E1BBFE80A0046AD26 /* XMPPRoomMessageHybridCoreDataStorageObject.m in Sources */,

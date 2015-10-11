@@ -78,11 +78,11 @@
     {
         XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:myVCard.photo]];
-        return imageView.image.size.height + 20;
+        return 88;
     }
     else
     {
-        return 45;
+        return 44;
     }
 }
 
@@ -109,6 +109,7 @@
     {
         [self loginOut];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

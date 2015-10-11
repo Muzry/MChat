@@ -3,13 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
+         contextName = "-[DetailProfileCrontroller viewDidLoad]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.delegate">
-            </PersistentString>
-            <PersistentString
-               value = "@selector(registerViewDidFinishRegister)">
+               value = "self.cell.detailTextLabel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,10 +19,40 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[DetailController numberOfSectionsInTableView:]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.Groups.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController Groups]:DetailController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController tableView:cellForRowAtIndexPath:]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
          <PersistentStrings>
             <PersistentString
                value = "self.isRegisterOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.delegate">
+            </PersistentString>
+            <PersistentString
+               value = "@selector(registerViewDidFinishRegister)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

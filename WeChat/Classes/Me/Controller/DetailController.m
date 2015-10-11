@@ -7,14 +7,104 @@
 //
 
 #import "DetailController.h"
+#import "XMPPvCardTemp.h"
+#import "DetailCell.h"
+#import "DetailModel.h"
+#import "XMPPvCardTemp.h"
+#import "DetailProfileCrontroller.h"
 
-@interface DetailController ()
+@interface DetailController ()<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
+@property (nonatomic,strong) NSMutableArray *Groups;
+@property (nonatomic,weak) DetailCell * detailcell;
 @end
 
 @implementation DetailController
 
-- (void)viewDidLoad {
+-(NSMutableArray *)Groups
+{
+    if (!_Groups)
+    {
+        XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
+        
+        DetailModel *avatar = [[DetailModel alloc] init];
+        avatar.titleName = @"头像";
+        avatar.tag = 2;
+        
+        DetailModel *nickName = [[DetailModel alloc]init];
+        nickName.titleName = @"名字";
+        nickName.detailsContent = [UserInfo sharedUserInfo].user;
+        nickName.tag = 1;
+        if (myVCard.nickname)
+        {
+            nickName.detailsContent = myVCard.nickname;
+        }
+        
+        DetailModel *account = [[DetailModel alloc]init];
+        account.titleName = @"微信号";
+        account.detailsContent = [UserInfo sharedUserInfo].user;
+        account.tag = 0;
+        
+        NSMutableArray *group1 = [NSMutableArray array];
+        [group1 addObject:avatar];
+        [group1 addObject:nickName];
+        [group1 addObject:account];
+
+        DetailModel * profession = [[DetailModel alloc] init];
+        profession.titleName = @"职业";
+        profession.detailsContent = @"未设置";
+        profession.tag = 1;
+        if (myVCard.orgName) {
+            profession.detailsContent = myVCard.orgName;
+        }
+        
+        DetailModel *location = [[DetailModel alloc]init];
+        location.titleName = @"地区";
+        location.detailsContent = @"未设置";
+        location.tag = 1;
+        if (myVCard.note) {
+            location.detailsContent = myVCard.note;
+        }
+
+        
+        DetailModel *gender = [[DetailModel alloc]init];
+        gender.titleName = @"性别";
+        gender.detailsContent = @"男";
+        gender.tag = 3;
+        
+        DetailModel *email = [[DetailModel alloc]init];
+        email.titleName = @"邮箱";
+        email.detailsContent = @"未设置";
+        email.tag = 1;
+        if (myVCard.mailer)
+        {
+            email.detailsContent = myVCard.mailer;
+        }
+        
+        DetailModel *birthday = [[DetailModel alloc]init];
+        birthday.titleName = @"生日";
+        birthday.detailsContent = @"未设置";
+        birthday.tag = 1;
+        if (myVCard.title) {
+            birthday.detailsContent = myVCard.title;
+        }
+        
+        NSMutableArray *group2 = [NSMutableArray array];
+        [group2 addObject:profession];
+        [group2 addObject:location];
+        [group2 addObject:gender];
+        [group2 addObject:email];
+        [group2 addObject:birthday];
+        
+        _Groups = [NSMutableArray array];
+        [_Groups addObject:group1];
+        [_Groups addObject:group2];
+    }
+    return _Groups;
+}
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.title = @"个人信息";
     [self.view setBackgroundColor:SelfColor(240, 239, 244)];
@@ -28,68 +118,162 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    #warning Incomplete implementation, return the number of sections
+    return self.Groups.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    #warning Incomplete implementation, return the number of rows
+    NSArray *titiles = self.Groups[section];
     
-    // Configure the cell...
+    return titiles.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *ID = @"detailCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    NSArray *titles = self.Groups[indexPath.section];
+    DetailModel *detail = titles[indexPath.row];
+    if (indexPath.section == 0 && indexPath.row == 0)
+    {
+        DetailCell *detailcell = [[DetailCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell = detailcell;
+        self.detailcell = detailcell;
+    }
+    else
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
+        cell.detailTextLabel.text = detail.detailsContent;
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+    }
+    if (!(indexPath.section == 0 && indexPath.row == 2))
+    {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    cell.textLabel.text = detail.titleName;
+    cell.tag = detail.tag;
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 15;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.width,20)];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 15;
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.width,20)];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0)
+    {
+        XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:myVCard.photo]];
+        return 88;
+    }
+    else
+    {
+        return 44;
+    }
 }
-*/
+
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //获取cell的tag
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSInteger tag = cell.tag;
+    if (tag == 1)
+    {
+        DetailProfileCrontroller *detialVc = [[DetailProfileCrontroller alloc] init];
+        detialVc.cell = cell;
+        [self.navigationController pushViewController:detialVc animated:YES];
+    }
+    else if (tag == 2)
+    {
+        UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"请选择" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"从相机" otherButtonTitles:@"从相册", nil];
+        [sheet showInView:self.view];
+        sheet.tag = 1;
+
+    }
+    else if (tag == 3)
+    {
+        UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"请选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"男" otherButtonTitles:@"女", nil];
+        [sheet showInView:self.view];
+        sheet.tag = 2;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 1)
+    {
+        if (buttonIndex == 2)
+        {
+            return;
+        }
+        
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        
+        imagePicker.delegate = self;
+        
+        imagePicker.allowsEditing = YES;
+        
+        if(buttonIndex == 0)
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }
+        else
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+    else
+    {
+        NSIndexPath *path = [NSIndexPath indexPathForRow:2 inSection:1];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
+        if(buttonIndex == 0)
+        {
+            cell.detailTextLabel.text = @"男";
+        }
+        else
+        {
+            cell.detailTextLabel.text = @"女";
+        }
+    }
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    self.detailcell.avatar.image = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

@@ -1,25 +1,19 @@
 //
-//  MeMainCell.m
+//  DetailCell.m
 //  WeChat
 //
-//  Created by LiDan on 15/10/10.
+//  Created by LiDan on 15/10/11.
 //  Copyright © 2015年 com.lidan. All rights reserved.
 //
 
-#import "MeMainCell.h"
-#import "UserInfo.h"
+#import "DetailCell.h"
 #import "XMPPvCardTemp.h"
 
-@interface MeMainCell()
-
-@property (nonatomic,weak) UIImageView * avatar;
-@property (nonatomic,weak) UILabel *nickName;
-@property (nonatomic,weak) UILabel *account;
+@interface DetailCell()
 
 @end
 
-@implementation MeMainCell
-
+@implementation DetailCell
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -42,22 +36,8 @@
         {
             [avatar setImage:[UIImage imageNamed:@"DefaultHead"]];
         }
-
-        
-        UILabel *nickName = [[UILabel alloc]init];
-        nickName.text = @"木子日一";
-        nickName.font = [UIFont systemFontOfSize:16];
-        self.nickName = nickName;
-        
-        UILabel *account = [[UILabel alloc]init];
-        NSString *accountName = [NSString stringWithFormat:@"微信号 : %@",[UserInfo sharedUserInfo].user];
-        account.text = accountName;
-        account.font = [UIFont systemFontOfSize:15];
-        self.account = account;
         
         [self addSubview:avatar];
-        [self addSubview:nickName];
-        [self addSubview:account];
     }
     return self;
 }
@@ -68,8 +48,13 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
+}
+
+-(void)setAvatar:(UIImageView *)avatar
+{
+    _avatar = avatar;
 }
 
 -(void)layoutSubviews
@@ -77,17 +62,8 @@
     [super layoutSubviews];
     self.avatar.width = 70;
     self.avatar.height = 70;
-    self.avatar.x = 9;
+    self.avatar.x = self.width - 40 - self.avatar.width;
     self.avatar.y = 9;
-    
-    self.nickName.width = 150;
-    self.nickName.height = 30;
-    self.nickName.x = self.avatar.width + CellBoard + self.avatar.x;
-    self.nickName.y = self.avatar.height* 0.2;
-    
-    self.account.width = 150;
-    self.account.height = 30;
-    self.account.x = self.nickName.x;
-    self.account.y = self.avatar.height* 0.6;
 }
+
 @end
