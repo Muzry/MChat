@@ -14,12 +14,6 @@
 
 @implementation DetailProfileCrontroller
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -52,14 +46,16 @@
 
 -(void)textDidChange
 {
-    if (self.cell.detailTextLabel.text != self.textField.text)
+    if ([self.cell.detailTextLabel.text isEqualToString:self.textField.text])
     {
-         self.navigationItem.rightBarButtonItem.enabled = YES;
+         self.navigationItem.rightBarButtonItem.enabled = NO;
     }
     else
     {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
+        self.navigationItem.rightBarButtonItem.enabled = YES;
     }
+    NSLog(@"%@",self.textField.text);
+    NSLog(@"%d",self.navigationItem.rightBarButtonItem.enabled);
 }
 
 #pragma mark - Table view data source

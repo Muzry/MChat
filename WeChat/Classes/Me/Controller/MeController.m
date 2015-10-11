@@ -11,7 +11,7 @@
 #import "XMPPvCardTemp.h"
 #import "DetailController.h"
 
-@interface MeController ()
+@interface MeController ()<UIActionSheetDelegate>
 
 @end
 
@@ -100,6 +100,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0)
     {
         DetailController *detialVc = [[DetailController alloc] init];
@@ -107,9 +108,21 @@
     }
     else if (indexPath.section == 1)
     {
+        UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"您真的要退出程序吗？" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"退出登录" otherButtonTitles:@"取消", nil];
+        [sheet showInView:self.view];
+    }
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
         [self loginOut];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    else
+    {
+        return ;
+    }
 }
 
 @end

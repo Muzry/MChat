@@ -221,15 +221,16 @@ singleton_implementation(XmppTools)
     // 2. 与服务器断开连接
     [_xmppStream disconnect];
     
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    
-    [window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-    LoginController *viewController = [[LoginController alloc]init];
-    MainNavigationController* loginViewController = [[MainNavigationController alloc]initWithRootViewController:viewController];
-    window.rootViewController =loginViewController;
-    
     [UserInfo sharedUserInfo].loginStatus = NO;
     [UserInfo sharedUserInfo].saveuserInfoToSanbox;
+    
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    LoginController *viewController = [[LoginController alloc]init];
+    MainNavigationController* loginViewController = [[MainNavigationController alloc]initWithRootViewController:viewController];
+
+    window.rootViewController = loginViewController;
 }
 
 

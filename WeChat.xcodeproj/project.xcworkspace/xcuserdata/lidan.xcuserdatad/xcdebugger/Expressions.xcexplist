@@ -56,5 +56,24 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.textField.text">
+            </PersistentString>
+            <PersistentString
+               value = "self.cell.detailTextLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[XmppTools userLogout]:XmppTools.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "window.rootViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
