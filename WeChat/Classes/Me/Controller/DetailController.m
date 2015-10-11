@@ -13,10 +13,11 @@
 #import "XMPPvCardTemp.h"
 #import "DetailProfileCrontroller.h"
 
-@interface DetailController ()<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface DetailController ()<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,DetailProfileCrontrollerDelegate>
 
 @property (nonatomic,strong) NSMutableArray *Groups;
 @property (nonatomic,weak) DetailCell * detailcell;
+
 @end
 
 @implementation DetailController
@@ -54,7 +55,8 @@
         profession.titleName = @"职业";
         profession.detailsContent = @"未设置";
         profession.tag = 1;
-        if (myVCard.orgName) {
+        if (myVCard.orgName)
+        {
             profession.detailsContent = myVCard.orgName;
         }
         
@@ -62,7 +64,8 @@
         location.titleName = @"地区";
         location.detailsContent = @"未设置";
         location.tag = 1;
-        if (myVCard.note) {
+        if (myVCard.note)
+        {
             location.detailsContent = myVCard.note;
         }
 
@@ -70,6 +73,10 @@
         DetailModel *gender = [[DetailModel alloc]init];
         gender.titleName = @"性别";
         gender.detailsContent = @"男";
+        if (myVCard.role)
+        {
+            gender.detailsContent = myVCard.role;
+        }
         gender.tag = 3;
         
         DetailModel *email = [[DetailModel alloc]init];
@@ -85,7 +92,8 @@
         birthday.titleName = @"生日";
         birthday.detailsContent = @"未设置";
         birthday.tag = 1;
-        if (myVCard.title) {
+        if (myVCard.title)
+        {
             birthday.detailsContent = myVCard.title;
         }
         
@@ -190,8 +198,6 @@
 {
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-        XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:myVCard.photo]];
         return 88;
     }
     else
@@ -199,8 +205,6 @@
         return 44;
     }
 }
-
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -212,6 +216,7 @@
         DetailProfileCrontroller *detialVc = [[DetailProfileCrontroller alloc] init];
         detialVc.cell = cell;
         [self.navigationController pushViewController:detialVc animated:YES];
+        detialVc.delegate = self;
     }
     else if (tag == 2)
     {
@@ -227,6 +232,32 @@
         sheet.tag = 2;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark -编辑个人信息的代理
+-(void)didFinishSave
+{
+    XMPPvCardTemp *vCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
+    vCard.nickname = [self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text;
+    vCard.orgName = [self getLabelTextFromCellSection:1 Row:0].detailTextLabel.text;
+    vCard.note = [self getLabelTextFromCellSection:1 Row:1].detailTextLabel.text;
+    vCard.role = [self getLabelTextFromCellSection:1 Row:2].detailTextLabel.text;
+    vCard.mailer = [self getLabelTextFromCellSection:1 Row:3].detailTextLabel.text;
+    vCard.title = [self getLabelTextFromCellSection:1 Row:4].detailTextLabel.text;
+    //更新服务器
+    [[XmppTools sharedXmppTools].vCard updateMyvCardTemp:vCard];
+    
+    if ([self.delegate respondsToSelector:@selector(didUpdateInfo)])
+    {
+        [self.delegate didUpdateInfo];
+    }
+}
+
+
+-(UITableViewCell *)getLabelTextFromCellSection:(NSInteger)section Row:(NSInteger)row
+{
+    NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
+    return [self.tableView cellForRowAtIndexPath:path];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -266,14 +297,28 @@
         {
             cell.detailTextLabel.text = @"女";
         }
+        [self didFinishSave];
+        if ([self.delegate respondsToSelector:@selector(didUpdateInfo)])
+        {
+            [self.delegate didUpdateInfo];
+        }
     }
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage *image = info[UIImagePickerControllerEditedImage];
-    self.detailcell.avatar.image = image;
+    [self.detailcell.avatar setBackgroundImage:image forState:UIControlStateNormal];
     [self dismissViewControllerAnimated:YES completion:nil];
+    XMPPvCardTemp *vCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
+    
+    vCard.photo = UIImagePNGRepresentation(image);
+    [[XmppTools sharedXmppTools].vCard updateMyvCardTemp:vCard];
+    if ([self.delegate respondsToSelector:@selector(didUpdateInfo)])
+    {
+        [self.delegate didUpdateInfo];
+    }
 }
+
 
 @end

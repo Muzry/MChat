@@ -40,13 +40,20 @@
 -(void)saveBtnClick
 {
     self.cell.detailTextLabel.text = self.textField.text;
+    
     [self.cell layoutSubviews];
+    
     [self.navigationController popViewControllerAnimated:YES];
+    
+    if ([self.delegate respondsToSelector:@selector(didFinishSave)])
+    {
+        [self.delegate didFinishSave];
+    }
 }
 
 -(void)textDidChange
 {
-    if ([self.cell.detailTextLabel.text isEqualToString:self.textField.text])
+    if (!self.textField.hasText || [self.cell.detailTextLabel.text isEqualToString:self.textField.text])
     {
          self.navigationItem.rightBarButtonItem.enabled = NO;
     }
@@ -54,8 +61,6 @@
     {
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }
-    NSLog(@"%@",self.textField.text);
-    NSLog(@"%d",self.navigationItem.rightBarButtonItem.enabled);
 }
 
 #pragma mark - Table view data source

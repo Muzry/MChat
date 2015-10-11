@@ -8,9 +8,10 @@
 
 #import "DetailCell.h"
 #import "XMPPvCardTemp.h"
+#import "MainNavigationController.h"
 
 @interface DetailCell()
-
+@property (nonatomic,weak) MainNavigationController *oldwindow;
 @end
 
 @implementation DetailCell
@@ -20,7 +21,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        UIImageView *avatar = [[UIImageView alloc]init];
+        UIButton *avatar = [[UIButton alloc]init];
         [[avatar layer] setBorderColor:SelfColor(206, 206, 206).CGColor];
         [[avatar layer] setBorderWidth:1.0];
         [[avatar layer] setCornerRadius:5];
@@ -30,11 +31,13 @@
         
         if (myVCard.photo)
         {
-            [avatar setImage:[UIImage imageWithData:myVCard.photo]];
+            [avatar setBackgroundImage:[UIImage imageWithData:myVCard.photo] forState:UIControlStateNormal];
+            avatar.imageView.image = [UIImage imageWithData:myVCard.photo];
         }
         else
         {
-            [avatar setImage:[UIImage imageNamed:@"DefaultHead"]];
+            [avatar setBackgroundImage:[UIImage imageNamed:@"DefaultHead"] forState:UIControlStateNormal];
+            avatar.imageView.image = [UIImage imageNamed:@"DefaultHead"];
         }
         
         [self addSubview:avatar];
@@ -52,10 +55,6 @@
     // Configure the view for the selected state
 }
 
--(void)setAvatar:(UIImageView *)avatar
-{
-    _avatar = avatar;
-}
 
 -(void)layoutSubviews
 {

@@ -27,10 +27,12 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        
+
+        
         UIImageView *iCon = [[UIImageView alloc]init];
         iCon.image = [UIImage imageNamed:@"DefaultProfileHead_phone"];
         self.iCon = iCon;
-        
         
         
         NSString * user = [UserInfo sharedUserInfo].user;
@@ -85,6 +87,7 @@
     }
     return self;
 }
+
 
 -(void)loginClick
 {

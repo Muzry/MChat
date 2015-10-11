@@ -11,7 +11,7 @@
 #import "XMPPvCardTemp.h"
 #import "DetailController.h"
 
-@interface MeController ()<UIActionSheetDelegate>
+@interface MeController ()<UIActionSheetDelegate,DetailControllerDelegate>
 
 @end
 
@@ -67,8 +67,11 @@
         cell.textLabel.textColor = SelfColor(255, 97, 89);
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
     }
-
     return cell;
+}
+-(void)didUpdateInfo
+{
+    [self.tableView reloadData];
 }
 
 
@@ -76,8 +79,6 @@
 {
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-        XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:myVCard.photo]];
         return 88;
     }
     else
@@ -103,8 +104,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0)
     {
-        DetailController *detialVc = [[DetailController alloc] init];
-        [self.navigationController pushViewController:detialVc animated:YES];
+        DetailController *detailVc = [[DetailController alloc] init];
+        [self.navigationController pushViewController:detailVc animated:YES];
+        detailVc.delegate = self;
     }
     else if (indexPath.section == 1)
     {

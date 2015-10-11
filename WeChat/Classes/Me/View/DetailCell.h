@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailCell : UITableViewCell
-@property (nonatomic,weak) UIImageView * avatar;
+@property (nonatomic,weak) UIButton * avatar;
 @end

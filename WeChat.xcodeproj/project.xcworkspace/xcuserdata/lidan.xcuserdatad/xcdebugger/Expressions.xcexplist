@@ -11,6 +11,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[DetailController didFinishSave]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "vCard.nickname">
+            </PersistentString>
+            <PersistentString
+               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[LoginView initWithFrame:]:LoginView.m">
          <PersistentStrings>
             <PersistentString

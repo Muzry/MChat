@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DetailProfileCrontrollerDelegate <NSObject>
+
+-(void)didFinishSave;
+
+@end
+
 @interface DetailProfileCrontroller : UITableViewController
+
 @property (nonatomic,strong) UITableViewCell *cell;
+@property (nonatomic,weak) id<DetailProfileCrontrollerDelegate> delegate;
+
 @end

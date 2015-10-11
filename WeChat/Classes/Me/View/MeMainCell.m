@@ -45,7 +45,11 @@
 
         
         UILabel *nickName = [[UILabel alloc]init];
-        nickName.text = @"木子日一";
+        nickName.text = [UserInfo sharedUserInfo].user;
+        if (myVCard.nickname) {
+            nickName.text = myVCard.nickname;
+        }
+        
         nickName.font = [UIFont systemFontOfSize:16];
         self.nickName = nickName;
         

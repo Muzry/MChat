@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailController : UITableViewController
+@protocol DetailControllerDelegate <NSObject>
 
+-(void)didUpdateInfo;
+
+@end
+
+@interface DetailController : UITableViewController
+@property (nonatomic,weak) id<DetailControllerDelegate> delegate;
 @end
