@@ -308,7 +308,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage *image = info[UIImagePickerControllerEditedImage];
-    [self.detailcell.avatar setBackgroundImage:image forState:UIControlStateNormal];
+    [self.detailcell.avatar setImage:image forState:UIControlStateNormal];
     [self dismissViewControllerAnimated:YES completion:nil];
     XMPPvCardTemp *vCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
     

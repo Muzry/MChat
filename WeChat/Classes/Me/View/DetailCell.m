@@ -31,13 +31,11 @@
         
         if (myVCard.photo)
         {
-            [avatar setBackgroundImage:[UIImage imageWithData:myVCard.photo] forState:UIControlStateNormal];
-            avatar.imageView.image = [UIImage imageWithData:myVCard.photo];
+            [avatar setImage:[UIImage imageWithData:myVCard.photo] forState:UIControlStateNormal];
         }
         else
         {
-            [avatar setBackgroundImage:[UIImage imageNamed:@"DefaultHead"] forState:UIControlStateNormal];
-            avatar.imageView.image = [UIImage imageNamed:@"DefaultHead"];
+            [avatar setImage:[UIImage imageNamed:@"DefaultHead"] forState:UIControlStateNormal];
         }
         
         [self addSubview:avatar];
