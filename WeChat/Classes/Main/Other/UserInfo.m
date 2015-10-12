@@ -11,6 +11,7 @@
 #define UserKey @"user"
 #define PwdKey @"Password"
 #define LoginKey @"LoginStatus"
+#define AvatarKey @"AvatarImage"
 
 @implementation UserInfo
 singleton_implementation(UserInfo)

@@ -7,7 +7,6 @@
 //
 
 #import "RegisterView.h"
-#import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "UserInfo.h"
 
@@ -29,6 +28,7 @@
         [userName setBackground:[UIImage resizeImageWihtImageName:@"operationbox_text"]];
         userName.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0)];
         userName.leftViewMode = UITextFieldViewModeAlways;
+        userName.delegate = self;
         self.userName = userName;
         
         UITextField *password = [[UITextField alloc]init];
@@ -37,10 +37,12 @@
         [password setBackground:[UIImage resizeImageWihtImageName:@"operationbox_text"]];
         password.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0)];
         password.leftViewMode = UITextFieldViewModeAlways;
+        password.delegate =self;
         self.password = password;
         
         
         UIButton *register_Btn = [[UIButton alloc]init];
+        register_Btn.enabled = NO;
         [register_Btn setTitle:@"注册账户" forState:UIControlStateNormal];
         [register_Btn setBackgroundImage:[UIImage resizeImageWihtImageName:@"fts_green_btn"] forState:UIControlStateNormal];
         [register_Btn addTarget:self action:@selector(registerClick) forControlEvents:UIControlEventTouchUpInside];
@@ -49,39 +51,77 @@
         [self addSubview:userName];
         [self addSubview:password];
         [self addSubview:register_Btn];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextFieldTextDidChangeNotification object:userName];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextFieldTextDidChangeNotification object:password];
     }
     return self;
 }
 
+
+
 -(void)registerClick
 {
+    [self endEditing:YES];
+    // 1.把用户注册的数据保存成单例
     
+    UserInfo *userInfo = [UserInfo sharedUserInfo];
+    userInfo.registerUserName = self.userName.text;
+    userInfo.registerPwd = self.password.text;
+    
+    // 2.调用userRegister方法
+
+    [XmppTools sharedXmppTools].registerOperation = YES;
+    [MBProgressHUD showMessage:@"正在注册中..." toView:self.superview];
+    __weak typeof (self) selfVc = self;
+    
+    [[XmppTools sharedXmppTools] userRegister:^(XMPPResultType type)
+    {
+        [selfVc handleResultType:type];
+    }];
 }
 
--(void)handleResultType:(XMPPResultType) type
+-(void)textDidChange
+{
+    if ([self.userName hasText] && [self.password hasText])
+    {
+        self.register_Btn.enabled = YES;
+    }
+    else
+    {
+        self.register_Btn.enabled = NO;
+    }
+}
+
+-(void)handleResultType:(XMPPResultType)type
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.superview];
         switch (type) {
-            case XMPPResultTypeLoginSuccess:
+            case XMPPResultTypeRegisterSuccess:
             {
+                
+                NSNotification *notification =[NSNotification notificationWithName:@"didFinishRegister" object:nil userInfo:nil];
+                [[NSNotificationCenter defaultCenter] postNotification:notification];
+                [[self viewController] dismissViewControllerAnimated:YES completion:nil];
                 break;
             }
-            case XMPPResultTypeLoginFailure:
+            case XMPPResultTypeRegisterFailure:
             {
-                [MBProgressHUD showError:@"用户名或密码不正确" toView:self.superview];
+                [MBProgressHUD showError:@"注册失败,用户名存在" toView:self.superview];
                 break;
             }
             case XMPPResultTypeNetErr:
             {
-                [MBProgressHUD showError:@"网络有问题"  toView:self.superview];
+                [MBProgressHUD showError:@"网络有问题" toView:self.superview];
             }
             default:
                 break;
         }
     });
-    
 }
+
+
 
 
 -(void)layoutSubviews

@@ -11,6 +11,7 @@
 #import "OtherLoginController.h"
 #import "MainNavigationController.h"
 #import "RegisterController.h"
+#import "RegisterView.h"
 
 @interface LoginController ()
 @property (nonatomic,weak) UIView * loginView;
@@ -35,12 +36,14 @@
 -(void)setInit
 {
     self.view.backgroundColor = [UIColor whiteColor];
-    
     self.title = @"登陆";
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardDismiss)];
+    [self.view addGestureRecognizer:tapGesture];
+    
     LoginView * loginView = [[LoginView alloc]init];
     self.loginView = loginView;
     [self.view addSubview:loginView];
-    
     
     UIButton *registerBtn = [[UIButton alloc]init];
     [registerBtn setTitle:@"没有账号？点击注册" forState:UIControlStateNormal];
@@ -74,6 +77,11 @@
     self.otherLogin.height = 30;
     self.otherLogin.x = (ScreenWidth - self.otherLogin.width) / 2;
     self.otherLogin.y = ScreenHeight * 0.82;
+}
+
+-(void)keyboardDismiss
+{
+    [self.view endEditing:YES];
 }
 
 -(void)otherWayLogin

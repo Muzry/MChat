@@ -3,10 +3,45 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[DetailProfileCrontroller viewDidLoad]:DetailProfileCrontroller.m">
+         contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.cell.detailTextLabel">
+               value = "self.cell.detailTextLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "self.textField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController tableView:cellForRowAtIndexPath:]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController imagePickerController:didFinishPickingMediaWithInfo:]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].avatarImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[UserInfo saveuserInfoToSanbox]:UserInfo.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.avatarImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isRegisterOperation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -27,32 +62,8 @@
             <PersistentString
                value = "userName.text">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[DetailController numberOfSectionsInTableView:]:DetailController.m">
-         <PersistentStrings>
             <PersistentString
-               value = "self.Groups.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[DetailController Groups]:DetailController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[DetailController tableView:cellForRowAtIndexPath:]:DetailController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "cell.tag">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.isRegisterOperation">
+               value = "[UserInfo sharedUserInfo].avatarImage">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -68,23 +79,31 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.textField.text">
-            </PersistentString>
-            <PersistentString
-               value = "self.cell.detailTextLabel.text">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[XmppTools userLogout]:XmppTools.m">
          <PersistentStrings>
             <PersistentString
                value = "window.rootViewController">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController numberOfSectionsInTableView:]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.Groups.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailProfileCrontroller viewDidLoad]:DetailProfileCrontroller.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.cell.detailTextLabel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController Groups]:DetailController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

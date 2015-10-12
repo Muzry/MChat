@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D6046C061BC7C421003D53D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6046C051BC7C421003D53D1 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		D62E36991BC754BF00CA32DA /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E368C1BC754BF00CA32DA /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
-		D62E369A1BC754BF00CA32DA /* OtherLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E368E1BC754BF00CA32DA /* OtherLoginController.m */; settings = {ASSET_TAGS = (); }; };
-		D62E369B1BC754BF00CA32DA /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E36901BC754BF00CA32DA /* RegisterController.m */; settings = {ASSET_TAGS = (); }; };
-		D62E369C1BC754BF00CA32DA /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E36941BC754BF00CA32DA /* LoginView.m */; settings = {ASSET_TAGS = (); }; };
-		D62E369D1BC754BF00CA32DA /* OtherWayLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E36961BC754BF00CA32DA /* OtherWayLogin.m */; settings = {ASSET_TAGS = (); }; };
-		D62E369E1BC754BF00CA32DA /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E36981BC754BF00CA32DA /* RegisterView.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E31BC3EC4900B5788C /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
@@ -26,6 +20,13 @@
 		D65E93871BC9FB6F0024A9FD /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93861BC9FB6F0024A9FD /* DetailCell.m */; settings = {ASSET_TAGS = (); }; };
 		D65E938D1BCA142B0024A9FD /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E938C1BCA142B0024A9FD /* DetailModel.m */; settings = {ASSET_TAGS = (); }; };
 		D65E93901BCA5EC90024A9FD /* DetailProfileCrontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E938F1BCA5EC90024A9FD /* DetailProfileCrontroller.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93931BCB8E730024A9FD /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93921BCB8E730024A9FD /* UIImage+Extension.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93A41BCB8F340024A9FD /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93971BCB8F340024A9FD /* LoginController.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93A51BCB8F340024A9FD /* OtherLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93991BCB8F340024A9FD /* OtherLoginController.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93A61BCB8F340024A9FD /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E939B1BCB8F340024A9FD /* RegisterController.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93A71BCB8F340024A9FD /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E939F1BCB8F340024A9FD /* LoginView.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93A81BCB8F340024A9FD /* OtherWayLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93A11BCB8F340024A9FD /* OtherWayLogin.m */; settings = {ASSET_TAGS = (); }; };
+		D65E93A91BCB8F340024A9FD /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93A31BCB8F340024A9FD /* RegisterView.m */; settings = {ASSET_TAGS = (); }; };
 		D662E57D1BC6A60100CE0652 /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = D662E57C1BC6A60100CE0652 /* UITextField+WF.m */; settings = {ASSET_TAGS = (); }; };
 		D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */; settings = {ASSET_TAGS = (); }; };
 		D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D69341DE1BC16A940017F604 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
@@ -189,18 +190,6 @@
 
 /* Begin PBXFileReference section */
 		D6046C051BC7C421003D53D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = WeChat/Assets.xcassets; sourceTree = "<group>"; };
-		D62E368B1BC754BF00CA32DA /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
-		D62E368C1BC754BF00CA32DA /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		D62E368D1BC754BF00CA32DA /* OtherLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherLoginController.h; sourceTree = "<group>"; };
-		D62E368E1BC754BF00CA32DA /* OtherLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherLoginController.m; sourceTree = "<group>"; };
-		D62E368F1BC754BF00CA32DA /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
-		D62E36901BC754BF00CA32DA /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
-		D62E36931BC754BF00CA32DA /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
-		D62E36941BC754BF00CA32DA /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
-		D62E36951BC754BF00CA32DA /* OtherWayLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherWayLogin.h; sourceTree = "<group>"; };
-		D62E36961BC754BF00CA32DA /* OtherWayLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherWayLogin.m; sourceTree = "<group>"; };
-		D62E36971BC754BF00CA32DA /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
-		D62E36981BC754BF00CA32DA /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		D64C61DE1BC3EC4900B5788C /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
 		D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
 		D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -225,6 +214,20 @@
 		D65E938C1BCA142B0024A9FD /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
 		D65E938E1BCA5EC80024A9FD /* DetailProfileCrontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailProfileCrontroller.h; sourceTree = "<group>"; };
 		D65E938F1BCA5EC90024A9FD /* DetailProfileCrontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailProfileCrontroller.m; sourceTree = "<group>"; };
+		D65E93911BCB8E730024A9FD /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		D65E93921BCB8E730024A9FD /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		D65E93961BCB8F340024A9FD /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		D65E93971BCB8F340024A9FD /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		D65E93981BCB8F340024A9FD /* OtherLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherLoginController.h; sourceTree = "<group>"; };
+		D65E93991BCB8F340024A9FD /* OtherLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherLoginController.m; sourceTree = "<group>"; };
+		D65E939A1BCB8F340024A9FD /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		D65E939B1BCB8F340024A9FD /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		D65E939E1BCB8F340024A9FD /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		D65E939F1BCB8F340024A9FD /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		D65E93A01BCB8F340024A9FD /* OtherWayLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherWayLogin.h; sourceTree = "<group>"; };
+		D65E93A11BCB8F340024A9FD /* OtherWayLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherWayLogin.m; sourceTree = "<group>"; };
+		D65E93A21BCB8F340024A9FD /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		D65E93A31BCB8F340024A9FD /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		D662E57B1BC6A60100CE0652 /* UITextField+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WF.h"; sourceTree = "<group>"; };
 		D662E57C1BC6A60100CE0652 /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
 		D69341DB1BC16A940017F604 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
@@ -550,50 +553,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D62E36891BC754BF00CA32DA /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				D62E368A1BC754BF00CA32DA /* Controller */,
-				D62E36911BC754BF00CA32DA /* Model */,
-				D62E36921BC754BF00CA32DA /* View */,
-			);
-			name = Login;
-			path = Contact/Login;
-			sourceTree = "<group>";
-		};
-		D62E368A1BC754BF00CA32DA /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D62E368B1BC754BF00CA32DA /* LoginController.h */,
-				D62E368C1BC754BF00CA32DA /* LoginController.m */,
-				D62E368D1BC754BF00CA32DA /* OtherLoginController.h */,
-				D62E368E1BC754BF00CA32DA /* OtherLoginController.m */,
-				D62E368F1BC754BF00CA32DA /* RegisterController.h */,
-				D62E36901BC754BF00CA32DA /* RegisterController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D62E36911BC754BF00CA32DA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D62E36921BC754BF00CA32DA /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D62E36931BC754BF00CA32DA /* LoginView.h */,
-				D62E36941BC754BF00CA32DA /* LoginView.m */,
-				D62E36951BC754BF00CA32DA /* OtherWayLogin.h */,
-				D62E36961BC754BF00CA32DA /* OtherWayLogin.m */,
-				D62E36971BC754BF00CA32DA /* RegisterView.h */,
-				D62E36981BC754BF00CA32DA /* RegisterView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		D64C61DD1BC3EC4900B5788C /* MBProgessHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +608,49 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D65E93941BCB8F340024A9FD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D65E93951BCB8F340024A9FD /* Controller */,
+				D65E939C1BCB8F340024A9FD /* Model */,
+				D65E939D1BCB8F340024A9FD /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D65E93951BCB8F340024A9FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D65E93961BCB8F340024A9FD /* LoginController.h */,
+				D65E93971BCB8F340024A9FD /* LoginController.m */,
+				D65E93981BCB8F340024A9FD /* OtherLoginController.h */,
+				D65E93991BCB8F340024A9FD /* OtherLoginController.m */,
+				D65E939A1BCB8F340024A9FD /* RegisterController.h */,
+				D65E939B1BCB8F340024A9FD /* RegisterController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D65E939C1BCB8F340024A9FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D65E939D1BCB8F340024A9FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D65E939E1BCB8F340024A9FD /* LoginView.h */,
+				D65E939F1BCB8F340024A9FD /* LoginView.m */,
+				D65E93A01BCB8F340024A9FD /* OtherWayLogin.h */,
+				D65E93A11BCB8F340024A9FD /* OtherWayLogin.m */,
+				D65E93A21BCB8F340024A9FD /* RegisterView.h */,
+				D65E93A31BCB8F340024A9FD /* RegisterView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D69341DA1BC16A940017F604 /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +662,8 @@
 				D69341DC1BC16A940017F604 /* UIImage+ResizeImage.m */,
 				D69341DD1BC16A940017F604 /* UIView+Extension.h */,
 				D69341DE1BC16A940017F604 /* UIView+Extension.m */,
+				D65E93911BCB8E730024A9FD /* UIImage+Extension.h */,
+				D65E93921BCB8E730024A9FD /* UIImage+Extension.m */,
 			);
 			path = Catagory;
 			sourceTree = "<group>";
@@ -759,7 +763,7 @@
 		D6B2CCF61BBFE8090046AD26 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D62E36891BC754BF00CA32DA /* Login */,
+				D65E93941BCB8F340024A9FD /* Login */,
 				D64C61ED1BC576D400B5788C /* Me */,
 				D69341E11BC173BD0017F604 /* Index */,
 				D6C0A59C1BC2CF430033A2D5 /* Contact */,
@@ -1821,7 +1825,6 @@
 				D6B2CE751BBFE80A0046AD26 /* XMPPIQ+LastActivity.m in Sources */,
 				D6B2CE941BBFE80A0046AD26 /* XMPPResultSet.m in Sources */,
 				D6B2CEA51BBFE80A0046AD26 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
-				D62E369D1BC754BF00CA32DA /* OtherWayLogin.m in Sources */,
 				D64C61F31BC576D400B5788C /* MeController.m in Sources */,
 				D6B2CE9E1BBFE80A0046AD26 /* XMPPTransports.m in Sources */,
 				D6B2CECC1BBFE80A0046AD26 /* DDXMLDocument.m in Sources */,
@@ -1830,25 +1833,27 @@
 				D6B2CEC81BBFE80A0046AD26 /* ContextFilterLogFormatter.m in Sources */,
 				D6B2CE671BBFE80A0046AD26 /* XMPPReconnect.m in Sources */,
 				D6B2CEA01BBFE80A0046AD26 /* XMPPCapabilities.xcdatamodel in Sources */,
+				D65E93A81BCB8F340024A9FD /* OtherWayLogin.m in Sources */,
 				D64C61E31BC3EC4900B5788C /* MBProgressHUD+HM.m in Sources */,
 				D6B2CEAD1BBFE80A0046AD26 /* XMPPMessage+XEP_0184.m in Sources */,
 				D6B2CEB31BBFE80A0046AD26 /* XMPPTime.m in Sources */,
-				D62E369B1BC754BF00CA32DA /* RegisterController.m in Sources */,
 				D6B2CEB01BBFE80A0046AD26 /* XMPPAutoPing.m in Sources */,
 				D6B2CE711BBFE80A0046AD26 /* XMPPSystemInputActivityMonitor.m in Sources */,
 				D6B2CE9A1BBFE80A0046AD26 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
 				D6B2CE591BBFE80A0046AD26 /* NSNumber+XMPP.m in Sources */,
 				D65E93901BCA5EC90024A9FD /* DetailProfileCrontroller.m in Sources */,
 				D6B2CEC01BBFE80A0046AD26 /* XMPPSRVResolver.m in Sources */,
-				D62E369A1BC754BF00CA32DA /* OtherLoginController.m in Sources */,
 				D6B2CE691BBFE80A0046AD26 /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				D6B2CE911BBFE80A0046AD26 /* XMPPvCardTempModule.m in Sources */,
 				D6B2CE8A1BBFE80A0046AD26 /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
 				D6B2CE611BBFE80A0046AD26 /* XMPPPresence.m in Sources */,
 				D6B2CEA91BBFE80A0046AD26 /* XMPPMessageArchiving.m in Sources */,
 				D6B2CEC21BBFE80A0046AD26 /* GCDAsyncSocket.m in Sources */,
+				D65E93A41BCB8F340024A9FD /* LoginController.m in Sources */,
+				D65E93A51BCB8F340024A9FD /* OtherLoginController.m in Sources */,
 				D6B2CEA41BBFE80A0046AD26 /* XMPPCapabilities.m in Sources */,
 				D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */,
+				D65E93A91BCB8F340024A9FD /* RegisterView.m in Sources */,
 				D6B2CEC11BBFE80A0046AD26 /* XMPPStringPrep.m in Sources */,
 				D6B2CE8C1BBFE80A0046AD26 /* XMPPvCardTempAdr.m in Sources */,
 				D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */,
@@ -1866,7 +1871,6 @@
 				D6B2CE8E1BBFE80A0046AD26 /* XMPPvCardTempBase.m in Sources */,
 				D6B2CEC91BBFE80A0046AD26 /* DispatchQueueLogFormatter.m in Sources */,
 				D6C0A5941BC2CBEA0033A2D5 /* MainViewController.m in Sources */,
-				D62E369E1BC754BF00CA32DA /* RegisterView.m in Sources */,
 				D6B2CE7D1BBFE80A0046AD26 /* XMPPRoomHybridStorage.m in Sources */,
 				D6B2CE721BBFE80A0046AD26 /* XMPPIQ+JabberRPC.m in Sources */,
 				D6B2CEC41BBFE80A0046AD26 /* DDASLLogger.m in Sources */,
@@ -1875,6 +1879,7 @@
 				D6B2CEAB1BBFE80A0046AD26 /* XMPPMessage+XEP_0172.m in Sources */,
 				D6B2CECE1BBFE80A0046AD26 /* DDXMLNode.m in Sources */,
 				D6B2CEA81BBFE80A0046AD26 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
+				D65E93A61BCB8F340024A9FD /* RegisterController.m in Sources */,
 				D6B2CE791BBFE80A0046AD26 /* XMPPRoomCoreDataStorage.m in Sources */,
 				D6B2CE861BBFE80A0046AD26 /* XMPPvCard.xcdatamodeld in Sources */,
 				D6B2CE901BBFE80A0046AD26 /* XMPPvCardTempLabel.m in Sources */,
@@ -1886,6 +1891,7 @@
 				D6B2CED31BBFE80A0046AD26 /* main.m in Sources */,
 				D6B2CE551BBFE80A0046AD26 /* XMPPPlainAuthentication.m in Sources */,
 				D6C0A59A1BC2CC210033A2D5 /* MainNavigationController.m in Sources */,
+				D65E93931BCB8E730024A9FD /* UIImage+Extension.m in Sources */,
 				D6B2CE8B1BBFE80A0046AD26 /* XMPPvCardTemp.m in Sources */,
 				D6B2CE621BBFE80A0046AD26 /* XMPPStream.m in Sources */,
 				D6B2CE9C1BBFE80A0046AD26 /* XMPPMessage+XEP_0085.m in Sources */,
@@ -1912,7 +1918,6 @@
 				D6B2CEAF1BBFE80A0046AD26 /* XMPPBlocking.m in Sources */,
 				D6B2CE631BBFE80A0046AD26 /* XMPPBandwidthMonitor.m in Sources */,
 				D6B2CEAE1BBFE80A0046AD26 /* XMPPMessageDeliveryReceipts.m in Sources */,
-				D62E36991BC754BF00CA32DA /* LoginController.m in Sources */,
 				D6B2CEC71BBFE80A0046AD26 /* DDTTYLogger.m in Sources */,
 				D6B2CE951BBFE80A0046AD26 /* XMPPIQ+XEP_0060.m in Sources */,
 				D69341DF1BC16A940017F604 /* UIImage+ResizeImage.m in Sources */,
@@ -1921,7 +1926,6 @@
 				D65E93841BC974010024A9FD /* DetailController.m in Sources */,
 				D6B2CE6E1BBFE80A0046AD26 /* XMPPRosterMemoryStorage.m in Sources */,
 				D6B2CE771BBFE80A0046AD26 /* XMPPPrivacy.m in Sources */,
-				D62E369C1BC754BF00CA32DA /* LoginView.m in Sources */,
 				D6B2CE7B1BBFE80A0046AD26 /* XMPPRoomOccupantCoreDataStorageObject.m in Sources */,
 				D6B2CE781BBFE80A0046AD26 /* XMPPRoom.xcdatamodeld in Sources */,
 				D6B2CE541BBFE80A0046AD26 /* XMPPDigestMD5Authentication.m in Sources */,
@@ -1942,6 +1946,7 @@
 				D6B2CE891BBFE80A0046AD26 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				D6B2CE9F1BBFE80A0046AD26 /* NSString+XEP_0106.m in Sources */,
 				D65E93811BC94FFF0024A9FD /* NSString+Extension.m in Sources */,
+				D65E93A71BCB8F340024A9FD /* LoginView.m in Sources */,
 				D6B2CE6D1BBFE80A0046AD26 /* XMPPResourceMemoryStorageObject.m in Sources */,
 				D6B2CE651BBFE80A0046AD26 /* XMPPGoogleSharedStatus.m in Sources */,
 				D6B2CED21BBFE80A0046AD26 /* AppDelegate.m in Sources */,

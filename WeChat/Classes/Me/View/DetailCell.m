@@ -26,6 +26,7 @@
         [[avatar layer] setBorderWidth:1.0];
         [[avatar layer] setCornerRadius:5];
         [[avatar layer] setMasksToBounds:YES];
+        [avatar addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         self.avatar = avatar;
         XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
         
@@ -53,6 +54,10 @@
     // Configure the view for the selected state
 }
 
+-(void)btnClick:(UIButton *)btn
+{
+    [UIImage showImage:btn.imageView];
+}
 
 -(void)layoutSubviews
 {

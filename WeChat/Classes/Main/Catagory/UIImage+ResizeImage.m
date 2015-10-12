@@ -9,6 +9,7 @@
 #import "UIImage+ResizeImage.h"
 
 @implementation UIImage (ResizeImage)
+
 +(UIImage *)resizeImageWihtImageName:(NSString *)name
 {
     UIImage *normal = [UIImage imageNamed:name];

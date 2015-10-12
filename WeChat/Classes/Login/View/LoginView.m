@@ -7,9 +7,10 @@
 //
 
 #import "LoginView.h"
-#import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "UserInfo.h"
+#import "RegisterView.h"
+#import "XMPPvCardTemp.h"
 
 
 
@@ -27,11 +28,15 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        
+        XMPPvCardTemp *myVCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
         UIImageView *iCon = [[UIImageView alloc]init];
         iCon.image = [UIImage imageNamed:@"DefaultProfileHead_phone"];
+        
         self.iCon = iCon;
+        
+        
         NSString * user = [UserInfo sharedUserInfo].user;
-
         UITextField *userName = [[UITextField alloc]init];
         userName.placeholder = @"请输入用户名";
         if (user)
@@ -46,6 +51,7 @@
             userName.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0)];
             userName.leftViewMode = UITextFieldViewModeAlways;
         }
+        userName.delegate = self;
         self.userName = userName;
         
         UITextField *password = [[UITextField alloc]init];
@@ -60,9 +66,11 @@
 
         password.leftView = lockView;
         password.leftViewMode = UITextFieldViewModeAlways;
+        password.delegate = self;
         self.password = password;
         
         UIButton *login_Btn = [[UIButton alloc]init];
+        login_Btn.enabled = NO;
         [login_Btn setTitle:@"登陆" forState:UIControlStateNormal];
         [login_Btn setBackgroundImage:[UIImage resizeImageWihtImageName:@"fts_green_btn"] forState:UIControlStateNormal];
         [login_Btn addTarget:self action:@selector(loginClick) forControlEvents:UIControlEventTouchUpInside];
@@ -72,9 +80,15 @@
         [self addSubview:userName];
         [self addSubview:password];
         [self addSubview:login_Btn];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishRegister:) name:@"didFinishRegister" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextFieldTextDidChangeNotification object:userName];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextFieldTextDidChangeNotification object:password];
     }
     return self;
 }
+
 
 -(void)loginClick
 {
@@ -85,11 +99,12 @@
     userInfo.pwd = self.password.text;
     
     [MBProgressHUD showMessage:@"正在登陆中..." toView:self.superview];
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
     __weak typeof (self) selfVc = self;
     
-    [self endEditing:YES];
-    [app userLogin:^(XMPPResultType type) {
+    [XmppTools sharedXmppTools].registerOperation = NO;
+    
+    [self.superview endEditing:YES];
+    [[XmppTools sharedXmppTools] userLogin:^(XMPPResultType type) {
         [selfVc handleResultType:type];
     }];
     
@@ -108,12 +123,12 @@
             }
             case XMPPResultTypeLoginFailure:
             {
-                [MBProgressHUD showError:@"用户名或密码不正确"];
+                [MBProgressHUD showError:@"用户名或密码不正确" toView:self.superview];
                 break;
             }
             case XMPPResultTypeNetErr:
             {
-                [MBProgressHUD showError:@"网络有问题"];
+                [MBProgressHUD showError:@"网络有问题" toView:self.superview];
             }
             default:
                 break;
@@ -122,15 +137,36 @@
 
 }
 
+-(void)didFinishRegister:(NSNotification *)notification
+{
+    self.userName.text = [UserInfo sharedUserInfo].registerUserName;
+    self.userName.textAlignment = NSTextAlignmentCenter;
+    self.userName.enabled = NO;
+    self.userName.leftView = nil;
+    [self.userName setBackground:nil];
+    [MBProgressHUD showSuccess:@"注册成功，请输入密码登陆" toView:self.superview];
+}
+
+-(void)textDidChange
+{
+    if ([self.userName hasText] && [self.password hasText]) {
+        self.login_Btn.enabled = YES;
+    }
+    else
+    {
+        self.login_Btn.enabled = NO;
+    }
+}
+
 -(void)enterMainController
 {
     [UserInfo sharedUserInfo].loginStatus = YES;
-    
     [UserInfo sharedUserInfo].saveuserInfoToSanbox;
     //来到主界面
     MainTabBarController *tabBarController = [[MainTabBarController alloc]init];
-    [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-    [self.window.rootViewController presentViewController:tabBarController animated:YES completion:nil];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    window.rootViewController = tabBarController;
+    
 }
 
 -(void)layoutSubviews
@@ -155,8 +191,5 @@
     self.login_Btn.height = 40;
     self.login_Btn.x = (self.width - self.login_Btn.width) / 2;
     self.login_Btn.y = self.password.y + self.password.height + 10;
-    
-
-
 }
 @end

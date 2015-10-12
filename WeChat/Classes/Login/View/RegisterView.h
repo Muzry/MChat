@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol RegisterViewDelegate <NSObject>
+/**
+ *  完成注册
+ */
+-(void)registerViewDidFinishRegister;
+
+@end
+
 @interface RegisterView : UIView
+
+@property (nonatomic,weak) id<RegisterViewDelegate> delegate;
 
 @end
