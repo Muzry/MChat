@@ -8,7 +8,9 @@
 
 #import "AddFriendsController.h"
 
-@interface AddFriendsController()
+static NSString *domain = @"10.82.23.65";
+
+@interface AddFriendsController()<UITextFieldDelegate>
 
 @property (nonatomic,weak) UITextField *textField;
 
@@ -28,14 +30,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 1;
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    // 1.获取好友账号
+    NSString *user = textField.text;
+    
+    NSString *jidStr = [NSString stringWithFormat:@"%@@%@",user,domain];
+    
+    XMPPJID *friendJID = [XMPPJID jidWithString:jidStr];
+    
+    if ([user isEqualToString:[UserInfo sharedUserInfo].user])
+    {
+        [MBProgressHUD showError:@"不能添加自己" toView:self.view];
+        return YES;
+    }
+    if([[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream])
+    {
+        [MBProgressHUD showError:@"该用户已被添加" toView:self.view];
+        return YES;
+    }
+    // 2.发送好友添加的请求
+    [[XmppTools sharedXmppTools].roster subscribePresenceToUser:friendJID];
+    [MBProgressHUD showSuccess:@"好友申请已发送" toView:self.view];
+    return YES;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 1;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+   return 1;
 }
 
 
@@ -47,9 +69,12 @@
     textfield.x = 8;
     textfield.y = 0;
     textfield.height = cell.height;
-    textfield.width = self.view.width- textfield.x;
+    textfield.width = self.view.width - textfield.x;
     textfield.clearButtonMode = UITextFieldViewModeAlways;
     textfield.font = [UIFont systemFontOfSize:16];
+    textfield.placeholder = @"请输入要搜索的账号";
+    textfield.delegate = self;
+    textfield.returnKeyType = UIReturnKeySearch;
     self.textField = textfield;
     
     SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];

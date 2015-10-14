@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[ContactController tableView:commitEditingStyle:forRowAtIndexPath:]:ContactController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
@@ -10,6 +18,17 @@
             </PersistentString>
             <PersistentString
                value = "self.textField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "friendJID">
+            </PersistentString>
+            <PersistentString
+               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -38,10 +57,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.isRegisterOperation">
+               value = "self.delegate">
+            </PersistentString>
+            <PersistentString
+               value = "@selector(registerViewDidFinishRegister)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -68,13 +90,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
+         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.delegate">
-            </PersistentString>
-            <PersistentString
-               value = "@selector(registerViewDidFinishRegister)">
+               value = "self.isRegisterOperation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -83,6 +102,14 @@
          <PersistentStrings>
             <PersistentString
                value = "window.rootViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ContactController loadFriends]:ContactController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_resultsController.fetchedObjects.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

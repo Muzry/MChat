@@ -11,9 +11,8 @@
 #import "MainNavigationController.h"
 #import "MainTabBarController.h"
 
-@interface XmppTools ()<XMPPStreamDelegate>
+@interface XmppTools ()<XMPPStreamDelegate,XMPPRosterDelegate>
 {
-    XMPPStream * _xmppStream;
     XMPPResultBlock _resultBlock;
     
     XMPPReconnect *_reconnect;
@@ -21,10 +20,8 @@
     XMPPvCardCoreDataStorage * _vCardStorage;
     
     XMPPvCardAvatarModule * _avatar;
-    
-    XMPPRoster *_roster;
-
 }
+
 // 1. 初始化XMPPStream
 -(void)setupXMPPStream;
 
@@ -69,12 +66,13 @@ singleton_implementation(XmppTools)
     [_avatar activate:_xmppStream];
     
     //好友模块
-    _rosterStorage = [[XMPPRosterCoreDataStorage alloc]init];
-    _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
+    _rosterStorage = [XMPPRosterCoreDataStorage sharedInstance];
+    _roster = [[XMPPRoster alloc]initWithRosterStorage:_rosterStorage dispatchQueue:dispatch_get_global_queue(0, 0)];
     [_roster activate:_xmppStream];
     
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+    [_roster addDelegate:self delegateQueue:dispatch_get_main_queue()];
 }
 
 -(void)teardownXmpp
@@ -121,10 +119,10 @@ singleton_implementation(XmppTools)
     {
         user = [UserInfo sharedUserInfo].user;
     }
-    
+
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"10.82.23.65" resource:@"iPhone" ];
     _xmppStream.myJID = myJID;
-    
+
     // 设置服务器域名
     _xmppStream.hostName = @"10.82.23.65";//不仅可以是域名，还可是IP地址
     
@@ -278,6 +276,28 @@ singleton_implementation(XmppTools)
     window.rootViewController = loginViewController;
 }
 
-
+#pragma mark - 好友添加确认代理方法
+-(void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence
+{
+    // 通过代理同样可以知道好友的请求
+    
+    NSString *msg = [NSString stringWithFormat:@"%@请求添加为好友，是否确认", presence.from];
+    
+    // 1. 实例化
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    
+    // 2. 添加方法
+    [alert addAction:[UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        [self.roster acceptPresenceSubscriptionRequestFrom:presence.from andAddToRoster:NO];
+                      }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"接受" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // 接受好友请求
+        [self.roster acceptPresenceSubscriptionRequestFrom:presence.from andAddToRoster:YES];
+    }]];
+    
+    UIViewController *vc = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [vc presentViewController:alert animated:YES completion:nil];
+}
 
 @end

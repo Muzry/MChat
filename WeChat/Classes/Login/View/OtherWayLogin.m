@@ -132,6 +132,7 @@
 
     [UserInfo sharedUserInfo].saveuserInfoToSanbox;
     //来到主界面
+    [[self viewController] dismissViewControllerAnimated:YES completion:nil];
     MainTabBarController *tabBarController = [[MainTabBarController alloc]init];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     window.rootViewController = tabBarController;
