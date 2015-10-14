@@ -13,6 +13,8 @@
 #define LoginKey @"LoginStatus"
 #define AvatarKey @"AvatarImage"
 
+static NSString *domain = @"10.82.23.65";
+
 @implementation UserInfo
 singleton_implementation(UserInfo)
 
@@ -33,5 +35,10 @@ singleton_implementation(UserInfo)
     self.loginStatus = [defaults boolForKey:LoginKey];
 }
 
+
+-(NSString *)JID
+{
+    return [NSString stringWithFormat:@"%@@%@",self.user,domain];
+}
 
 @end

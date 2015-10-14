@@ -28,6 +28,9 @@ singleton_interface(UserInfo);
 /**登陆状态*/
 @property (nonatomic,assign) BOOL loginStatus;
 
+/**Jid*/
+@property (nonatomic,copy)NSString *JID;
+
 
 -(void)loadUserInfoFromSandBox;
 -(void)saveuserInfoToSanbox;

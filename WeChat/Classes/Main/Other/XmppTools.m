@@ -16,9 +16,14 @@
     XMPPStream * _xmppStream;
     XMPPResultBlock _resultBlock;
     
+    XMPPReconnect *_reconnect;
+    
     XMPPvCardCoreDataStorage * _vCardStorage;
     
     XMPPvCardAvatarModule * _avatar;
+    
+    XMPPRoster *_roster;
+
 }
 // 1. 初始化XMPPStream
 -(void)setupXMPPStream;
@@ -47,19 +52,53 @@ singleton_implementation(XmppTools)
 -(void)setupXMPPStream{
     
     _xmppStream = [[XMPPStream alloc] init];
+
+    
+    //添加自动连接模块
+    _reconnect = [[XMPPReconnect alloc] init];
+    [_reconnect activate:_xmppStream];
     
     //添加电子名片模块
     _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
-    _vCard = [[XMPPvCardTempModule alloc]initWithvCardStorage:_vCardStorage];
+    _vCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:_vCardStorage];
     //激活
     [_vCard activate:_xmppStream];
     
     //头像模块
-    _avatar = [[XMPPvCardAvatarModule alloc]initWithvCardTempModule:_vCard];
+    _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
     [_avatar activate:_xmppStream];
+    
+    //好友模块
+    _rosterStorage = [[XMPPRosterCoreDataStorage alloc]init];
+    _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
+    [_roster activate:_xmppStream];
     
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+}
+
+-(void)teardownXmpp
+{
+    //移除代理
+    [_xmppStream removeDelegate:self];
+    
+    //停止模块
+    [_reconnect deactivate];
+    [_vCard deactivate];
+    [_avatar deactivate];
+    [_roster deactivate];
+    
+    //断开连接
+    [_xmppStream disconnect];
+    
+    //清空资源
+    _reconnect = nil;
+    _vCard = nil;
+    _vCardStorage = nil;
+    _roster = nil;
+    _rosterStorage = nil;
+    _avatar = nil;
+    _xmppStream = nil;
 }
 
 #pragma mark 连接到服务器
@@ -211,6 +250,12 @@ singleton_implementation(XmppTools)
     //连接到主机 发送注册密码
     [self connectToHost];
 }
+
+-(void)dealloc
+{
+    [self teardownXmpp];
+}
+
 
 -(void)userLogout
 {

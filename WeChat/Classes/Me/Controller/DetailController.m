@@ -152,12 +152,18 @@
         DetailCell *detailcell = [[DetailCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
         cell = detailcell;
         self.detailcell = detailcell;
+        SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        [cell addSubview:topseparator];
     }
     else
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
         cell.detailTextLabel.text = detail.detailsContent;
         cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+        SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];
+        [cell addSubview:topseparator];
+        [cell addSubview:bottomseparator];
     }
     if (!(indexPath.section == 0 && indexPath.row == 2))
     {
@@ -238,6 +244,7 @@
 -(void)didFinishSave
 {
     XMPPvCardTemp *vCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
+    vCard.photo = UIImageJPEGRepresentation(self.detailcell.avatar.imageView.image,0.7f);
     vCard.nickname = [self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text;
     vCard.orgName = [self getLabelTextFromCellSection:1 Row:0].detailTextLabel.text;
     vCard.note = [self getLabelTextFromCellSection:1 Row:1].detailTextLabel.text;
@@ -283,7 +290,10 @@
         {
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        [self presentViewController:imagePicker animated:YES completion:
+         ^{
+             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+         }];
     }
     else
     {
@@ -309,11 +319,10 @@
 {
     UIImage *image = info[UIImagePickerControllerEditedImage];
     [self.detailcell.avatar setImage:image forState:UIControlStateNormal];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    XMPPvCardTemp *vCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
-    
-    vCard.photo = UIImagePNGRepresentation(image);
-    [[XmppTools sharedXmppTools].vCard updateMyvCardTemp:vCard];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }];
+    [self didFinishSave];
     if ([self.delegate respondsToSelector:@selector(didUpdateInfo)])
     {
         [self.delegate didUpdateInfo];

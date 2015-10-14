@@ -24,6 +24,7 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);
 singleton_interface(XmppTools)
 
 @property (nonatomic,strong)XMPPvCardTempModule * vCard;
+@property (nonatomic,strong)XMPPRosterCoreDataStorage *rosterStorage;
 
 //注册操作
 @property (nonatomic,assign,getter=isRegisterOperation) BOOL registerOperation;

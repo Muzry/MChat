@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D6046C061BC7C421003D53D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6046C051BC7C421003D53D1 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
+		D62B0C2C1BCDFFB00029186E /* AddFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B0C2B1BCDFFB00029186E /* AddFriendsController.m */; settings = {ASSET_TAGS = (); }; };
+		D62B0C301BCE02FB0029186E /* SeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B0C2F1BCE02FB0029186E /* SeparatorView.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E31BC3EC4900B5788C /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
@@ -190,6 +192,10 @@
 
 /* Begin PBXFileReference section */
 		D6046C051BC7C421003D53D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = WeChat/Assets.xcassets; sourceTree = "<group>"; };
+		D62B0C2A1BCDFFB00029186E /* AddFriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendsController.h; sourceTree = "<group>"; };
+		D62B0C2B1BCDFFB00029186E /* AddFriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendsController.m; sourceTree = "<group>"; };
+		D62B0C2E1BCE02FB0029186E /* SeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorView.h; sourceTree = "<group>"; };
+		D62B0C2F1BCE02FB0029186E /* SeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorView.m; sourceTree = "<group>"; };
 		D64C61DE1BC3EC4900B5788C /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
 		D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
 		D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -553,6 +559,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D62B0C2D1BCE02DE0029186E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D62B0C2E1BCE02FB0029186E /* SeparatorView.h */,
+				D62B0C2F1BCE02FB0029186E /* SeparatorView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D64C61DD1BC3EC4900B5788C /* MBProgessHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1570,6 +1585,7 @@
 		D6B2CE4C1BBFE80A0046AD26 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D62B0C2D1BCE02DE0029186E /* View */,
 				D6C0A5951BC2CC210033A2D5 /* Controller */,
 				D69341DA1BC16A940017F604 /* Catagory */,
 				D6B2CE4D1BBFE80A0046AD26 /* Other */,
@@ -1618,6 +1634,8 @@
 			children = (
 				D6C0A5A41BC2CF5D0033A2D5 /* ContactController.h */,
 				D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */,
+				D62B0C2A1BCDFFB00029186E /* AddFriendsController.h */,
+				D62B0C2B1BCDFFB00029186E /* AddFriendsController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1827,6 +1845,7 @@
 				D6B2CEA51BBFE80A0046AD26 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
 				D64C61F31BC576D400B5788C /* MeController.m in Sources */,
 				D6B2CE9E1BBFE80A0046AD26 /* XMPPTransports.m in Sources */,
+				D62B0C301BCE02FB0029186E /* SeparatorView.m in Sources */,
 				D6B2CECC1BBFE80A0046AD26 /* DDXMLDocument.m in Sources */,
 				D65E937E1BC943C30024A9FD /* MeMainCell.m in Sources */,
 				D6B2CE961BBFE80A0046AD26 /* XMPPPubSub.m in Sources */,
@@ -1934,6 +1953,7 @@
 				D6C0A59B1BC2CC210033A2D5 /* MainTabBarController.m in Sources */,
 				D6B2CE7A1BBFE80A0046AD26 /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				D6B2CE741BBFE80A0046AD26 /* XMPPJabberRPCModule.m in Sources */,
+				D62B0C2C1BCDFFB00029186E /* AddFriendsController.m in Sources */,
 				D6B2CE821BBFE80A0046AD26 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
 				D6B2CE5F1BBFE80A0046AD26 /* XMPPModule.m in Sources */,
 				D6B2CEC31BBFE80A0046AD26 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -2090,6 +2110,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lidan.WeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2112,6 +2133,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lidan.WeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

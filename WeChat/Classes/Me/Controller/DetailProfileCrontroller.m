@@ -92,6 +92,11 @@
     
     [cell addSubview:textfield];
     
+    SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+    SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];
+    [cell addSubview:topseparator];
+    [cell addSubview:bottomseparator];
+    
     NSNotification *notification =[NSNotification notificationWithName:UITextFieldTextDidChangeNotification object:nil userInfo:nil];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
     return cell;

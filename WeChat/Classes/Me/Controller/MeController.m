@@ -59,6 +59,10 @@
     {
         cell =[[MeMainCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 88, ScreenWidth, 0.5)];
+        [cell addSubview:topseparator];
+        [cell addSubview:bottomseparator];
     }
     else if(indexPath.section == 1)
     {
@@ -66,7 +70,12 @@
         cell.textLabel.text = @"退出登录";
         cell.textLabel.textColor = SelfColor(255, 97, 89);
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];
+        [cell addSubview:topseparator];
+        [cell addSubview:bottomseparator];
     }
+
     return cell;
 }
 -(void)didUpdateInfo
