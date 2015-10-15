@@ -68,6 +68,7 @@ singleton_implementation(XmppTools)
     //好友模块
     _rosterStorage = [XMPPRosterCoreDataStorage sharedInstance];
     _roster = [[XMPPRoster alloc]initWithRosterStorage:_rosterStorage dispatchQueue:dispatch_get_global_queue(0, 0)];
+    _roster.autoAcceptKnownPresenceSubscriptionRequests = NO;
     [_roster activate:_xmppStream];
     
     // 设置代理
@@ -120,11 +121,11 @@ singleton_implementation(XmppTools)
         user = [UserInfo sharedUserInfo].user;
     }
 
-    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"10.82.23.65" resource:@"iPhone" ];
+    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"muzry.local" resource:@"iPhone" ];
     _xmppStream.myJID = myJID;
 
     // 设置服务器域名
-    _xmppStream.hostName = @"10.82.23.65";//不仅可以是域名，还可是IP地址
+    _xmppStream.hostName = @"muzry.local";//不仅可以是域名，还可是IP地址
     
     // 设置端口 如果服务器端口是5222，可以省略
     _xmppStream.hostPort = 5222;
@@ -266,6 +267,7 @@ singleton_implementation(XmppTools)
     
     [UserInfo sharedUserInfo].loginStatus = NO;
     [UserInfo sharedUserInfo].saveuserInfoToSanbox;
+    [UserInfo sharedUserInfo].addFriends = nil;
     
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -279,25 +281,10 @@ singleton_implementation(XmppTools)
 #pragma mark - 好友添加确认代理方法
 -(void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence
 {
-    // 通过代理同样可以知道好友的请求
-    
-    NSString *msg = [NSString stringWithFormat:@"%@请求添加为好友，是否确认", presence.from];
-    
-    // 1. 实例化
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
-    
-    // 2. 添加方法
-    [alert addAction:[UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
-        [self.roster acceptPresenceSubscriptionRequestFrom:presence.from andAddToRoster:NO];
-                      }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"接受" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        // 接受好友请求
-        [self.roster acceptPresenceSubscriptionRequestFrom:presence.from andAddToRoster:YES];
-    }]];
-    
-    UIViewController *vc = [UIApplication sharedApplication].keyWindow.rootViewController;
-    [vc presentViewController:alert animated:YES completion:nil];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[@"userId"] = presence.from;
+    NSNotification *notification =[NSNotification notificationWithName:@"addFriends" object:nil userInfo:dict];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 @end

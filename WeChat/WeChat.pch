@@ -32,5 +32,6 @@
 #define RandomColor SelfColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
 #define CellBoard 20
+static NSString *domain = @"muzry.local";
 
 #endif /* WeChat_pch */

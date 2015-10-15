@@ -10,6 +10,8 @@
 		D6046C061BC7C421003D53D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6046C051BC7C421003D53D1 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		D62B0C2C1BCDFFB00029186E /* AddFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B0C2B1BCDFFB00029186E /* AddFriendsController.m */; settings = {ASSET_TAGS = (); }; };
 		D62B0C301BCE02FB0029186E /* SeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B0C2F1BCE02FB0029186E /* SeparatorView.m */; settings = {ASSET_TAGS = (); }; };
+		D62EDC911BCF2EDA00BD7351 /* NewFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62EDC901BCF2EDA00BD7351 /* NewFriendCell.m */; settings = {ASSET_TAGS = (); }; };
+		D62EDC941BCF2EF800BD7351 /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62EDC931BCF2EF800BD7351 /* FriendsCell.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E31BC3EC4900B5788C /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
@@ -196,6 +198,10 @@
 		D62B0C2B1BCDFFB00029186E /* AddFriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendsController.m; sourceTree = "<group>"; };
 		D62B0C2E1BCE02FB0029186E /* SeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorView.h; sourceTree = "<group>"; };
 		D62B0C2F1BCE02FB0029186E /* SeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorView.m; sourceTree = "<group>"; };
+		D62EDC8F1BCF2EDA00BD7351 /* NewFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFriendCell.h; sourceTree = "<group>"; };
+		D62EDC901BCF2EDA00BD7351 /* NewFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFriendCell.m; sourceTree = "<group>"; };
+		D62EDC921BCF2EF800BD7351 /* FriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsCell.h; sourceTree = "<group>"; };
+		D62EDC931BCF2EF800BD7351 /* FriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsCell.m; sourceTree = "<group>"; };
 		D64C61DE1BC3EC4900B5788C /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
 		D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
 		D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1650,6 +1656,10 @@
 		D6C0A59F1BC2CF430033A2D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D62EDC8F1BCF2EDA00BD7351 /* NewFriendCell.h */,
+				D62EDC901BCF2EDA00BD7351 /* NewFriendCell.m */,
+				D62EDC921BCF2EF800BD7351 /* FriendsCell.h */,
+				D62EDC931BCF2EF800BD7351 /* FriendsCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1915,6 +1925,7 @@
 				D6B2CE621BBFE80A0046AD26 /* XMPPStream.m in Sources */,
 				D6B2CE9C1BBFE80A0046AD26 /* XMPPMessage+XEP_0085.m in Sources */,
 				D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */,
+				D62EDC941BCF2EF800BD7351 /* FriendsCell.m in Sources */,
 				D6B2CE6A1BBFE80A0046AD26 /* XMPPRoster.xcdatamodel in Sources */,
 				D6B2CE981BBFE80A0046AD26 /* XMPPIQ+XEP_0066.m in Sources */,
 				D6B2CEBE1BBFE80A0046AD26 /* RFImageToDataTransformer.m in Sources */,
@@ -1965,6 +1976,7 @@
 				D6B2CEB81BBFE80A0046AD26 /* NSXMLElement+XEP_0297.m in Sources */,
 				D6B2CE891BBFE80A0046AD26 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				D6B2CE9F1BBFE80A0046AD26 /* NSString+XEP_0106.m in Sources */,
+				D62EDC911BCF2EDA00BD7351 /* NewFriendCell.m in Sources */,
 				D65E93811BC94FFF0024A9FD /* NSString+Extension.m in Sources */,
 				D65E93A71BCB8F340024A9FD /* LoginView.m in Sources */,
 				D6B2CE6D1BBFE80A0046AD26 /* XMPPResourceMemoryStorageObject.m in Sources */,

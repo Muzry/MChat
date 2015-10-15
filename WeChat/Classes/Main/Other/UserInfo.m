@@ -13,10 +13,17 @@
 #define LoginKey @"LoginStatus"
 #define AvatarKey @"AvatarImage"
 
-static NSString *domain = @"10.82.23.65";
-
 @implementation UserInfo
 singleton_implementation(UserInfo)
+
+-(NSMutableArray *)addFriends
+{
+    if(!_addFriends)
+    {
+        _addFriends = [NSMutableArray array];
+    }
+    return _addFriends;
+}
 
 -(void)saveuserInfoToSanbox
 {

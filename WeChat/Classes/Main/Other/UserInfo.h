@@ -31,6 +31,8 @@ singleton_interface(UserInfo);
 /**Jid*/
 @property (nonatomic,copy)NSString *JID;
 
+@property (nonatomic,strong) NSMutableArray *addFriends;
+
 
 -(void)loadUserInfoFromSandBox;
 -(void)saveuserInfoToSanbox;

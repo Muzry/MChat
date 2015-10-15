@@ -14,16 +14,25 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSLog(@"%@",path);
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendsMethod:) name:@"addFriends" object:nil];
     
     [[UserInfo sharedUserInfo] loadUserInfoFromSandBox];
     [self switchController];
     return YES;
+}
+
+-(void)addFriendsMethod:(NSNotification *)notification
+{
+    XMPPJID *Jid = notification.userInfo[@"userId"];
+    if (![[UserInfo sharedUserInfo].addFriends containsObject:Jid])
+    {
+        [[UserInfo sharedUserInfo].addFriends addObject:Jid];
+    }
 }
 
 #pragma mark 切换控制器

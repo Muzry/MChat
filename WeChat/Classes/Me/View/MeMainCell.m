@@ -40,7 +40,7 @@
         }
         else
         {
-            [avatar setImage:[UIImage imageNamed:@"DefaultHead"]];
+            [avatar setImage:[UIImage imageNamed:@"DefaultProfileHead_phone"]];
         }
 
         
@@ -66,30 +66,20 @@
     return self;
 }
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 -(void)layoutSubviews
 {
     [super layoutSubviews];
     self.avatar.width = 70;
     self.avatar.height = 70;
-    self.avatar.x = 9;
-    self.avatar.y = 9;
+    self.avatar.x = 10;
+    self.avatar.y = 10;
     
-    self.nickName.width = 150;
+    self.nickName.width = ScreenWidth - self.avatar.width - self.avatar.x;
     self.nickName.height = 30;
     self.nickName.x = self.avatar.width + CellBoard + self.avatar.x;
     self.nickName.y = self.avatar.height* 0.2;
     
-    self.account.width = 150;
+    self.account.width = self.nickName.width;
     self.account.height = 30;
     self.account.x = self.nickName.x;
     self.account.y = self.avatar.height* 0.6;

@@ -36,7 +36,7 @@
         }
         else
         {
-            [avatar setImage:[UIImage imageNamed:@"DefaultHead"] forState:UIControlStateNormal];
+            [avatar setImage:[UIImage imageNamed:@"DefaultProfileHead_phone"] forState:UIControlStateNormal];
         }
         
         [self addSubview:avatar];

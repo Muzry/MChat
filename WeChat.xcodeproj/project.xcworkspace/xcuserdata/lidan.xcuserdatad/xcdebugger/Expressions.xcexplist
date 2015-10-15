@@ -33,6 +33,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[AppDelegate addFriendsMethod:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.addFriends">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[DetailController tableView:cellForRowAtIndexPath:]:DetailController.m">
          <PersistentStrings>
             <PersistentString
@@ -114,6 +122,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "main:main.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].addFriends">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[DetailController numberOfSectionsInTableView:]:DetailController.m">
          <PersistentStrings>
             <PersistentString
@@ -131,6 +147,14 @@
       </ContextState>
       <ContextState
          contextName = "-[DetailController Groups]:DetailController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ContactController tableView:cellForRowAtIndexPath:]:ContactController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "user.jid">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -8,7 +8,7 @@
 
 #import "AddFriendsController.h"
 
-static NSString *domain = @"10.82.23.65";
+
 
 @interface AddFriendsController()<UITextFieldDelegate>
 
