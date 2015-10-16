@@ -29,6 +29,9 @@
     self.registerView.height = 300;
     self.registerView.x = (ScreenWidth - self.registerView.width) / 2;
     self.registerView.y = 100;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardDismiss)];
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +39,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)keyboardDismiss
+{
+    [self.view endEditing:YES];
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
+}
 
 -(void)back
 {

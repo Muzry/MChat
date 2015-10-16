@@ -29,6 +29,19 @@
     self.otherWayView.height = 300;
     self.otherWayView.x = (ScreenWidth - self.otherWayView.width) / 2;
     self.otherWayView.y = 0;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardDismiss)];
+    [self.view addGestureRecognizer:tapGesture];
+}
+
+-(void)keyboardDismiss
+{
+    [self.view endEditing:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

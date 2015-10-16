@@ -98,5 +98,10 @@
     [self presentViewController:registerController animated:YES completion:nil];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
+}
+
 
 @end

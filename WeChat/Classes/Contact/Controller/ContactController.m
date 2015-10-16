@@ -176,6 +176,7 @@
 }
 
 
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
@@ -188,12 +189,47 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete)
+    if (editingStyle == UITableViewCellEditingStyleDelete && indexPath.section == 1)
     {
         XMPPUserCoreDataStorageObject *friend = _resultsFriends.fetchedObjects[indexPath.row];
         XMPPJID *friendJid = friend.jid;
         [[XmppTools sharedXmppTools].roster removeUser:friendJid];
     }
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section == 0 && [UserInfo sharedUserInfo].addFriends.count != 0)
+    {
+        return 26;
+    }
+    if (section == 1 && self.resultsFriends.fetchedObjects.count != 0)
+    {
+        return 26;
+    }
+    return 0;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.width,26)];
+    [view setBackgroundColor:SelfColor(242, 242, 249)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 3, tableView.width - 10, 20)];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setTextColor:SelfColor(135, 135, 142)];
+    label.font = [UIFont systemFontOfSize:15];
+    if(section == 0 && [UserInfo sharedUserInfo].addFriends.count != 0)
+    {
+        [label setText:@"新的朋友"];
+        [view addSubview:label];
+    }
+    if (section == 1 && self.resultsFriends.fetchedObjects.count != 0)
+    {
+        [label setText:@"好友"];
+        [view addSubview:label];
+    }
+    return view;
 }
 
 

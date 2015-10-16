@@ -24,6 +24,7 @@
         UIButton *acceptBtn = [[UIButton alloc]init];
         [acceptBtn addTarget:self action:@selector(acceptClick) forControlEvents:UIControlEventTouchUpInside];
         [acceptBtn setTitle:@"接受" forState:UIControlStateNormal];
+        acceptBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [acceptBtn setTintColor:[UIColor whiteColor]];
         [acceptBtn setBackgroundImage:[UIImage resizeImageWihtImageName:@"fts_green_btn"] forState:UIControlStateNormal];
         self.acceptButton = acceptBtn;
@@ -33,6 +34,7 @@
         [rejectBtn addTarget:self action:@selector(rejectClick) forControlEvents:UIControlEventTouchUpInside];
         [rejectBtn setTitle:@"拒绝" forState:UIControlStateNormal];
         [rejectBtn setTintColor:[UIColor whiteColor]];
+        rejectBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [rejectBtn setBackgroundImage:[UIImage resizeImageWihtImageName:@"fts_gray_btn_HL"] forState:UIControlStateNormal];
         self.rejectButton = rejectBtn;
         
