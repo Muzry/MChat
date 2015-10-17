@@ -25,11 +25,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     // 1.获取好友账号

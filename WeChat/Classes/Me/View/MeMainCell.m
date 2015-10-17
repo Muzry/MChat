@@ -50,13 +50,13 @@
             nickName.text = myVCard.nickname;
         }
         
-        nickName.font = [UIFont systemFontOfSize:16];
+        nickName.font = [UIFont systemFontOfSize:17];
         self.nickName = nickName;
         
         UILabel *account = [[UILabel alloc]init];
         NSString *accountName = [NSString stringWithFormat:@"微信号 : %@",[UserInfo sharedUserInfo].user];
         account.text = accountName;
-        account.font = [UIFont systemFontOfSize:15];
+        account.font = [UIFont systemFontOfSize:14];
         self.account = account;
         
         [self addSubview:avatar];
@@ -74,14 +74,22 @@
     self.avatar.x = 10;
     self.avatar.y = 10;
     
-    self.nickName.width = ScreenWidth - self.avatar.width - self.avatar.x;
+    self.nickName.width = [self setContorllerWidth:self.nickName.font andText:self.nickName.text];
     self.nickName.height = 30;
     self.nickName.x = self.avatar.width + CellBoard + self.avatar.x;
     self.nickName.y = self.avatar.height* 0.2;
     
-    self.account.width = self.nickName.width;
+    self.account.width = [self setContorllerWidth:self.account.font andText:self.account.text];
     self.account.height = 30;
     self.account.x = self.nickName.x;
     self.account.y = self.avatar.height* 0.6;
+}
+
+
+-(CGFloat)setContorllerWidth:(UIFont *)font andText:(NSString *)text
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    CGSize size = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, 0.0) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+    return size.width;
 }
 @end

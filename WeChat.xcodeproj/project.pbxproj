@@ -17,6 +17,8 @@
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61E91BC52F2800B5788C /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E81BC52F2800B5788C /* UserInfo.m */; settings = {ASSET_TAGS = (); }; };
 		D64C61F31BC576D400B5788C /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61F01BC576D400B5788C /* MeController.m */; settings = {ASSET_TAGS = (); }; };
+		D652D1861BD0D81F007E1018 /* DetailFriendController.m in Sources */ = {isa = PBXBuildFile; fileRef = D652D1851BD0D81F007E1018 /* DetailFriendController.m */; settings = {ASSET_TAGS = (); }; };
+		D652D1891BD0DC0B007E1018 /* DetailFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D652D1881BD0DC0B007E1018 /* DetailFriendCell.m */; settings = {ASSET_TAGS = (); }; };
 		D65E937B1BC80FB70024A9FD /* XmppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E937A1BC80FB70024A9FD /* XmppTools.m */; settings = {ASSET_TAGS = (); }; };
 		D65E937E1BC943C30024A9FD /* MeMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E937D1BC943C30024A9FD /* MeMainCell.m */; settings = {ASSET_TAGS = (); }; };
 		D65E93811BC94FFF0024A9FD /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D65E93801BC94FFF0024A9FD /* NSString+Extension.m */; settings = {ASSET_TAGS = (); }; };
@@ -212,6 +214,10 @@
 		D64C61E81BC52F2800B5788C /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		D64C61EF1BC576D400B5788C /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
 		D64C61F01BC576D400B5788C /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
+		D652D1841BD0D81F007E1018 /* DetailFriendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFriendController.h; sourceTree = "<group>"; };
+		D652D1851BD0D81F007E1018 /* DetailFriendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFriendController.m; sourceTree = "<group>"; };
+		D652D1871BD0DC0B007E1018 /* DetailFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFriendCell.h; sourceTree = "<group>"; };
+		D652D1881BD0DC0B007E1018 /* DetailFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFriendCell.m; sourceTree = "<group>"; };
 		D65E93791BC80FB70024A9FD /* XmppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppTools.h; sourceTree = "<group>"; };
 		D65E937A1BC80FB70024A9FD /* XmppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmppTools.m; sourceTree = "<group>"; };
 		D65E937C1BC943C30024A9FD /* MeMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeMainCell.h; sourceTree = "<group>"; };
@@ -1642,6 +1648,8 @@
 				D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */,
 				D62B0C2A1BCDFFB00029186E /* AddFriendsController.h */,
 				D62B0C2B1BCDFFB00029186E /* AddFriendsController.m */,
+				D652D1841BD0D81F007E1018 /* DetailFriendController.h */,
+				D652D1851BD0D81F007E1018 /* DetailFriendController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1660,6 +1668,8 @@
 				D62EDC901BCF2EDA00BD7351 /* NewFriendCell.m */,
 				D62EDC921BCF2EF800BD7351 /* FriendsCell.h */,
 				D62EDC931BCF2EF800BD7351 /* FriendsCell.m */,
+				D652D1871BD0DC0B007E1018 /* DetailFriendCell.h */,
+				D652D1881BD0DC0B007E1018 /* DetailFriendCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1934,6 +1944,7 @@
 				D6B2CE851BBFE80A0046AD26 /* XMPPRoom.m in Sources */,
 				D6B2CE8D1BBFE80A0046AD26 /* XMPPvCardTempAdrTypes.m in Sources */,
 				D6B2CE601BBFE80A0046AD26 /* XMPPParser.m in Sources */,
+				D652D1891BD0DC0B007E1018 /* DetailFriendCell.m in Sources */,
 				D6B2CE5D1BBFE80A0046AD26 /* XMPPJID.m in Sources */,
 				D6B2CEB11BBFE80A0046AD26 /* XMPPPing.m in Sources */,
 				D69341E01BC16A940017F604 /* UIView+Extension.m in Sources */,
@@ -1954,6 +1965,7 @@
 				D6B2CE6C1BBFE80A0046AD26 /* XMPPUserCoreDataStorageObject.m in Sources */,
 				D6B2CECD1BBFE80A0046AD26 /* DDXMLElement.m in Sources */,
 				D65E93841BC974010024A9FD /* DetailController.m in Sources */,
+				D652D1861BD0D81F007E1018 /* DetailFriendController.m in Sources */,
 				D6B2CE6E1BBFE80A0046AD26 /* XMPPRosterMemoryStorage.m in Sources */,
 				D6B2CE771BBFE80A0046AD26 /* XMPPPrivacy.m in Sources */,
 				D6B2CE7B1BBFE80A0046AD26 /* XMPPRoomOccupantCoreDataStorageObject.m in Sources */,

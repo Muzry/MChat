@@ -10,6 +10,7 @@
 #import "AddFriendsController.h"
 #import "NewFriendCell.h"
 #import "FriendsCell.h"
+#import "DetailFriendController.h"
 #import "XMPPvCardTemp.h"
 
 @interface ContactController ()<NSFetchedResultsControllerDelegate,UIScrollViewDelegate>
@@ -182,10 +183,6 @@
     return 60;
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [self.tableView reloadData];
-}
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -232,5 +229,16 @@
     return view;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1)
+    {
+        DetailFriendController *detailfriends = [[DetailFriendController alloc]init];
+        XMPPUserCoreDataStorageObject *user = [self.resultsFriends.fetchedObjects objectAtIndex:indexPath.row];
+        detailfriends.account = user.jid;
+        
+        [self.navigationController pushViewController:detailfriends animated:YES];
+    }
+}
 
 @end

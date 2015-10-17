@@ -14,10 +14,10 @@
          contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.cell.detailTextLabel.text">
+               value = "self.textField.text">
             </PersistentString>
             <PersistentString
-               value = "self.textField.text">
+               value = "self.cell.detailTextLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -25,10 +25,10 @@
          contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
          <PersistentStrings>
             <PersistentString
-               value = "friendJID">
+               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
             </PersistentString>
             <PersistentString
-               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
+               value = "friendJID">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -153,6 +153,14 @@
          <PersistentStrings>
             <PersistentString
                value = "user.jid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailFriendCell init]:DetailFriendCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.Jid">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
