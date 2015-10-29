@@ -97,7 +97,7 @@
     
     self.nickName.width = [self setContorllerWidth:self.nickName.font andText:self.nickName.text];
     self.nickName.height = 30;
-    self.nickName.x = self.avatar.width + CellBoard + self.avatar.x;
+    self.nickName.x = self.avatar.width + 10 + self.avatar.x;
     self.nickName.y = self.avatar.height* 0.2;
     
     

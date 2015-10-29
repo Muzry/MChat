@@ -101,6 +101,7 @@
         UIResponder* nextResponder = [next nextResponder];
         if ([nextResponder isKindOfClass:[UIViewController class]])
         {
+            [UIView class];
             return (UIViewController*)nextResponder;
         }
     }

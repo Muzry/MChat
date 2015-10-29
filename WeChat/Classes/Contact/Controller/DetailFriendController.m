@@ -9,6 +9,7 @@
 #import "DetailFriendController.h"
 #import "DetailFriendCell.h"
 #import "XMPPvCardTemp.h"
+#import "MessageViewController.h"
 
 
 @interface DetailFriendController()
@@ -34,7 +35,7 @@
 {
     if (section == 2)
     {
-        return 2;
+        return 3;
     }
     return 1;
 }
@@ -65,7 +66,7 @@
         [cell addSubview:bottomseparator];
         return cell;
     }
-    else if (indexPath.row == 0)
+    else if (indexPath.section == 2 && indexPath.row == 0)
     {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"LocationCell"];
          XMPPvCardTemp *vCard = nil;
@@ -89,7 +90,7 @@
         [cell addSubview:bottomseparator];
         return cell;
     }
-    else
+    else if(indexPath.section == 2 && indexPath.row == 1)
     {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"PhotoCell"];
         bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 120, ScreenWidth, 0.5)];
@@ -98,6 +99,37 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [cell addSubview:topseparator];
         [cell addSubview:bottomseparator];
+        return cell;
+    }
+    else
+    {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"buttonCell"];
+        
+        cell.backgroundColor = [UIColor clearColor];
+        UIButton *sendMessage = [[UIButton alloc]init];
+        [sendMessage setTitle:@"发消息" forState:UIControlStateNormal];
+        [sendMessage setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [sendMessage addTarget:self action:@selector(sendMessageClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *vedioMessage = [[UIButton alloc]init];
+        [vedioMessage setTitle:@"视频聊天" forState:UIControlStateNormal];
+        [vedioMessage setTitleColor:SelfColor(93, 93, 93) forState:UIControlStateNormal];
+        [vedioMessage addTarget:self action:@selector(vedioMessageClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        sendMessage.x = 10;
+        sendMessage.y = 15;
+        sendMessage.width = ScreenWidth - 2 *sendMessage.x;
+        sendMessage.height = 40;
+        [sendMessage  setBackgroundImage:[UIImage resizeImageWihtImageName:@"GreenBigBtn"] forState:UIControlStateNormal];
+        
+        vedioMessage.x = sendMessage.x;
+        vedioMessage.y = 15 * 2 + sendMessage.height;
+        vedioMessage.width = sendMessage.width;
+        vedioMessage.height = 40;
+        [vedioMessage setBackgroundImage:[UIImage resizeImageWihtImageName:@"WhiteBigBtn"] forState:UIControlStateNormal];
+        
+        [cell addSubview:sendMessage];
+        [cell addSubview:vedioMessage];
         return cell;
     }
 }
@@ -109,6 +141,10 @@
         return 88;
     }
     else if (indexPath.section == 2 && indexPath.row == 1)
+    {
+        return 120;
+    }
+    else if(indexPath.section == 2 && indexPath.row == 2)
     {
         return 120;
     }
@@ -129,49 +165,25 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == 2)
-    {
-        return 150;
-    }
     return 16;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if (section == 2)
-    {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.width,150)];
-        view.backgroundColor = [UIColor clearColor];
-        UIButton *sendMessage = [[UIButton alloc]init];
-        [sendMessage setTitle:@"发消息" forState:UIControlStateNormal];
-        [sendMessage setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        
-        UIButton *vedioMessage = [[UIButton alloc]init];
-        [vedioMessage setTitle:@"视频聊天" forState:UIControlStateNormal];
-        [vedioMessage setTitleColor:SelfColor(93, 93, 93) forState:UIControlStateNormal];
-        
-        sendMessage.x = 10;
-        sendMessage.y = 15;
-        sendMessage.width = ScreenWidth - 2 *sendMessage.x;
-        sendMessage.height = 40;
-        [sendMessage  setBackgroundImage:[UIImage resizeImageWihtImageName:@"GreenBigBtn"] forState:UIControlStateNormal];
-        
-        vedioMessage.x = sendMessage.x;
-        vedioMessage.y = 15 * 2 + sendMessage.height;
-        vedioMessage.width = sendMessage.width;
-        vedioMessage.height = 40;
-        [vedioMessage setBackgroundImage:[UIImage resizeImageWihtImageName:@"WhiteBigBtn"] forState:UIControlStateNormal];
-        
-        [view addSubview:sendMessage];
-        [view addSubview:vedioMessage];
-        return view;
-    }
-    else
-    {
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.width,16)];
         view.backgroundColor = [UIColor clearColor];
         return view;
-    }
+}
+
+-(void)vedioMessageClick
+{
+    NSLog(@"视频聊天");
+}
+
+-(void)sendMessageClick
+{
+    MessageViewController *msgController = [[MessageViewController alloc]init];
+    [self.navigationController pushViewController:msgController animated:YES];
 }
 
 @end

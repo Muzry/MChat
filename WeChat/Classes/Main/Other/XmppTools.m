@@ -15,11 +15,15 @@
 {
     XMPPResultBlock _resultBlock;
     
-    XMPPReconnect *_reconnect;
+    XMPPReconnect * _reconnect;
     
-    XMPPvCardCoreDataStorage * _vCardStorage;
+    XMPPvCardCoreDataStorage * _vCardStorage; // 电子名片数据存储
     
-    XMPPvCardAvatarModule * _avatar;
+    XMPPvCardAvatarModule * _avatar; // 头像模块
+
+    XMPPMessageArchiving * _msgArchving; // 聊天模块
+
+    XMPPMessageArchivingCoreDataStorage * _msgStorage; //聊天的数据存储
 }
 
 // 1. 初始化XMPPStream
@@ -71,6 +75,11 @@ singleton_implementation(XmppTools)
     _roster.autoAcceptKnownPresenceSubscriptionRequests = NO;
     [_roster activate:_xmppStream];
     
+    //聊天模块
+    _msgStorage = [[XMPPMessageArchivingCoreDataStorage alloc] init];
+    _msgArchving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_msgStorage];
+    [_msgArchving activate:_xmppStream];
+    
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
     [_roster addDelegate:self delegateQueue:dispatch_get_main_queue()];
@@ -86,6 +95,7 @@ singleton_implementation(XmppTools)
     [_vCard deactivate];
     [_avatar deactivate];
     [_roster deactivate];
+    [_msgArchving deactivate];
     
     //断开连接
     [_xmppStream disconnect];
@@ -97,6 +107,8 @@ singleton_implementation(XmppTools)
     _roster = nil;
     _rosterStorage = nil;
     _avatar = nil;
+    _msgArchving = nil;
+    _msgStorage = nil;
     _xmppStream = nil;
 }
 
