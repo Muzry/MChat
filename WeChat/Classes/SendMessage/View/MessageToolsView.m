@@ -12,7 +12,7 @@
 #import "MessageFrameModel.h"
 #import "MessageTableView.h"
 
-@interface MessageToolsView()<UITextFieldDelegate>
+@interface MessageToolsView()<UITextViewDelegate>
 
 @property (nonatomic,strong)NSDictionary *autoReplay;
 
@@ -37,7 +37,7 @@
         
         [self setupBtn:@"ToolViewInputVoice" hightImage:@"ToolViewInputVoiceHL" tag:MessageToolsViewTypeSpeak];
         [self setupBtn:@"ToolViewEmotion" hightImage:@"ToolViewEmotionHL" tag:MessageToolsViewTypeEmotion];
-        [self setupBtn:@"chat_bottom_up_nor" hightImage:@"chat_bottom_up_press" tag:MessageToolsViewtypeMore];
+        [self setupBtn:@"TypeSelectorBtn_Black" hightImage:@"TypeSelectorBtn_BlackHL" tag:MessageToolsViewtypeMore];
         [self setupText];
     }
     return self;
@@ -55,31 +55,34 @@
 
 -(void)setupText
 {
-    UITextField *textField = [[UITextField alloc]init];
-    [textField setBackground:[UIImage resizeImageWihtImageName:@"SendTextViewBkg"]];
-    textField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0)];
-    textField.leftViewMode = UITextFieldViewModeAlways;
-    textField.font = [UIFont systemFontOfSize:15];
-    textField.returnKeyType = UIReturnKeySend;
-    textField.delegate = self;
-    textField.enablesReturnKeyAutomatically = YES; 
-    [self addSubview:textField];
+    UITextView *msgView = [[UITextView alloc]init];
+    
+    msgView.returnKeyType = UIReturnKeySend;
+    msgView.delegate = self;
+    msgView.enablesReturnKeyAutomatically = YES;
+    msgView.backgroundColor = [UIColor clearColor];
+    msgView.font = [UIFont systemFontOfSize:15];
+    msgView.contentInset = UIEdgeInsetsMake(5, 8, 0, 0);
+    msgView.scrollEnabled = NO;
+    [self addSubview:msgView];
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    //添加模型数据
-    [self addMessage:textField.text type:MessageModelMe];
-    if ([self autoReplay:[textField.text lowercaseString]])
+    
+    if ([@"\n" isEqualToString:text] == YES)
     {
-        [self addMessage:[self autoReplay:textField.text] type:MessageModelOther];
+        [self addMessage:textView.text type:MessageModelMe];
+        if ([self autoReplay:[textView.text lowercaseString]])
+        {
+            [self addMessage:[self autoReplay:textView.text] type:MessageModelOther];
+        }
+        textView.text = @"";
+        return NO;
     }
-    
-    textField.text = @"";
-    
-
     return YES;
 }
+
 
 -(NSString *)autoReplay:(NSString *)text
 {
@@ -124,11 +127,18 @@
     CGFloat btnW = 42;
     CGFloat btnH = 42;
     CGFloat textW = self.width - 3 * btnW;
-    UITextField *textField = self.subviews.lastObject;
-    textField.x = btnW;
-    textField.y = self.height / 2 - btnH / 2;
-    textField.height = btnH;
-    textField.width = textW;
+    
+    UITextView *msgView = [self.subviews lastObject];
+    msgView.x = btnW;
+    msgView.y = self.height / 2 - btnH / 2;
+    msgView.height = btnH - 2;
+    msgView.width = textW;
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame: CGRectMake(-10, -4, msgView.width, msgView.height)];
+    
+    imgView.image = [UIImage resizeImageWihtImageName:@"SendTextViewBkg"];
+    [msgView addSubview: imgView];
+    [msgView sendSubviewToBack:imgView];
+    
     for (int i = 0;  i < count - 1; i ++)
     {
         UIButton *button = self.subviews[i];

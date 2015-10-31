@@ -10,4 +10,6 @@
 
 @interface MessageViewController : UIViewController
 
+@property(nonatomic,weak) NSString *nickName;
+
 @end

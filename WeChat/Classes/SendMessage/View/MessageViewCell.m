@@ -57,11 +57,11 @@
         
         //2.正文
         UIButton *textView = [[UIButton alloc]init];
-        textView.titleLabel.font = [UIFont systemFontOfSize:14];
+        textView.titleLabel.font = [UIFont systemFontOfSize:15];
         textView.titleLabel.tintColor = [UIColor blackColor];
         textView.titleLabel.numberOfLines = 0;
         [textView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        textView.contentEdgeInsets = UIEdgeInsetsMake(12, 17, 17, 17);
+        textView.contentEdgeInsets = UIEdgeInsetsMake(5, 12, 12, 12);
         [self.contentView addSubview:textView];
         self.textView = textView;
         

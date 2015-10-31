@@ -35,10 +35,10 @@
     
     CGFloat textX;
     CGFloat textY = iconY;
-    CGSize textMaxSize = CGSizeMake(180, MAXFLOAT);
+    CGSize textMaxSize = CGSizeMake(200, MAXFLOAT);
     
     CGSize textRealSize = [message.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:dBtnFont} context:nil].size;
-    CGSize btnSize = CGSizeMake(textRealSize.width + 34, textRealSize.height + 34);
+    CGSize btnSize = CGSizeMake(textRealSize.width + 36, textRealSize.height + 34);
     
     if (message.type == MessageModelMe)
     {

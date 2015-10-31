@@ -22,6 +22,7 @@
     [super viewDidLoad];
     [self setupKeyBoard];
     [self setup];
+    
 
 }
 
@@ -54,6 +55,7 @@
 
 -(void)setup
 {
+    self.title = self.nickName;
     CGRect size = [UIScreen mainScreen].bounds;
     CGFloat width = size.size.width;
     CGFloat height = size.size.height;
@@ -63,7 +65,6 @@
     tableView.width = width;
     tableView.height = height - 64 - 42;
     
-    
     MessageToolsView *toolsView = [[MessageToolsView alloc]init];
     toolsView.x = 0;
     toolsView.y = tableView.height;
@@ -71,6 +72,9 @@
     toolsView.width = width;
     toolsView.hidden = NO;
     
+    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:10 inSection:0];
+    [tableView scrollToRowAtIndexPath:scrollIndexPath
+                            atScrollPosition:UITableViewScrollPositionTop animated:YES];
     [self.view addSubview:tableView];
     [self.view addSubview:toolsView];
 }

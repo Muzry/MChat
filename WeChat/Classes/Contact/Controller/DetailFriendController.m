@@ -53,6 +53,7 @@
         bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 88, ScreenWidth, 0.5)];
         [cell addSubview:topseparator];
         [cell addSubview:bottomseparator];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }
     else if (indexPath.section == 1)
@@ -130,6 +131,7 @@
         
         [cell addSubview:sendMessage];
         [cell addSubview:vedioMessage];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }
 }
@@ -183,7 +185,19 @@
 -(void)sendMessageClick
 {
     MessageViewController *msgController = [[MessageViewController alloc]init];
+    XMPPvCardTemp *vCard = nil;
+    msgController.nickName = self.account.user;
+    vCard = [[XmppTools sharedXmppTools].vCard vCardTempForJID:self.account shouldFetch:YES];
+    if (vCard != nil)
+    {
+        msgController.nickName = vCard.nickname;
+    }
     [self.navigationController pushViewController:msgController animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
