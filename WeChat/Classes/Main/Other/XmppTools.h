@@ -23,10 +23,11 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);
 @interface XmppTools : NSObject
 singleton_interface(XmppTools)
 
-@property (nonatomic,strong) XMPPStream * xmppStream;
-@property (nonatomic,strong) XMPPvCardTempModule * vCard;
-@property (nonatomic,strong) XMPPRosterCoreDataStorage *rosterStorage;
-@property (nonatomic,strong) XMPPRoster *roster;
+@property (nonatomic,strong,readonly) XMPPStream * xmppStream;
+@property (nonatomic,strong,readonly) XMPPvCardTempModule * vCard;
+@property (nonatomic,strong,readonly) XMPPRosterCoreDataStorage *rosterStorage;
+@property (nonatomic,strong,readonly) XMPPRoster *roster;
+@property (nonatomic,strong,readonly) XMPPMessageArchivingCoreDataStorage * msgStorage;
 
 //注册操作
 @property (nonatomic,assign,getter=isRegisterOperation) BOOL registerOperation;

@@ -14,19 +14,10 @@
 
 @interface MessageToolsView()<UITextViewDelegate>
 
-@property (nonatomic,strong)NSDictionary *autoReplay;
 
 @end
-
 @implementation MessageToolsView
 
--(NSDictionary *)autoReplay
-{
-    if (!_autoReplay) {
-        _autoReplay = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"autoReplay.plist" ofType:nil]];
-    }
-    return _autoReplay;
-}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -67,47 +58,30 @@
     [self addSubview:msgView];
 }
 
--(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+#pragma mark TextView的代理
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    
-    if ([@"\n" isEqualToString:text] == YES)
+    if([text isEqualToString:@"\n"])
     {
-        [self addMessage:textView.text type:MessageModelMe];
-        if ([self autoReplay:[textView.text lowercaseString]])
-        {
-            [self addMessage:[self autoReplay:textView.text] type:MessageModelOther];
-        }
+        NSString *resText = [textView.text substringWithRange:NSMakeRange(0, range.location)];
+        [self sendMsgWithText:resText];
         textView.text = @"";
-        return NO;
     }
     return YES;
 }
 
-
--(NSString *)autoReplay:(NSString *)text
+-(void)sendMsgWithText:(NSString *)text
 {
-    for (NSString* key in self.autoReplay)
-    {
-        if ([text rangeOfString:key].location < text.length)
-        {
-            return [self.autoReplay objectForKey:key];
-        }
-    }
-    return @"[自动回复]您好，我有事不在，请留言";
+    XMPPMessage *msg = [XMPPMessage messageWithType:@"chat" to:self.Jid];
+    
+    [msg addBody:text];
+    
+    [[XmppTools sharedXmppTools].xmppStream sendElement:msg];
 }
 
 -(void)addMessage:(NSString *)text type:(MessageModelType*)type
 {
     MessageModel *model = [[MessageModel alloc]init];
-    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
-    
-    fmt.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
-    fmt.dateFormat = @"HH:mm";
-    NSDate *date = [NSDate date];
-    
-    model.time = [fmt stringFromDate:date];
-    model.text = text;
-    model.type = type;
     
     MessageFrameModel *fm = [[MessageFrameModel alloc]init];
     fm.message = model;

@@ -47,7 +47,6 @@
         
         self.backgroundColor = [UIColor clearColor];
 
-        
         //1.时间Label
         UILabel *time = [[UILabel alloc]init];
         time.textAlignment = NSTextAlignmentCenter;

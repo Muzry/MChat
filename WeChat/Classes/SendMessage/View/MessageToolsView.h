@@ -17,5 +17,5 @@ typedef enum
 
 
 @interface MessageToolsView : UIView
-
+@property(nonatomic,weak) XMPPJID *Jid;
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "MessageToolsView.h"
 @interface MessageTableView : UITableView
-
+@property(nonatomic,weak) XMPPJID *Jid;
 @end

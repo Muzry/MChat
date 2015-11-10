@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class QQMessageFrameModel;
+@class MessageFrameModel;
 
 @interface MessageViewCell : UITableViewCell
 
 +(instancetype)messageCellWithTableView:(UITableView *)tableView;
 
 /** frame的模型*/
-@property (nonatomic,strong) QQMessageFrameModel *frameMessage;
+@property (nonatomic,strong) MessageFrameModel *frameMessage;
 
 @end

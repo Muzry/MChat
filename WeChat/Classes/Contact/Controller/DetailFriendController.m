@@ -187,6 +187,7 @@
     MessageViewController *msgController = [[MessageViewController alloc]init];
     XMPPvCardTemp *vCard = nil;
     msgController.nickName = self.account.user;
+    msgController.Jid = self.account;
     vCard = [[XmppTools sharedXmppTools].vCard vCardTempForJID:self.account shouldFetch:YES];
     if (vCard != nil)
     {

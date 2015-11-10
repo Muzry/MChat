@@ -11,9 +11,11 @@
 #import "MessageViewCell.h"
 #import "MessageFrameModel.h"
 
-@interface MessageTableView() <UITableViewDataSource,UITableViewDelegate>
+@interface MessageTableView() <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
+{
+    NSFetchedResultsController *_resultController;
+}
 
-@property(nonatomic,strong) NSMutableArray * message;
 @end
 
 @implementation MessageTableView
@@ -29,10 +31,14 @@
         self.allowsSelection = NO;
         self.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addMessage:) name:@"addMessage" object:nil];
-
+        
     }
     return self;
+}
+
+-(void)willMoveToSuperview:(UIView *)newSuperview
+{
+    [self loadMsgs];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -40,72 +46,78 @@
     [self.superview endEditing:YES];
 }
 
--(void)addMessageArray:(QQMessageFrameModel *)frameModel
+#pragma mark -- 加载XMPPMessageArchiving数据库的数据显示在表格
+-(void)loadMsgs
 {
-    [self.message addObject:frameModel];
-    [self reloadData];
-}
-
--(NSMutableArray *)message
-{
-    if (!_message)
+    // 上下文
+    NSManagedObjectContext *context = [XmppTools sharedXmppTools].msgStorage.mainThreadManagedObjectContext;
+    
+    //请求对象
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"XMPPMessageArchiving_Message_CoreDataObject"];
+    
+    // 过滤，排序
+    // 1、当前登录用户的JID
+    // 2、好友的JID
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"streamBareJidStr = %@ AND bareJidStr = %@",[UserInfo sharedUserInfo].JID,self.Jid.bare];
+    
+    // 时间升序
+    NSSortDescriptor *timeSort = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES];
+    request.predicate = pre;
+    request.sortDescriptors = @[timeSort];
+    
+    //查询
+    _resultController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    
+    NSError *err = nil;
+    _resultController.delegate = self;
+    [_resultController performFetch:&err];
+    if (err)
     {
-        NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"messages.plist" ofType:nil]];
-        
-        NSMutableArray *messageArr = [NSMutableArray array];
-        
-        for (NSDictionary *dict in array)
-        {
-            MessageModel *message = [MessageModel messageWithDict:dict];
-            
-            MessageFrameModel *frameModel = [[MessageFrameModel alloc]init];
-            
-            MessageFrameModel *lastModel = [messageArr lastObject];
-            message.isSameTime =  [lastModel.message.time isEqualToString:message.time];
-            
-            frameModel.message = message;
-            
-            [messageArr addObject:frameModel];
-        }
-        _message = messageArr;
+        NSLog(@"%@",err);
     }
-    return _message;
+
 }
 
--(void)addMessage:(NSNotification *)notification
-{
-    MessageFrameModel *frameModel = notification.userInfo[@"FrameModel"];
-    MessageFrameModel *lastModel = [self.message lastObject];
-    frameModel.message.isSameTime =[frameModel.message.time isEqual:lastModel.message.time];
-    [self.message addObject:frameModel];
-    [self reloadData];
-    [self ScrollToEnd];
-}
 
 -(void)ScrollToEnd
 {
-    NSIndexPath *path = [NSIndexPath indexPathForItem:self.message.count - 1 inSection:0];
+    NSIndexPath *path = [NSIndexPath indexPathForItem:_resultController.fetchedObjects.count - 1 inSection:0];
     [self scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.message.count;
+    return _resultController.fetchedObjects.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MessageViewCell *cell = [MessageViewCell messageCellWithTableView:tableView];
-    QQMessageFrameModel *frameModel = self.message[indexPath.row];
+    
+    XMPPMessageArchiving_Message_CoreDataObject *msg = _resultController.fetchedObjects[indexPath.row];
+    MessageModel *message = [MessageModel initWithFetchObject:msg];
+    
+    MessageFrameModel *frameModel = [[MessageFrameModel alloc]init];
+    frameModel.message = message;
     cell.frameMessage = frameModel;
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MessageFrameModel *frameModel = self.message[indexPath.row];
+    XMPPMessageArchiving_Message_CoreDataObject *msg = _resultController.fetchedObjects[indexPath.row];
+    MessageModel *message = [MessageModel initWithFetchObject:msg];
+    
+    MessageFrameModel *frameModel = [[MessageFrameModel alloc]init];
+    frameModel.message = message;
     return frameModel.cellH;
+}
+
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self reloadData];
+    [self ScrollToEnd];
 }
 
 @end

@@ -9,19 +9,27 @@
 #import "MessageModel.h"
 @implementation MessageModel
 
-
--(instancetype)initWithDict:(NSDictionary *)dict
++(MessageModel*)initWithFetchObject:(XMPPMessageArchiving_Message_CoreDataObject *)msg
 {
-    if (self = [super init])
+    MessageModel *msgmodel = [[MessageModel alloc]init];
+    msgmodel.text = msg.body;
+    if (msg.isOutgoing == YES)
     {
-        [self setValuesForKeysWithDictionary:dict];
+        msgmodel.type = MessageModelMe;
+    }
+    else
+    {
+        msgmodel.type = MessageModelOther;
     }
     
-    return self;
+    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
+    
+    fmt.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+    fmt.dateFormat = @"HH:mm";
+    NSDate *date = msg.timestamp;
+    msgmodel.time = [fmt stringFromDate:date];
+    
+    return msgmodel;
 }
 
-+(instancetype)messageWithDict:(NSDictionary *)dict
-{
-    return [[self alloc] initWithDict:dict];
-}
 @end

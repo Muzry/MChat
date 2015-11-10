@@ -24,8 +24,6 @@ typedef enum
 
 @property (nonatomic,assign)BOOL isSameTime;
 
--(instancetype)initWithDict:(NSDictionary *)dict;
-
-+(instancetype)messageWithDict:(NSDictionary *)dict;
++(MessageModel*)initWithFetchObject:(XMPPMessageArchiving_Message_CoreDataObject *)msg;
 
 @end

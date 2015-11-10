@@ -3,60 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[ContactController tableView:commitEditingStyle:forRowAtIndexPath:]:ContactController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "indexPath">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.textField.text">
-            </PersistentString>
-            <PersistentString
-               value = "self.cell.detailTextLabel.text">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
-            </PersistentString>
-            <PersistentString
-               value = "friendJID">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[AppDelegate addFriendsMethod:]:AppDelegate.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.addFriends">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[DetailController tableView:cellForRowAtIndexPath:]:DetailController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "cell.tag">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[DetailController imagePickerController:didFinishPickingMediaWithInfo:]:DetailController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[UserInfo sharedUserInfo].avatarImage">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[UserInfo saveuserInfoToSanbox]:UserInfo.m">
          <PersistentStrings>
             <PersistentString
@@ -65,24 +11,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
+         contextName = "-[ContactController loadFriends]:ContactController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.delegate">
-            </PersistentString>
-            <PersistentString
-               value = "@selector(registerViewDidFinishRegister)">
+               value = "_resultsController.fetchedObjects.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController didFinishSave]:DetailController.m">
+         contextName = "-[MessageToolsView textView:shouldChangeTextInRange:replacementText:]:MessageToolsView.m">
          <PersistentStrings>
             <PersistentString
-               value = "vCard.nickname">
+               value = "textView.text">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ContactController tableView:cellForRowAtIndexPath:]:ContactController.m">
+         <PersistentStrings>
             <PersistentString
-               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
+               value = "user.jid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController imagePickerController:didFinishPickingMediaWithInfo:]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].avatarImage">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -98,42 +54,56 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.isRegisterOperation">
+               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
+            </PersistentString>
+            <PersistentString
+               value = "friendJID">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[XmppTools userLogout]:XmppTools.m">
+         contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
          <PersistentStrings>
             <PersistentString
-               value = "window.rootViewController">
+               value = "self.delegate">
+            </PersistentString>
+            <PersistentString
+               value = "@selector(registerViewDidFinishRegister)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[ContactController loadFriends]:ContactController.m">
+         contextName = "-[DetailController tableView:cellForRowAtIndexPath:]:DetailController.m">
          <PersistentStrings>
             <PersistentString
-               value = "_resultsController.fetchedObjects.count">
+               value = "cell.tag">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "main:main.m">
+         contextName = "-[ContactController tableView:commitEditingStyle:forRowAtIndexPath:]:ContactController.m">
          <PersistentStrings>
             <PersistentString
-               value = "[UserInfo sharedUserInfo].addFriends">
+               value = "indexPath">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController numberOfSectionsInTableView:]:DetailController.m">
+         contextName = "-[MessageViewController viewDidLoad]:MessageViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.Groups.count">
+               value = "self.Jid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate addFriendsMethod:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.addFriends">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -146,13 +116,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController Groups]:DetailController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[ContactController tableView:cellForRowAtIndexPath:]:ContactController.m">
+         contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
-               value = "user.jid">
+               value = "self.textField.text">
+            </PersistentString>
+            <PersistentString
+               value = "self.cell.detailTextLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -161,6 +131,52 @@
          <PersistentStrings>
             <PersistentString
                value = "self.Jid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController numberOfSectionsInTableView:]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.Groups.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "main:main.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].addFriends">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController didFinishSave]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "vCard.nickname">
+            </PersistentString>
+            <PersistentString
+               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isRegisterOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController Groups]:DetailController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[XmppTools userLogout]:XmppTools.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "window.rootViewController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

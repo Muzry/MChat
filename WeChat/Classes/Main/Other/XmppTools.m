@@ -23,7 +23,7 @@
 
     XMPPMessageArchiving * _msgArchving; // 聊天模块
 
-    XMPPMessageArchivingCoreDataStorage * _msgStorage; //聊天的数据存储
+     //聊天的数据存储
 }
 
 // 1. 初始化XMPPStream
