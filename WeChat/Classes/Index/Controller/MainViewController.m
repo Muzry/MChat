@@ -10,17 +10,29 @@
 
 @interface MainViewController ()
 
+@property (nonatomic,strong) NSMutableArray *msgRecordArray;
+
 @end
 
 @implementation MainViewController
 
+-(NSMutableArray *)msgRecordArray
+{
+    if (!_msgRecordArray)
+    {
+        _msgRecordArray = [NSMutableArray array];
+    }
+    return _msgRecordArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMessage:) name:@"SendMessage" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 #pragma mark - Table view data source
@@ -35,9 +47,25 @@
     return 0;
 }
 
+-(void)receiveMessage:(NSNotification *)notification
+{
+    int i = 0;
+    for (NSDictionary *dict in self.msgRecordArray)
+    {
+        i ++;
+        if (dict[@"username"] == notification.userInfo[@"username"])
+        {
+            self.msgRecordArray[i] = notification.userInfo;
+            return ;
+        }
+    }
+    [self.msgRecordArray addObject:notification.userInfo];
+    [self.tableView reloadData];
+}
+
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
     
     // Configure the cell...
     

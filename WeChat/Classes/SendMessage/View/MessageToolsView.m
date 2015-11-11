@@ -66,6 +66,13 @@
     {
         NSString *resText = [textView.text substringWithRange:NSMakeRange(0, range.location)];
         [self sendMsgWithText:resText];
+
+        
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[@"username"] = self.Jid;
+        dict[@"msgtext"] = textView.text;
+        NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:dict];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
         textView.text = @"";
     }
     

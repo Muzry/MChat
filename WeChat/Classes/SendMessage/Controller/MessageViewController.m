@@ -26,7 +26,6 @@
     [super viewDidLoad];
     [self setupKeyBoard];
     [self setup];
-
 }
 
 -(void)didReceiveMemoryWarning
@@ -58,7 +57,6 @@
         self.view.y = keyBoardRect.origin.y - self.view.height;
     }];
 }
-
 
 -(void)setup
 {
