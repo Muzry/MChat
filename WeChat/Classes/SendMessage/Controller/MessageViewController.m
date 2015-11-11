@@ -15,6 +15,10 @@
 #import "MessageFrameModel.h"
 #import "Constant.h"
 
+@interface MessageViewController()
+
+@end
+
 @implementation MessageViewController
 
 -(void)viewDidLoad
@@ -22,6 +26,7 @@
     [super viewDidLoad];
     [self setupKeyBoard];
     [self setup];
+
 }
 
 -(void)didReceiveMemoryWarning
@@ -34,6 +39,8 @@
     return YES;
 }
 
+#pragma mark -- 加载XMPPMessageArchiving数据库的数据显示在表格
+
 
 -(void)setupKeyBoard
 {
@@ -42,11 +49,13 @@
 
 -(void)keyboardDidChangeFrame:(NSNotification *)notification
 {
+    
     NSDictionary *userInfo = notification.userInfo;
-    double keyDuration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     CGRect keyBoardRect = [userInfo [UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    [UIView animateWithDuration:keyDuration animations:^{
-        self.view.transform = CGAffineTransformMakeTranslation(0, keyBoardRect.origin.y - dScreenHeight);
+
+    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.view.y = keyBoardRect.origin.y - self.view.height;
     }];
 }
 
@@ -59,10 +68,10 @@
     CGFloat height = size.size.height;
     
     MessageTableView *tableView = [[MessageTableView alloc]init];
-    tableView.Jid = self.Jid;
     tableView.x = tableView.y = 0;
     tableView.width = width;
     tableView.height = height - 64 - 42;
+    tableView.Jid = self.Jid;
     
     MessageToolsView *toolsView = [[MessageToolsView alloc]init];
     toolsView.Jid = self.Jid;
@@ -72,10 +81,14 @@
     toolsView.width = width;
     toolsView.hidden = NO;
     
-//    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:10 inSection:0];
-//    [tableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     [self.view addSubview:tableView];
     [self.view addSubview:toolsView];
+    
+    if (tableView.resultController.fetchedObjects.count > 0)
+    {
+        NSIndexPath *path = [NSIndexPath indexPathForItem:tableView.resultController.fetchedObjects.count - 1 inSection:0];
+        [tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 
 @end

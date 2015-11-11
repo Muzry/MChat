@@ -10,6 +10,7 @@
 #import "DetailFriendCell.h"
 #import "XMPPvCardTemp.h"
 #import "MessageViewController.h"
+#import "MainTabBarController.h"
 
 
 @interface DetailFriendController()
@@ -189,12 +190,15 @@
     msgController.nickName = self.account.user;
     msgController.Jid = self.account;
     vCard = [[XmppTools sharedXmppTools].vCard vCardTempForJID:self.account shouldFetch:YES];
-    if (vCard != nil)
+    if (vCard.nickname != nil)
     {
         msgController.nickName = vCard.nickname;
     }
+    
     [self.navigationController pushViewController:msgController animated:YES];
+    
 }
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {

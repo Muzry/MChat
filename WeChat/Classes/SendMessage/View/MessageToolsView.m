@@ -55,6 +55,7 @@
     msgView.font = [UIFont systemFontOfSize:15];
     msgView.contentInset = UIEdgeInsetsMake(5, 8, 0, 0);
     msgView.scrollEnabled = NO;
+    msgView.font = [UIFont systemFontOfSize:16];
     [self addSubview:msgView];
 }
 
@@ -67,8 +68,10 @@
         [self sendMsgWithText:resText];
         textView.text = @"";
     }
+    
     return YES;
 }
+
 
 -(void)sendMsgWithText:(NSString *)text
 {
@@ -78,21 +81,6 @@
     
     [[XmppTools sharedXmppTools].xmppStream sendElement:msg];
 }
-
--(void)addMessage:(NSString *)text type:(MessageModelType*)type
-{
-    MessageModel *model = [[MessageModel alloc]init];
-    
-    MessageFrameModel *fm = [[MessageFrameModel alloc]init];
-    fm.message = model;
-    
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[@"FrameModel"] = fm;
-    
-    NSNotification *notification =[NSNotification notificationWithName:@"addMessage" object:nil userInfo:dict];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
-}
-
 
 -(void)layoutSubviews
 {
@@ -124,7 +112,6 @@
         button.y = self.height / 2 - btnH / 2;
         button.width = btnW;
         button.height = btnH;
-        
     }
 }
 

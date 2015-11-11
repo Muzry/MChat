@@ -12,9 +12,6 @@
 #import "MessageFrameModel.h"
 
 @interface MessageTableView() <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
-{
-    NSFetchedResultsController *_resultController;
-}
 
 @end
 
@@ -41,12 +38,6 @@
     [self loadMsgs];
 }
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self.superview endEditing:YES];
-}
-
-#pragma mark -- 加载XMPPMessageArchiving数据库的数据显示在表格
 -(void)loadMsgs
 {
     // 上下文
@@ -58,7 +49,7 @@
     // 过滤，排序
     // 1、当前登录用户的JID
     // 2、好友的JID
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"streamBareJidStr = %@ AND bareJidStr = %@",[UserInfo sharedUserInfo].JID,self.Jid.bare];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"streamBareJidStr = %@ AND bareJidStr = %@",[[UserInfo sharedUserInfo].JID lowercaseString],self.Jid.bare];
     
     // 时间升序
     NSSortDescriptor *timeSort = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES];
@@ -75,9 +66,12 @@
     {
         NSLog(@"%@",err);
     }
-
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.superview endEditing:YES];
+}
 
 -(void)ScrollToEnd
 {
@@ -94,7 +88,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MessageViewCell *cell = [MessageViewCell messageCellWithTableView:tableView];
-    
+    cell.OtherJid = self.Jid;
     XMPPMessageArchiving_Message_CoreDataObject *msg = _resultController.fetchedObjects[indexPath.row];
     MessageModel *message = [MessageModel initWithFetchObject:msg];
     

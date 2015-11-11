@@ -15,5 +15,6 @@
 
 /** frame的模型*/
 @property (nonatomic,strong) MessageFrameModel *frameMessage;
+@property (nonatomic,weak) XMPPJID *OtherJid;
 
 @end

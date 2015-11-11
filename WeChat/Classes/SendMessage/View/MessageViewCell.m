@@ -10,6 +10,7 @@
 #import "MessageFrameModel.h"
 #import "MessageModel.h"
 #import "UIImage+ResizeImage.h"
+#import "XMPPvCardTemp.h"
 
 @interface MessageViewCell()
 
@@ -56,7 +57,7 @@
         
         //2.正文
         UIButton *textView = [[UIButton alloc]init];
-        textView.titleLabel.font = [UIFont systemFontOfSize:15];
+        textView.titleLabel.font = [UIFont systemFontOfSize:16];
         textView.titleLabel.tintColor = [UIColor blackColor];
         textView.titleLabel.numberOfLines = 0;
         [textView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -96,14 +97,21 @@
     // 2.头像
     self.icon.frame = frameMessage.iconF;
 
+    XMPPvCardTemp *VCard;
     if (model.type == MessageModelMe)
     {
-        self.icon.image = [UIImage imageNamed:@"Gatsby"];
+        VCard = [XmppTools sharedXmppTools].vCard.myvCardTemp;
     }
     else
     {
-        self.icon.image = [UIImage imageNamed:@"Jobs"];
+        VCard = [[XmppTools sharedXmppTools].vCard vCardTempForJID:self.OtherJid shouldFetch:YES];
     }
+    self.icon.image = [UIImage imageNamed:@"DefaultProfileHead_phone"];
+    if (VCard.photo)
+    {
+        self.icon.image = [UIImage imageWithData:VCard.photo];
+    }
+    
     [[self.icon layer] setBorderWidth:0.5];
     [[self.icon layer] setBorderColor:SelfColor(218, 218, 218).CGColor];
     

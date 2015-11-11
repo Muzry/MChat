@@ -10,7 +10,7 @@
 
 @interface MessageViewController : UIViewController
 
-@property(nonatomic,weak) NSString *nickName;
-@property(nonatomic,weak) XMPPJID *Jid;
+@property(nonatomic,strong) NSString *nickName;
+@property(nonatomic,strong) XMPPJID *Jid;
 
 @end

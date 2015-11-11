@@ -291,12 +291,17 @@ singleton_implementation(XmppTools)
 }
 
 #pragma mark - 好友添加确认代理方法
+
 -(void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[@"userId"] = presence.from;
     NSNotification *notification =[NSNotification notificationWithName:@"addFriends" object:nil userInfo:dict];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
+
+-(void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
+{
 }
 
 @end
