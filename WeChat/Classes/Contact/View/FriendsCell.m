@@ -21,8 +21,8 @@
         UIImageView *avatar = [[UIImageView alloc]init];
         self.avatar = avatar;
         
-        [self addSubview:friendName];
-        [self addSubview:avatar];
+        [self.contentView addSubview:friendName];
+        [self.contentView addSubview:avatar];
     }
     return self;
 }

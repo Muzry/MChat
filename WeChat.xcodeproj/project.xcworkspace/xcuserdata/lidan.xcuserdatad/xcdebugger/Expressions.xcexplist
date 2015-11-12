@@ -11,7 +11,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController Groups]:DetailController.m">
+         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isRegisterOperation">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[MessageToolsView textView:shouldChangeTextInRange:replacementText:]:MessageToolsView.m">
@@ -68,10 +73,10 @@
          contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
          <PersistentStrings>
             <PersistentString
-               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
+               value = "friendJID">
             </PersistentString>
             <PersistentString
-               value = "friendJID">
+               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -130,10 +135,10 @@
          contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.textField.text">
+               value = "self.cell.detailTextLabel.text">
             </PersistentString>
             <PersistentString
-               value = "self.cell.detailTextLabel.text">
+               value = "self.textField.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -142,6 +147,17 @@
          <PersistentStrings>
             <PersistentString
                value = "self.Jid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MainViewController tableView:cellForRowAtIndexPath:]:MainViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.msgRecordArray">
+            </PersistentString>
+            <PersistentString
+               value = "cell.dict">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -170,6 +186,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[DetailController Groups]:DetailController.m">
+      </ContextState>
+      <ContextState
          contextName = "-[DetailController didFinishSave]:DetailController.m">
          <PersistentStrings>
             <PersistentString
@@ -193,14 +212,6 @@
          <PersistentStrings>
             <PersistentString
                value = "window.rootViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.isRegisterOperation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

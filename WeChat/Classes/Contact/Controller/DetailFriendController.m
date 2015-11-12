@@ -52,8 +52,8 @@
         cell.Jid = self.account;
         [cell setInit];
         bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 88, ScreenWidth, 0.5)];
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }
@@ -64,8 +64,8 @@
         cell.textLabel.text = @"设置备注和标签";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.font = [UIFont systemFontOfSize:15];
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
         return cell;
     }
     else if (indexPath.section == 2 && indexPath.row == 0)
@@ -87,9 +87,9 @@
             area.text = vCard.note;
         }
         
-        [cell addSubview:area];
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:area];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
         return cell;
     }
     else if(indexPath.section == 2 && indexPath.row == 1)
@@ -99,8 +99,8 @@
         cell.textLabel.text = @"个人相册";
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
         return cell;
     }
     else
@@ -130,8 +130,8 @@
         vedioMessage.height = 40;
         [vedioMessage setBackgroundImage:[UIImage resizeImageWihtImageName:@"WhiteBigBtn"] forState:UIControlStateNormal];
         
-        [cell addSubview:sendMessage];
-        [cell addSubview:vedioMessage];
+        [cell.contentView addSubview:sendMessage];
+        [cell.contentView addSubview:vedioMessage];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }

@@ -25,7 +25,8 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -40,13 +41,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Incomplete implementation, return the number of sections
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete implementation, return the number of rows
     return 1;
 }
 
@@ -61,8 +60,8 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
         SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 88, ScreenWidth, 0.5)];
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
     }
     else if(indexPath.section == 1)
     {
@@ -72,8 +71,8 @@
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
         SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
 
     }
 

@@ -56,7 +56,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"通讯录";
     [self.resultsFriends performFetch:NULL];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"contacts_add_friend"] style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
@@ -140,8 +139,8 @@
             }
         }
         
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
         return cell;
     }
     else
@@ -165,8 +164,8 @@
             }
         }
         
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
         return cell;
     }
     // subscription

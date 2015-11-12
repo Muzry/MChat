@@ -153,7 +153,7 @@
         cell = detailcell;
         self.detailcell = detailcell;
         SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
-        [cell addSubview:topseparator];
+        [cell.contentView addSubview:topseparator];
     }
     else
     {
@@ -162,8 +162,8 @@
         cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
         SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
         SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];
-        [cell addSubview:topseparator];
-        [cell addSubview:bottomseparator];
+        [cell.contentView addSubview:topseparator];
+        [cell.contentView addSubview:bottomseparator];
     }
     if (!(indexPath.section == 0 && indexPath.row == 2))
     {

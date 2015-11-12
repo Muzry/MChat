@@ -25,7 +25,7 @@
     NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
     
     fmt.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
-    fmt.dateFormat = @"HH:mm";
+    fmt.dateFormat = @"yyyy-MM-dd-HH:mm";
     NSDate *date = msg.timestamp;
     msgmodel.time = [fmt stringFromDate:date];
     

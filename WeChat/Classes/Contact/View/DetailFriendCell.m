@@ -34,8 +34,6 @@
     
     UIButton *avatar = [[UIButton alloc]init];
     [avatar setImage:[UIImage imageNamed:@"DefaultProfileHead_phone"] forState:UIControlStateNormal];
-    [[avatar layer] setBorderColor:SelfColor(206, 206, 206).CGColor];
-    [[avatar layer] setBorderWidth:1.0];
     [[avatar layer] setCornerRadius:5];
     [[avatar layer] setMasksToBounds:YES];
     [avatar addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -74,10 +72,10 @@
     self.nickName = nickName;
     self.userAccount = userAccount;
     self.sex = sex;
-    [self addSubview:avatar];
-    [self addSubview:nickName];
-    [self addSubview:userAccount];
-    [self addSubview:sex];
+    [self.contentView addSubview:avatar];
+    [self.contentView addSubview:nickName];
+    [self.contentView addSubview:userAccount];
+    [self.contentView addSubview:sex];
 
 }
 

@@ -74,9 +74,9 @@
     
     SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];
     SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
-    [cell addSubview:textfield];
-    [cell addSubview:topseparator];
-    [cell addSubview:bottomseparator];
+    [cell.contentView addSubview:textfield];
+    [cell.contentView addSubview:topseparator];
+    [cell.contentView addSubview:bottomseparator];
     return cell;
 }
 

@@ -64,13 +64,22 @@
 {
     if([text isEqualToString:@"\n"])
     {
-        NSString *resText = [textView.text substringWithRange:NSMakeRange(0, range.location)];
-        [self sendMsgWithText:resText];
+        NSString *final = [textView.text substringWithRange:NSMakeRange(0, range.location)];
+        [self sendMsgWithText:final];
 
         
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        
+        NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
+        
+        fmt.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+        fmt.dateFormat = @"yyyy-MM-dd-HH:mm";
+        NSDate *date = [NSDate date];
+        
         dict[@"username"] = self.Jid;
-        dict[@"msgtext"] = textView.text;
+        dict[@"msgtext"] = final;
+        dict[@"time"] = [fmt stringFromDate:date];
+        
         NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:dict];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
         textView.text = @"";

@@ -47,10 +47,10 @@
         XMPPJID *Jid = [[XMPPJID alloc] init];
         self.Jid = Jid;
         
-        [self addSubview:avatar];
-        [self addSubview:acceptBtn];
-        [self addSubview:rejectBtn];
-        [self addSubview:friendName];
+        [self.contentView addSubview:avatar];
+        [self.contentView addSubview:acceptBtn];
+        [self.contentView addSubview:rejectBtn];
+        [self.contentView addSubview:friendName];
     }
     return self;
 }

@@ -27,8 +27,6 @@
     if (self)
     {
         UIImageView *avatar = [[UIImageView alloc]init];
-        [[avatar layer] setBorderColor:SelfColor(206, 206, 206).CGColor];
-        [[avatar layer] setBorderWidth:1.0];
         [[avatar layer] setCornerRadius:5];
         [[avatar layer] setMasksToBounds:YES];
         self.avatar = avatar;
@@ -59,9 +57,9 @@
         account.font = [UIFont systemFontOfSize:14];
         self.account = account;
         
-        [self addSubview:avatar];
-        [self addSubview:nickName];
-        [self addSubview:account];
+        [self.contentView addSubview:avatar];
+        [self.contentView addSubview:nickName];
+        [self.contentView addSubview:account];
     }
     return self;
 }

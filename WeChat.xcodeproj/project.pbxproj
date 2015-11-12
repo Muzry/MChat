@@ -175,6 +175,7 @@
 		D6C0A59B1BC2CC210033A2D5 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5991BC2CC210033A2D5 /* MainTabBarController.m */; };
 		D6C0A5A61BC2CF5D0033A2D5 /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */; };
 		D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */; };
+		D6DF50E41BF41E9300215DBB /* WeChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DF50E31BF41E9300215DBB /* WeChatCell.m */; };
 		D6E00C861BE219AB00D65CBB /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E00C791BE219AB00D65CBB /* MessageViewController.m */; };
 		D6E00C871BE219AB00D65CBB /* MessageFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E00C7C1BE219AB00D65CBB /* MessageFrameModel.m */; };
 		D6E00C881BE219AB00D65CBB /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E00C7E1BE219AB00D65CBB /* MessageModel.m */; };
@@ -549,6 +550,8 @@
 		D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
 		D6C0A5AE1BC2CF850033A2D5 /* FriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsController.h; sourceTree = "<group>"; };
 		D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsController.m; sourceTree = "<group>"; };
+		D6DF50E21BF41E9300215DBB /* WeChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatCell.h; sourceTree = "<group>"; };
+		D6DF50E31BF41E9300215DBB /* WeChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatCell.m; sourceTree = "<group>"; };
 		D6E00C781BE219AB00D65CBB /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		D6E00C791BE219AB00D65CBB /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		D6E00C7B1BE219AB00D65CBB /* MessageFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFrameModel.h; sourceTree = "<group>"; };
@@ -747,6 +750,8 @@
 		D69341E41BC173BD0017F604 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6DF50E21BF41E9300215DBB /* WeChatCell.h */,
+				D6DF50E31BF41E9300215DBB /* WeChatCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2028,6 +2033,7 @@
 				D6B2CEC51BBFE80A0046AD26 /* DDFileLogger.m in Sources */,
 				D6B2CE5E1BBFE80A0046AD26 /* XMPPMessage.m in Sources */,
 				D6B2CE931BBFE80A0046AD26 /* NSXMLElement+XEP_0059.m in Sources */,
+				D6DF50E41BF41E9300215DBB /* WeChatCell.m in Sources */,
 				D6B2CE731BBFE80A0046AD26 /* XMPPIQ+JabberRPCResonse.m in Sources */,
 				D6B2CE831BBFE80A0046AD26 /* XMPPMessage+XEP0045.m in Sources */,
 				D6B2CEA31BBFE80A0046AD26 /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
