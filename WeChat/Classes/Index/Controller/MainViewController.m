@@ -9,25 +9,16 @@
 #import "MainViewController.h"
 #import "WeChatCell.h"
 
-@interface MainViewController ()
-
-@property (nonatomic,strong) NSMutableArray *msgRecordArray;
-
-@end
-
 @implementation MainViewController
 
--(NSMutableArray *)msgRecordArray
+- (void)viewDidLoad
 {
-    if (!_msgRecordArray)
-    {
-        _msgRecordArray = [NSMutableArray array];
-    }
-    return _msgRecordArray;
-}
-
-- (void)viewDidLoad {
     [super viewDidLoad];
+    NSArray *plist = [NSArray arrayWithContentsOfFile:[self recordPath]];
+    if (plist)
+    {
+        [UserInfo sharedUserInfo].msgRecordArray = [plist mutableCopy];
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMessage:) name:@"SendMessage" object:nil];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
@@ -42,29 +33,30 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.msgRecordArray.count;
+    return [UserInfo sharedUserInfo].msgRecordArray.count;
 }
 
 -(void)receiveMessage:(NSNotification *)notification
 {
     int i = 0;
-    for (NSDictionary *dict in self.msgRecordArray)
+    for (NSDictionary *dict in [UserInfo sharedUserInfo].msgRecordArray)
     {
-        i++;
-        if (dict[@"username"] == notification.userInfo[@"username"])
+        if ([((XMPPJID*)dict[@"username"]).user isEqualToString:((XMPPJID*)notification.userInfo[@"username"]).user])
         {
-            self.msgRecordArray[i] = notification.userInfo;
+            [UserInfo sharedUserInfo].msgRecordArray[i] = notification.userInfo;
+            [self.tableView reloadData];
             return ;
         }
+        i++;
     }
-    [self.msgRecordArray addObject:notification.userInfo];
+    [[UserInfo sharedUserInfo].msgRecordArray addObject:notification.userInfo];
     [self.tableView reloadData];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WeChatCell *cell = [WeChatCell weChatCellWithTableView:tableView AndDict:self.msgRecordArray[indexPath.row]];
+    WeChatCell *cell = [WeChatCell weChatCellWithTableView:tableView AndDict:[UserInfo sharedUserInfo].msgRecordArray[indexPath.row]];
     SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
     SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 70, ScreenWidth, 0.5)];
     [cell.contentView addSubview:topseparator];
@@ -77,6 +69,12 @@
     return 70;
 }
 
+-(NSString*)recordPath
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filename = [NSString stringWithFormat:@"records%@.plist",[UserInfo sharedUserInfo].user];
+    return [[pathList objectAtIndex:0] stringByAppendingPathComponent:filename];
+}
 
 
 @end

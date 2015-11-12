@@ -25,6 +25,15 @@ singleton_implementation(UserInfo)
     return _addFriends;
 }
 
+-(NSMutableArray *)msgRecordArray
+{
+    if (!_msgRecordArray)
+    {
+        _msgRecordArray = [NSMutableArray array];
+    }
+    return _msgRecordArray;
+}
+
 -(void)saveuserInfoToSanbox
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

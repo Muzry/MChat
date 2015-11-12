@@ -33,6 +33,8 @@ singleton_interface(UserInfo);
 
 @property (nonatomic,strong) NSMutableArray *addFriends;
 
+@property (nonatomic,strong) NSMutableArray *msgRecordArray;
+
 
 -(void)loadUserInfoFromSandBox;
 -(void)saveuserInfoToSanbox;

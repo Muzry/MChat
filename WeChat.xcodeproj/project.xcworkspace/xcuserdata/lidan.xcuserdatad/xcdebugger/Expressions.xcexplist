@@ -11,10 +11,24 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.isRegisterOperation">
+               value = "notification.userInfo">
+            </PersistentString>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController didFinishSave]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "vCard.nickname">
+            </PersistentString>
+            <PersistentString
+               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -154,10 +168,10 @@
          contextName = "-[MainViewController tableView:cellForRowAtIndexPath:]:MainViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.msgRecordArray">
+               value = "cell.dict">
             </PersistentString>
             <PersistentString
-               value = "cell.dict">
+               value = "self.msgRecordArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -189,17 +203,6 @@
          contextName = "-[DetailController Groups]:DetailController.m">
       </ContextState>
       <ContextState
-         contextName = "-[DetailController didFinishSave]:DetailController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "vCard.nickname">
-            </PersistentString>
-            <PersistentString
-               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[ContactController loadFriends]:ContactController.m">
          <PersistentStrings>
             <PersistentString
@@ -212,6 +215,14 @@
          <PersistentStrings>
             <PersistentString
                value = "window.rootViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isRegisterOperation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

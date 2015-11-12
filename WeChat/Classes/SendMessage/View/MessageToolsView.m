@@ -64,9 +64,6 @@
 {
     if([text isEqualToString:@"\n"])
     {
-        NSString *final = [textView.text substringWithRange:NSMakeRange(0, range.location)];
-        [self sendMsgWithText:final];
-
         
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         
@@ -75,6 +72,12 @@
         fmt.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
         fmt.dateFormat = @"yyyy-MM-dd-HH:mm";
         NSDate *date = [NSDate date];
+        
+
+        
+        NSString *final = [textView.text substringWithRange:NSMakeRange(0, range.location)];
+        [self sendMsgWithText:final Time:[fmt stringFromDate:date]];
+
         
         dict[@"username"] = self.Jid;
         dict[@"msgtext"] = final;
@@ -89,12 +92,12 @@
 }
 
 
--(void)sendMsgWithText:(NSString *)text
+-(void)sendMsgWithText:(NSString *)text Time:(NSString *)time
 {
     XMPPMessage *msg = [XMPPMessage messageWithType:@"chat" to:self.Jid];
     
     [msg addBody:text];
-    
+    [msg addSubject:time];
     [[XmppTools sharedXmppTools].xmppStream sendElement:msg];
 }
 

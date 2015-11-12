@@ -10,15 +10,13 @@
 #import "LoginController.h"
 #import "MainNavigationController.h"
 #import "MainTabBarController.h"
+#import "MainViewController.h"
 
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSLog(@"%@",path);
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendsMethod:) name:@"addFriends" object:nil];
     
     [[UserInfo sharedUserInfo] loadUserInfoFromSandBox];
@@ -60,4 +58,20 @@
     
     [self.window makeKeyAndVisible];
 }
+
+
+-(void)applicationDidEnterBackground:(UIApplication *)application
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filename = [NSString stringWithFormat:@"records%@.plist",[UserInfo sharedUserInfo].user];
+    [[UserInfo sharedUserInfo].msgRecordArray writeToFile:[[pathList objectAtIndex:0] stringByAppendingPathComponent:filename] atomically:YES];
+}
+
+-(void)applicationWillTerminate:(UIApplication *)application
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filename = [NSString stringWithFormat:@"records%@.plist",[UserInfo sharedUserInfo].user];
+    [[UserInfo sharedUserInfo].msgRecordArray writeToFile:[[pathList objectAtIndex:0] stringByAppendingPathComponent:filename] atomically:YES];
+}
+
 @end

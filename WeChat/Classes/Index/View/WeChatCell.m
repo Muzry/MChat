@@ -23,11 +23,7 @@
     static NSString *ID = @"weChatCell";
     
     WeChatCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-
-    if  (cell == nil)
-    {
-        cell =[[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID AndDict:dict];
-    }
+    cell =[[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID AndDict:dict];
     return cell;
 }
 
@@ -58,13 +54,16 @@
         
         //1.时间Label
         UILabel *time = [[UILabel alloc]init];
-        time.font = [UIFont systemFontOfSize:12];
+        time.font = [UIFont systemFontOfSize:14];
+        time.textColor = SelfColor(185, 185, 185);
         time.text = dict[@"time"];
         [self.contentView addSubview:time];
         self.time = time;
         
         //2.正文
         UILabel *text = [[UILabel alloc]init];
+        text.font = [UIFont systemFontOfSize:14];
+        text.textColor = SelfColor(185, 185, 185);
         text.text = dict[@"msgtext"];
 
         self.text = text;
@@ -110,20 +109,18 @@
     self.nickName.height = 20;
     self.nickName.width = 100;
     
+    //设置时间位置
+    self.time.x = self.width - 100;
+    self.time.y = self.nickName.y;
+    self.time.width = 200;
+    self.time.height = 20;
+    
     //设置文本位置
     
     self.text.x = self.nickName.x;
-    self.text.y = self.nickName.y + self.nickName.height;
+    self.text.y = self.nickName.y + self.nickName.height + 5;
     self.text.width = 200;
     self.text.height = 20;
-    
-    //设置时间位置
-    
-    self.time.x = self.width - 100;
-    self.time.y = self.text.y;
-    self.time.width = 100;
-    self.time.height = 20;
-    
 }
 
 @end

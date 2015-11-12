@@ -280,6 +280,7 @@ singleton_implementation(XmppTools)
     [UserInfo sharedUserInfo].loginStatus = NO;
     [UserInfo sharedUserInfo].saveuserInfoToSanbox;
     [UserInfo sharedUserInfo].addFriends = nil;
+    [UserInfo sharedUserInfo].msgRecordArray = nil;
     
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -302,6 +303,14 @@ singleton_implementation(XmppTools)
 
 -(void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
 {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    dict[@"username"] = message.from;
+    dict[@"msgtext"] = message.body;
+    dict[@"time"] = message.subject;
+    
+    NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:dict];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 @end
