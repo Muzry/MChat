@@ -14,7 +14,7 @@
 
 @interface MessageToolsView()<UITextViewDelegate>
 
-
+@property (nonatomic,strong) UITextView *textView;
 @end
 @implementation MessageToolsView
 
@@ -24,12 +24,12 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chat_bottom_bg"]];
-        
+        [self setImage:[UIImage resizeImageWihtImageName:@"chat_bottom_bg"]];
         [self setupBtn:@"ToolViewInputVoice" hightImage:@"ToolViewInputVoiceHL" tag:MessageToolsViewTypeSpeak];
         [self setupBtn:@"ToolViewEmotion" hightImage:@"ToolViewEmotionHL" tag:MessageToolsViewTypeEmotion];
         [self setupBtn:@"TypeSelectorBtn_Black" hightImage:@"TypeSelectorBtn_BlackHL" tag:MessageToolsViewtypeMore];
         [self setupText];
+        self.userInteractionEnabled = YES;
     }
     return self;
 }
@@ -51,20 +51,31 @@
     msgView.returnKeyType = UIReturnKeySend;
     msgView.delegate = self;
     msgView.enablesReturnKeyAutomatically = YES;
-    msgView.backgroundColor = [UIColor clearColor];
+    msgView.backgroundColor = [UIColor whiteColor];
     msgView.font = [UIFont systemFontOfSize:15];
-    msgView.contentInset = UIEdgeInsetsMake(5, 8, 0, 0);
-    msgView.scrollEnabled = NO;
+    msgView.contentInset = UIEdgeInsetsMake(0, 5, 0, 0);
     msgView.font = [UIFont systemFontOfSize:16];
+    msgView.layer.cornerRadius = 6;
+    msgView.layer.borderColor = SelfColor(185, 185, 185).CGColor;
+    msgView.layer.borderWidth = 1.0f;
+    msgView.height = 36;
+    msgView.width = self.width - 3 * 42;
+    msgView.x = 42;
+    msgView.y = self.height / 2 - msgView.height / 2;
+    msgView.contentSize = CGSizeMake(0, msgView.height);
+    self.textView = msgView;
     [self addSubview:msgView];
 }
 
 #pragma mark TextView的代理
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+
+-(void)textViewDidChange:(UITextView *)textView
 {
-    if([text isEqualToString:@"\n"])
+    CGFloat contentH = textView.contentSize.height;
+    
+    
+    if ([textView.text rangeOfString:@"\n"].length != 0)
     {
-        
         NSMutableDictionary *newDict = [NSMutableDictionary dictionary];
         
         NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
@@ -73,17 +84,15 @@
         fmt.dateFormat = @"yyyy-MM-dd-HH:mm";
         NSDate *date = [NSDate date];
         
-
         
-        NSString *final = [textView.text substringWithRange:NSMakeRange(0, range.location)];
+        
+        NSString *final = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         [self sendMsgWithText:final Time:[fmt stringFromDate:date]];
-
+        
         
         newDict[@"username"] = self.Jid.bare;
         newDict[@"msgtext"] = final;
         newDict[@"time"] = [fmt stringFromDate:date];
-        
-        textView.text = @"";
         
         int i = 0;
         BOOL flag = NO;
@@ -104,7 +113,31 @@
         [self writeToFile];
         NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:newDict];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
+        
+        textView.text = @"";
     }
+    if (!textView.hasText)
+    {
+        self.height = 42;
+        self.y = 561;
+        self.textView.height = 36;
+        self.textView.y = self.height / 2 - self.textView.height / 2;
+        self.textView.contentSize = CGSizeMake(0, self.textView.height);
+    }
+    else if (contentH < 97)
+    {
+        self.y = self.y + self.height - contentH - 6;
+        self.height = contentH + 6;
+        self.textView.contentSize = CGSizeMake(0, contentH);
+        self.textView.height = contentH;
+        self.textView.y = self.height / 2 - self.textView.height / 2;
+    }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    
+
     
     return YES;
 }
@@ -133,18 +166,6 @@
     CGFloat btnW = 42;
     CGFloat btnH = 42;
     CGFloat textW = self.width - 3 * btnW;
-    
-    UITextView *msgView = [self.subviews lastObject];
-    msgView.x = btnW;
-    msgView.y = self.height / 2 - btnH / 2;
-    msgView.height = btnH - 2;
-    msgView.width = textW;
-    UIImageView *imgView = [[UIImageView alloc]initWithFrame: CGRectMake(-10, -4, msgView.width, msgView.height)];
-    
-    imgView.image = [UIImage resizeImageWihtImageName:@"SendTextViewBkg"];
-    [msgView addSubview: imgView];
-    [msgView sendSubviewToBack:imgView];
-    
     for (int i = 0;  i < count - 1; i ++)
     {
         UIButton *button = self.subviews[i];
@@ -153,7 +174,7 @@
         {
             button.x += textW;
         }
-        button.y = self.height / 2 - btnH / 2;
+        button.y = self.height - button.height;
         button.width = btnW;
         button.height = btnH;
     }

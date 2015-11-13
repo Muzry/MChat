@@ -11,19 +11,33 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController Groups]:DetailController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[ContactController loadFriends]:ContactController.m">
+         contextName = "-[XmppTools userLogout]:XmppTools.m">
          <PersistentStrings>
             <PersistentString
-               value = "_resultsController.fetchedObjects.count">
+               value = "window.rootViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "notification.userInfo">
+            </PersistentString>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
+            </PersistentString>
+            <PersistentString
+               value = "dict">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[MessageToolsView textView:shouldChangeTextInRange:replacementText:]:MessageToolsView.m">
          <PersistentStrings>
+            <PersistentString
+               value = "textView.hasText">
+            </PersistentString>
             <PersistentString
                value = "[UserInfo sharedUserInfo].msgRecordArray">
             </PersistentString>
@@ -87,10 +101,10 @@
          contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
          <PersistentStrings>
             <PersistentString
-               value = "friendJID">
+               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
             </PersistentString>
             <PersistentString
-               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
+               value = "friendJID">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -149,10 +163,10 @@
          contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.cell.detailTextLabel.text">
+               value = "self.textField.text">
             </PersistentString>
             <PersistentString
-               value = "self.textField.text">
+               value = "self.cell.detailTextLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -211,6 +225,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[DetailController Groups]:DetailController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ContactController loadFriends]:ContactController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_resultsController.fetchedObjects.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[DetailController didFinishSave]:DetailController.m">
          <PersistentStrings>
             <PersistentString
@@ -226,28 +251,6 @@
          <PersistentStrings>
             <PersistentString
                value = "self.isRegisterOperation">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[XmppTools userLogout]:XmppTools.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "window.rootViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "dict">
-            </PersistentString>
-            <PersistentString
-               value = "notification.userInfo">
-            </PersistentString>
-            <PersistentString
-               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

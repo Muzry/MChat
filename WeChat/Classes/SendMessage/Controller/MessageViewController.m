@@ -71,12 +71,8 @@
     tableView.height = height - 64 - 42;
     tableView.Jid = self.Jid;
     
-    MessageToolsView *toolsView = [[MessageToolsView alloc]init];
+    MessageToolsView *toolsView = [[MessageToolsView alloc]initWithFrame:CGRectMake(0, tableView.height, width, 42)];
     toolsView.Jid = self.Jid;
-    toolsView.x = 0;
-    toolsView.y = tableView.height;
-    toolsView.height = 42;
-    toolsView.width = width;
     toolsView.hidden = NO;
     
     [self.view addSubview:tableView];
