@@ -38,7 +38,7 @@
         //0.用户昵称
         
         UILabel *nickName = [[UILabel alloc]init];
-        XMPPJID *Jid = dict[@"username"];
+        XMPPJID *Jid = [XMPPJID jidWithString:dict[@"username"]];
         
         XMPPvCardTemp *VCard;
         VCard = [[XmppTools sharedXmppTools].vCard vCardTempForJID:Jid shouldFetch:YES];

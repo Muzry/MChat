@@ -166,7 +166,6 @@ singleton_implementation(XmppTools)
 
 #pragma mark  授权成功后，发送"在线" 消息
 -(void)sendOnlineToHost{
-    
     NSLog(@"发送 在线 消息");
     XMPPPresence *presence = [XMPPPresence presence];
     
@@ -178,7 +177,6 @@ singleton_implementation(XmppTools)
 #pragma mark 与主机连接成功
 -(void)xmppStreamDidConnect:(XMPPStream *)sender{
     NSLog(@"与主机连接成功");
-    
     if (self.isRegisterOperation)
     {
         NSString *pwd = [UserInfo sharedUserInfo].registerPwd;
@@ -303,14 +301,40 @@ singleton_implementation(XmppTools)
 
 -(void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [NSThread sleepForTimeInterval:0.3f];
     
-    dict[@"username"] = message.from;
-    dict[@"msgtext"] = message.body;
-    dict[@"time"] = message.subject;
+    NSMutableDictionary *newDict = [NSMutableDictionary dictionary];
     
-    NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:dict];
+    newDict[@"username"] = message.from.bare;
+    newDict[@"msgtext"] = message.body;
+    newDict[@"time"] = message.subject;
+    
+    int i = 0;
+    BOOL flag = NO;
+    for (NSDictionary *dict in [UserInfo sharedUserInfo].msgRecordArray)
+    {
+        if ([dict[@"username"] isEqualToString:newDict[@"username"]])
+        {
+            [UserInfo sharedUserInfo].msgRecordArray[i] = newDict;
+            flag = YES;
+            break;
+        }
+        i++;
+    }
+    if (!flag)
+    {
+        [[UserInfo sharedUserInfo].msgRecordArray addObject:newDict];
+    }
+    [self writeToFile];
+    NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:newDict];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
+
+-(void)writeToFile
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filename = [NSString stringWithFormat:@"records%@.plist",[UserInfo sharedUserInfo].user];
+    [[UserInfo sharedUserInfo].msgRecordArray writeToFile:[[pathList objectAtIndex:0] stringByAppendingPathComponent:filename] atomically:YES];
 }
 
 @end

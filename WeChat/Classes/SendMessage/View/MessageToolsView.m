@@ -65,7 +65,7 @@
     if([text isEqualToString:@"\n"])
     {
         
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        NSMutableDictionary *newDict = [NSMutableDictionary dictionary];
         
         NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
         
@@ -79,18 +79,43 @@
         [self sendMsgWithText:final Time:[fmt stringFromDate:date]];
 
         
-        dict[@"username"] = self.Jid;
-        dict[@"msgtext"] = final;
-        dict[@"time"] = [fmt stringFromDate:date];
+        newDict[@"username"] = self.Jid.bare;
+        newDict[@"msgtext"] = final;
+        newDict[@"time"] = [fmt stringFromDate:date];
         
-        NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:dict];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
         textView.text = @"";
+        
+        int i = 0;
+        BOOL flag = NO;
+        for (NSDictionary *dict in [UserInfo sharedUserInfo].msgRecordArray)
+        {
+            if ([dict[@"username"] isEqualToString:newDict[@"username"]])
+            {
+                [UserInfo sharedUserInfo].msgRecordArray[i] = newDict;
+                flag = YES;
+                break;
+            }
+            i++;
+        }
+        if (!flag)
+        {
+            [[UserInfo sharedUserInfo].msgRecordArray addObject:newDict];
+        }
+        [self writeToFile];
+        NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:newDict];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
     
     return YES;
 }
 
+
+-(void)writeToFile
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filename = [NSString stringWithFormat:@"records%@.plist",[UserInfo sharedUserInfo].user];
+    [[UserInfo sharedUserInfo].msgRecordArray writeToFile:[[pathList objectAtIndex:0] stringByAppendingPathComponent:filename] atomically:YES];
+}
 
 -(void)sendMsgWithText:(NSString *)text Time:(NSString *)time
 {

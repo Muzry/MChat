@@ -182,8 +182,6 @@
 		D6E00C891BE219AB00D65CBB /* MessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E00C811BE219AB00D65CBB /* MessageViewCell.m */; };
 		D6E00C8A1BE219AB00D65CBB /* MessageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E00C831BE219AB00D65CBB /* MessageTableView.m */; };
 		D6E00C8B1BE219AB00D65CBB /* MessageToolsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E00C851BE219AB00D65CBB /* MessageToolsView.m */; };
-		D6E00C8F1BE21AA100D65CBB /* autoReplay.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6E00C8D1BE21AA100D65CBB /* autoReplay.plist */; };
-		D6E00C901BE21AA100D65CBB /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6E00C8E1BE21AA100D65CBB /* messages.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -565,8 +563,6 @@
 		D6E00C841BE219AB00D65CBB /* MessageToolsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageToolsView.h; sourceTree = "<group>"; };
 		D6E00C851BE219AB00D65CBB /* MessageToolsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageToolsView.m; sourceTree = "<group>"; };
 		D6E00C8C1BE21A0800D65CBB /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
-		D6E00C8D1BE21AA100D65CBB /* autoReplay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = autoReplay.plist; sourceTree = "<group>"; };
-		D6E00C8E1BE21AA100D65CBB /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -784,8 +780,6 @@
 			children = (
 				D6B2CCF61BBFE8090046AD26 /* Classes */,
 				D6B2CAFA1BBFE2240046AD26 /* Info.plist */,
-				D6E00C8D1BE21AA100D65CBB /* autoReplay.plist */,
-				D6E00C8E1BE21AA100D65CBB /* messages.plist */,
 				D6B2CAE91BBFE2240046AD26 /* Supporting Files */,
 			);
 			path = WeChat;
@@ -1888,9 +1882,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6E00C8F1BE21AA100D65CBB /* autoReplay.plist in Resources */,
 				D6B2CECA1BBFE80A0046AD26 /* README.txt in Resources */,
-				D6E00C901BE21AA100D65CBB /* messages.plist in Resources */,
 				D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */,
 				D6046C061BC7C421003D53D1 /* Assets.xcassets in Resources */,
 				D6B2CECF1BBFE80A0046AD26 /* build-libidn.sh in Resources */,
