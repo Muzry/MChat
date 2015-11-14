@@ -90,6 +90,7 @@
     MessageViewCell *cell = [MessageViewCell messageCellWithTableView:tableView];
     cell.OtherJid = self.Jid;
     XMPPMessageArchiving_Message_CoreDataObject *msg = _resultController.fetchedObjects[indexPath.row];
+    
     MessageModel *message = [MessageModel initWithFetchObject:msg];
     
     MessageFrameModel *frameModel = [[MessageFrameModel alloc]init];

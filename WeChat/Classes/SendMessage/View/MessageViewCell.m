@@ -115,12 +115,24 @@
     [[self.icon layer] setBorderWidth:0.5];
     [[self.icon layer] setBorderColor:SelfColor(218, 218, 218).CGColor];
     
+    
     // 3.正文
     self.textView.frame = frameMessage.textViewF;
-    [self.textView setTitle:model.text forState:UIControlStateNormal];
+    
+    if (model.messageType == MessageTypeText)
+    {
+        [self.textView setTitle:model.text forState:UIControlStateNormal];
+    }
+    else if (model.messageType == MessageTypeImage)
+    {
+        NSString *base64str = model.text;
+        NSData *data = [[NSData alloc]initWithBase64EncodedString:base64str options:0];
+        UIImage *image = [UIImage imageWithData:data];
+        [self.textView setImage:[image scaleImageWithWidth:200] forState:UIControlStateNormal];
+    }
+    
     if (model.type == MessageModelMe)
     {
-
         [self.textView setBackgroundImage:[UIImage resizeImageWihtImageName:@"SenderTextNodeBkg"] forState:UIControlStateNormal];
         [self.textView setBackgroundImage:[UIImage resizeImageWihtImageName:@"SenderTextNodeBkgHL"] forState:UIControlStateHighlighted];
     }

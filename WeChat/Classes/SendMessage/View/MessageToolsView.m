@@ -11,13 +11,14 @@
 #import "MessageModel.h"
 #import "MessageFrameModel.h"
 #import "MessageTableView.h"
+#import "AFNetworking.h"
+@interface MessageToolsView()<UITextViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-@interface MessageToolsView()<UITextViewDelegate>
+@property (nonatomic,weak) UITextView *textView;
+@property (nonatomic,strong) UIButton *addImageBtn;
 
-@property (nonatomic,strong) UITextView *textView;
 @end
 @implementation MessageToolsView
-
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -27,7 +28,9 @@
         [self setImage:[UIImage resizeImageWihtImageName:@"chat_bottom_bg"]];
         [self setupBtn:@"ToolViewInputVoice" hightImage:@"ToolViewInputVoiceHL" tag:MessageToolsViewTypeSpeak];
         [self setupBtn:@"ToolViewEmotion" hightImage:@"ToolViewEmotionHL" tag:MessageToolsViewTypeEmotion];
-        [self setupBtn:@"TypeSelectorBtn_Black" hightImage:@"TypeSelectorBtn_BlackHL" tag:MessageToolsViewtypeMore];
+        self.addImageBtn = [self setupBtn:@"TypeSelectorBtn_Black" hightImage:@"TypeSelectorBtn_BlackHL" tag:MessageToolsViewtypeMore];
+        [self.addImageBtn addTarget:self action:@selector(pickImageClick) forControlEvents:UIControlEventTouchUpInside];
+        
         [self setupText];
         self.userInteractionEnabled = YES;
     }
@@ -67,53 +70,85 @@
     [self addSubview:msgView];
 }
 
+#pragma mark 选择发送图片
+
+-(void)pickImageClick
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"请选择要发送的图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"从相机" otherButtonTitles:@"从相册", nil];
+    [sheet showInView:self];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 2)
+    {
+        return;
+    }
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    imagePicker.delegate = self;
+    
+    imagePicker.allowsEditing = YES;
+    
+    if(buttonIndex == 0)
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    [self.viewController presentViewController:imagePicker animated:YES completion:
+     ^{
+         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+     }];
+}
+
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    NSString *uploadUrl = @"http://localhost:8080/image/";
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:uploadUrl parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+    {
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+
+        NSString *user = [[UserInfo sharedUserInfo].user lowercaseString];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+        dateFormatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *timeStr = [dateFormatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg",[user stringByAppendingString:timeStr]];
+        NSData *data = UIImageJPEGRepresentation(image, 0.75);
+        [formData appendPartWithFileData:data name:@"image" fileName:fileName mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"上传成功");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        NSLog(@"%@",operation.responseString);
+    }];
+
+    [self.viewController dismissViewControllerAnimated:YES completion:^{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }];
+}
+
+
+
 #pragma mark TextView的代理
 
 -(void)textViewDidChange:(UITextView *)textView
 {
     CGFloat contentH = textView.contentSize.height;
     
-    
     if ([textView.text rangeOfString:@"\n"].length != 0)
     {
-        NSMutableDictionary *newDict = [NSMutableDictionary dictionary];
-        
-        NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
-        
-        fmt.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
-        fmt.dateFormat = @"yyyy-MM-dd-HH:mm";
-        NSDate *date = [NSDate date];
-        
-        
-        
         NSString *final = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        [self sendMsgWithText:final Time:[fmt stringFromDate:date]];
-        
-        
-        newDict[@"username"] = self.Jid.bare;
-        newDict[@"msgtext"] = final;
-        newDict[@"time"] = [fmt stringFromDate:date];
-        
-        int i = 0;
-        BOOL flag = NO;
-        for (NSDictionary *dict in [UserInfo sharedUserInfo].msgRecordArray)
-        {
-            if ([dict[@"username"] isEqualToString:newDict[@"username"]])
-            {
-                [UserInfo sharedUserInfo].msgRecordArray[i] = newDict;
-                flag = YES;
-                break;
-            }
-            i++;
-        }
-        if (!flag)
-        {
-            [[UserInfo sharedUserInfo].msgRecordArray addObject:newDict];
-        }
-        [self writeToFile];
-        NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:newDict];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
-        
+        [self sendMsgWithText:final bodyType:@"text"];
         textView.text = @"";
     }
     if (!textView.hasText)
@@ -134,15 +169,6 @@
     }
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    
-
-    
-    return YES;
-}
-
-
 -(void)writeToFile
 {
     NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -150,13 +176,48 @@
     [[UserInfo sharedUserInfo].msgRecordArray writeToFile:[[pathList objectAtIndex:0] stringByAppendingPathComponent:filename] atomically:YES];
 }
 
--(void)sendMsgWithText:(NSString *)text Time:(NSString *)time
+-(void)sendMsgWithText:(NSString *)text bodyType:(NSString *)type
 {
-    XMPPMessage *msg = [XMPPMessage messageWithType:@"chat" to:self.Jid];
+    NSMutableDictionary *newDict = [NSMutableDictionary dictionary];
     
+    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
+    
+    fmt.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+    fmt.dateFormat = @"yyyy-MM-dd-HH:mm";
+    NSDate *date = [NSDate date];
+    
+    XMPPMessage *msg = [XMPPMessage messageWithType:@"chat" to:self.Jid];
+    [msg addAttributeWithName:@"bodyType" stringValue:type];
     [msg addBody:text];
-    [msg addSubject:time];
+    [msg addSubject:[fmt stringFromDate:date]];
     [[XmppTools sharedXmppTools].xmppStream sendElement:msg];
+    
+    newDict[@"username"] = self.Jid.bare;
+    newDict[@"msgtext"] = text;
+    newDict[@"time"] = [fmt stringFromDate:date];
+    newDict[@"type"] = type;
+    
+    
+    int i = 0;
+    BOOL flag = NO;
+    for (NSDictionary *dict in [UserInfo sharedUserInfo].msgRecordArray)
+    {
+        if ([dict[@"username"] isEqualToString:newDict[@"username"]])
+        {
+            [UserInfo sharedUserInfo].msgRecordArray[i] = newDict;
+            flag = YES;
+            break;
+        }
+        i++;
+    }
+    if (!flag)
+    {
+        [[UserInfo sharedUserInfo].msgRecordArray addObject:newDict];
+    }
+    
+    [self writeToFile];
+    NSNotification *notification =[NSNotification notificationWithName:@"SendMessage" object:nil userInfo:newDict];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 -(void)layoutSubviews

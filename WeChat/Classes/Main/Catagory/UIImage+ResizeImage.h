@@ -10,4 +10,5 @@
 
 @interface UIImage (ResizeImage)
 +(UIImage *)resizeImageWihtImageName:(NSString *)name;
+- (UIImage *)scaleImageWithWidth:(CGFloat)width;
 @end

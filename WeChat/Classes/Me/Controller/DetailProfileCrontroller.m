@@ -96,8 +96,6 @@
     SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];
     [cell.contentView addSubview:topseparator];
     [cell.contentView addSubview:bottomseparator];
-    cell.backgroundColor = [UIColor redColor];
-    
     
     NSNotification *notification =[NSNotification notificationWithName:UITextFieldTextDidChangeNotification object:nil userInfo:nil];
     [[NSNotificationCenter defaultCenter] postNotification:notification];

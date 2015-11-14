@@ -35,10 +35,26 @@
     
     CGFloat textX;
     CGFloat textY = iconY;
-    CGSize textMaxSize = CGSizeMake(200, MAXFLOAT);
     
-    CGSize textRealSize = [message.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:dBtnFont} context:nil].size;
-    CGSize btnSize = CGSizeMake(textRealSize.width + 36, textRealSize.height + 34);
+    CGSize textMaxSize = CGSizeMake(200, MAXFLOAT);;
+    CGSize btnSize;
+    CGSize textRealSize;
+    if (message.messageType == MessageTypeText)
+    {
+         textRealSize = [message.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:dBtnFont} context:nil].size;
+         btnSize = CGSizeMake(textRealSize.width + 36, textRealSize.height + 34);
+    }
+    else if (message.messageType == MessageTypeImage)
+    {
+        NSString *base64str = message.text;
+        NSData *data = [[NSData alloc]initWithBase64EncodedString:base64str options:0];
+        UIImage *image = [UIImage imageWithData:data];
+        
+        textRealSize = [image scaleImageWithWidth:200].size;
+        btnSize = textRealSize;
+        
+    }
+
     
     if (message.type == MessageModelMe)
     {

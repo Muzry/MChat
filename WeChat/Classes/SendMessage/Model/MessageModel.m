@@ -12,7 +12,25 @@
 +(MessageModel*)initWithFetchObject:(XMPPMessageArchiving_Message_CoreDataObject *)msg
 {
     MessageModel *msgmodel = [[MessageModel alloc]init];
+    
+    NSString * bodyType = [msg.message attributeStringValueForName:@"bodyType"];
+    
     msgmodel.text = msg.body;
+    
+    if ([bodyType isEqualToString:@"text"])
+    {
+        msgmodel.messageType = MessageTypeText;
+    }
+    else if([bodyType isEqualToString:@"image"])
+    {
+        msgmodel.messageType = MessageTypeImage;
+    }
+    else
+    {
+        msgmodel.messageType = MessageTypeAudio;
+    }
+    
+    
     if (msg.isOutgoing == YES)
     {
         msgmodel.type = MessageModelMe;

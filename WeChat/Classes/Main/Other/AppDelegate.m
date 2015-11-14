@@ -17,6 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSLog(@"%@",[pathList objectAtIndex:0]);
+    
     [[UserInfo sharedUserInfo] loadUserInfoFromSandBox];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendsMethod:) name:@"addFriends" object:nil];
     [self switchController];

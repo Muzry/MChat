@@ -308,6 +308,7 @@ singleton_implementation(XmppTools)
     newDict[@"username"] = message.from.bare;
     newDict[@"msgtext"] = message.body;
     newDict[@"time"] = message.subject;
+    newDict[@"type"] = [message attributeStringValueForName:@"bodyType"];
     
     int i = 0;
     BOOL flag = NO;

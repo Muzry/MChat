@@ -8,6 +8,7 @@
 
 #import "WeChatCell.h"
 #import "XMPPvCardTemp.h"
+#import "MessageModel.h"
 
 @interface WeChatCell()
 @property (nonatomic,weak) UILabel *time;
@@ -66,6 +67,10 @@
         text.textColor = SelfColor(185, 185, 185);
         text.text = dict[@"msgtext"];
 
+        if([dict[@"type"] isEqualToString:@"image"])
+        {
+            text.text = @"[图片]";
+        }
         self.text = text;
         
         //3.头像
