@@ -108,36 +108,37 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    NSString *uploadUrl = @"http://localhost:8080/image/";
+    NSString *uploadUrl = @"http://localhost/t.php";
+    NSString *downloadUrl = @"http://localhost/upload/image/";
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    NSString *user = [[UserInfo sharedUserInfo].user lowercaseString];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *timeStr = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *fileName = [NSString stringWithFormat:@"%@.jpg",[user stringByAppendingString:timeStr]];
+    NSData *data = UIImageJPEGRepresentation(image, 0.75);
+
     [manager POST:uploadUrl parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+     {
+         [formData appendPartWithFileData:data name:@"image" fileName:fileName mimeType:@"image/jpeg"];
+     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         [self sendMsgWithText:[downloadUrl stringByAppendingString:fileName] bodyType:@"image"];
+     }failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
-        UIImage *image = info[UIImagePickerControllerOriginalImage];
-
-        NSString *user = [[UserInfo sharedUserInfo].user lowercaseString];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        dateFormatter.dateFormat = @"yyyyMMddHHmmss";
-        NSString *timeStr = [dateFormatter stringFromDate:[NSDate date]];
-        NSString *fileName = [NSString stringWithFormat:@"%@.jpg",[user stringByAppendingString:timeStr]];
-        NSData *data = UIImageJPEGRepresentation(image, 0.75);
-        [formData appendPartWithFileData:data name:@"image" fileName:fileName mimeType:@"image/jpeg"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"上传成功");
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
-        NSLog(@"%@",operation.responseString);
-    }];
-
+         NSLog(@"%@",error);
+         NSLog(@"%@",operation.responseString);
+     }];
+    
     [self.viewController dismissViewControllerAnimated:YES completion:^{
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }];
 }
-
-
 
 #pragma mark TextView的代理
 

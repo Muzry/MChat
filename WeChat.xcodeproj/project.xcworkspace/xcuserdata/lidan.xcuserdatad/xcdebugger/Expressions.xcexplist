@@ -11,21 +11,19 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController didFinishSave]:DetailController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "vCard.nickname">
-            </PersistentString>
-            <PersistentString
-               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "-[DetailController Groups]:DetailController.m">
       </ContextState>
       <ContextState
-         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
+         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.isRegisterOperation">
+               value = "dict">
+            </PersistentString>
+            <PersistentString
+               value = "notification.userInfo">
+            </PersistentString>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -33,10 +31,10 @@
          contextName = "-[MessageToolsView textView:shouldChangeTextInRange:replacementText:]:MessageToolsView.m">
          <PersistentStrings>
             <PersistentString
-               value = "[UserInfo sharedUserInfo].msgRecordArray">
+               value = "textView.hasText">
             </PersistentString>
             <PersistentString
-               value = "textView.hasText">
+               value = "[UserInfo sharedUserInfo].msgRecordArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -87,13 +85,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[MessageToolsView sendMsgWithText:Time:bodyType:]:MessageToolsView.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[MessageViewCell setFrameMessage:]:MessageViewCell.m">
+         contextName = "-[XmppTools userLogout]:XmppTools.m">
          <PersistentStrings>
             <PersistentString
-               value = "model.messageType">
+               value = "window.rootViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ContactController loadFriends]:ContactController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_resultsController.fetchedObjects.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -109,12 +112,15 @@
          contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
          <PersistentStrings>
             <PersistentString
-               value = "friendJID">
-            </PersistentString>
-            <PersistentString
                value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
             </PersistentString>
+            <PersistentString
+               value = "friendJID">
+            </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MessageModel text]:MessageModel.h">
       </ContextState>
       <ContextState
          contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
@@ -171,10 +177,10 @@
          contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.cell.detailTextLabel.text">
+               value = "self.textField.text">
             </PersistentString>
             <PersistentString
-               value = "self.textField.text">
+               value = "self.cell.detailTextLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -236,35 +242,35 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController Groups]:DetailController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
+         contextName = "-[DetailController didFinishSave]:DetailController.m">
          <PersistentStrings>
             <PersistentString
-               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
+               value = "vCard.nickname">
             </PersistentString>
             <PersistentString
-               value = "dict">
-            </PersistentString>
-            <PersistentString
-               value = "notification.userInfo">
+               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[XmppTools userLogout]:XmppTools.m">
+         contextName = "-[AppDelegate xmppStreamDidConnect:]:AppDelegate.m">
          <PersistentStrings>
             <PersistentString
-               value = "window.rootViewController">
+               value = "self.isRegisterOperation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[ContactController loadFriends]:ContactController.m">
+         contextName = "-[MessageToolsView sendMsgWithText:Time:bodyType:]:MessageToolsView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MessageViewCell setFrameMessage:]:MessageViewCell.m">
          <PersistentStrings>
             <PersistentString
-               value = "_resultsController.fetchedObjects.count">
+               value = "model.messageType">
+            </PersistentString>
+            <PersistentString
+               value = "model.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -9,6 +9,7 @@
 #import "MessageFrameModel.h"
 #import "Constant.h"
 #import "MessageModel.h"
+#import "UIImageView+WebCache.h"
 
 @implementation MessageFrameModel
 
@@ -46,9 +47,9 @@
     }
     else if (message.messageType == MessageTypeImage)
     {
-        NSString *base64str = message.text;
-        NSData *data = [[NSData alloc]initWithBase64EncodedString:base64str options:0];
-        UIImage *image = [UIImage imageWithData:data];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:message.text]];
+        UIImage *image = imageView.image;
         
         textRealSize = [image scaleImageWithWidth:200].size;
         btnSize = textRealSize;

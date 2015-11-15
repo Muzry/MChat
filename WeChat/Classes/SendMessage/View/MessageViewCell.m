@@ -11,6 +11,7 @@
 #import "MessageModel.h"
 #import "UIImage+ResizeImage.h"
 #import "XMPPvCardTemp.h"
+#import "UIImageView+WebCache.h"
 
 @interface MessageViewCell()
 
@@ -125,9 +126,9 @@
     }
     else if (model.messageType == MessageTypeImage)
     {
-        NSString *base64str = model.text;
-        NSData *data = [[NSData alloc]initWithBase64EncodedString:base64str options:0];
-        UIImage *image = [UIImage imageWithData:data];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:model.text]];
+        UIImage *image = imageView.image;
         [self.textView setImage:[image scaleImageWithWidth:200] forState:UIControlStateNormal];
     }
     
