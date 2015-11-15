@@ -119,18 +119,24 @@
     
     // 3.正文
     self.textView.frame = frameMessage.textViewF;
-    
+
     if (model.messageType == MessageTypeText)
     {
         [self.textView setTitle:model.text forState:UIControlStateNormal];
+        [self.textView setImage:nil forState:UIControlStateNormal];
     }
     else if (model.messageType == MessageTypeImage)
     {
         UIImageView *imageView = [[UIImageView alloc]init];
         [imageView sd_setImageWithURL:[NSURL URLWithString:model.text]];
         UIImage *image = imageView.image;
-        [self.textView setImage:[image scaleImageWithWidth:200] forState:UIControlStateNormal];
+        [self.textView setImage:image forState:UIControlStateNormal];
+        [self.textView addTarget:self action:@selector(imageClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.textView setTitle:nil forState:UIControlStateNormal];
+        
     }
+    NSLog(@"%d",model.messageType);
+    NSLog(@"%@",model.text);
     
     if (model.type == MessageModelMe)
     {
@@ -141,6 +147,14 @@
     {
         [self.textView setBackgroundImage:[UIImage resizeImageWihtImageName:@"ReceiverTextNodeBkg"] forState:UIControlStateNormal];
         [self.textView setBackgroundImage:[UIImage resizeImageWihtImageName:@"ReceiverTextNodeBkgHL"] forState:UIControlStateHighlighted];
+    }
+}
+
+-(void)imageClick:(UIButton*)btn
+{
+    if (btn.imageView)
+    {
+        [UIImage showImage:btn.imageView];
     }
 }
 

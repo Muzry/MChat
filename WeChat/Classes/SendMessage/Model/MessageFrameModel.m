@@ -37,7 +37,7 @@
     CGFloat textX;
     CGFloat textY = iconY;
     
-    CGSize textMaxSize = CGSizeMake(200, MAXFLOAT);;
+    CGSize textMaxSize = CGSizeMake(200, MAXFLOAT);
     CGSize btnSize;
     CGSize textRealSize;
     if (message.messageType == MessageTypeText)
@@ -47,11 +47,7 @@
     }
     else if (message.messageType == MessageTypeImage)
     {
-        UIImageView *imageView = [[UIImageView alloc]init];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:message.text]];
-        UIImage *image = imageView.image;
-        
-        textRealSize = [image scaleImageWithWidth:200].size;
+        textRealSize = CGSizeMake(150, 200);
         btnSize = textRealSize;
         
     }
