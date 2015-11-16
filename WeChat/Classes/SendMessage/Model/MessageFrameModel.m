@@ -9,7 +9,7 @@
 #import "MessageFrameModel.h"
 #import "Constant.h"
 #import "MessageModel.h"
-#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 
 @implementation MessageFrameModel
 
@@ -47,9 +47,8 @@
     }
     else if (message.messageType == MessageTypeImage)
     {
-        textRealSize = CGSizeMake(150, 200);
+        textRealSize = CGSizeMake(200, 150);
         btnSize = textRealSize;
-        
     }
 
     

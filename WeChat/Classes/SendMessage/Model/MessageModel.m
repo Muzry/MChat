@@ -43,10 +43,39 @@
     NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
     
     fmt.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
-    fmt.dateFormat = @"yyyy-MM-dd-HH:mm";
+    fmt.dateFormat = @"yyyy-MM-dd";
     NSDate *date = msg.timestamp;
-    msgmodel.time = [fmt stringFromDate:date];
+    NSDate *now = [NSDate date];
     
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay  fromDate:date];
+    NSDateComponents *compsnow = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday fromDate:now];
+    
+    NSInteger diffday = compsnow.day - comps.day;
+
+    if ([[fmt stringFromDate:date] isEqualToString:[fmt stringFromDate:now]])
+    {
+        fmt.dateFormat = @"HH:mm";
+        msgmodel.time = [fmt stringFromDate:date];
+    }
+    else if(diffday == 1)
+    {
+        fmt.dateFormat = @"昨天 HH:mm";
+        msgmodel.time = [fmt stringFromDate:date];
+    }
+    else if(diffday >= 2 && diffday <= 7)
+    {
+        NSArray *weekday = @[@"星期天",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六"];
+        
+        fmt.dateFormat = [NSString stringWithFormat:@"%@ HH:mm",weekday[compsnow.weekday + 6 - diffday]];
+        msgmodel.time = [fmt stringFromDate:date];
+    }
+    else
+    {
+        fmt.dateFormat = @"yyyy年MM月dd日";
+        msgmodel.time = [fmt stringFromDate:date];
+    }
+
     return msgmodel;
 }
 

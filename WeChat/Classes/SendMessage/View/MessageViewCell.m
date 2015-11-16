@@ -11,7 +11,7 @@
 #import "MessageModel.h"
 #import "UIImage+ResizeImage.h"
 #import "XMPPvCardTemp.h"
-#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 
 @interface MessageViewCell()
 
@@ -127,17 +127,10 @@
     }
     else if (model.messageType == MessageTypeImage)
     {
-        UIImageView *imageView = [[UIImageView alloc]init];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:model.text]];
-        UIImage *image = imageView.image;
-        [self.textView setImage:image forState:UIControlStateNormal];
+        [self.textView sd_setImageWithURL:[NSURL URLWithString:model.text] forState:UIControlStateNormal];
         [self.textView addTarget:self action:@selector(imageClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.textView setTitle:nil forState:UIControlStateNormal];
-        
     }
-    NSLog(@"%d",model.messageType);
-    NSLog(@"%@",model.text);
-    
     if (model.type == MessageModelMe)
     {
         [self.textView setBackgroundImage:[UIImage resizeImageWihtImageName:@"SenderTextNodeBkg"] forState:UIControlStateNormal];

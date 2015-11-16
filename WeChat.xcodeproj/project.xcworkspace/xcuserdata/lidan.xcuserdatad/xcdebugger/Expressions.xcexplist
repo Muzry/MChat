@@ -3,38 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[UserInfo saveuserInfoToSanbox]:UserInfo.m">
+         contextName = "-[MessageFrameModel setMessage:]:MessageFrameModel.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.avatarImage">
+               value = "btn.imageView.height">
+            </PersistentString>
+            <PersistentString
+               value = "btn.imageView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController Groups]:DetailController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
+         contextName = "-[XmppTools userLogout]:XmppTools.m">
          <PersistentStrings>
             <PersistentString
-               value = "dict">
-            </PersistentString>
-            <PersistentString
-               value = "notification.userInfo">
-            </PersistentString>
-            <PersistentString
-               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MessageToolsView textView:shouldChangeTextInRange:replacementText:]:MessageToolsView.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "textView.hasText">
-            </PersistentString>
-            <PersistentString
-               value = "[UserInfo sharedUserInfo].msgRecordArray">
+               value = "window.rootViewController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -47,12 +30,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController imagePickerController:didFinishPickingMediaWithInfo:]:DetailController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[UserInfo sharedUserInfo].avatarImage">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "-[DetailController Groups]:DetailController.m">
       </ContextState>
       <ContextState
          contextName = "-[LoginView initWithFrame:]:LoginView.m">
@@ -66,10 +44,73 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailFriendController sendMessageClick]:DetailFriendController.m">
+         contextName = "-[AppDelegate addFriendsMethod:]:AppDelegate.m">
          <PersistentStrings>
             <PersistentString
-               value = "msgController.nickName">
+               value = "self.addFriends">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.cell.detailTextLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "self.textField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[UserInfo saveuserInfoToSanbox]:UserInfo.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.avatarImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "main:main.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].addFriends">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WeChatCell initWithStyle:reuseIdentifier:AndDict:]:WeChatCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "dict[@&quot;msgtext&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "self.text.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "friendJID">
+            </PersistentString>
+            <PersistentString
+               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MessageToolsView sendMsgWithText:Time:bodyType:]:MessageToolsView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailController didFinishSave]:DetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "vCard.nickname">
+            </PersistentString>
+            <PersistentString
+               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -77,18 +118,18 @@
          contextName = "+[WeChatCell weChatCellWithTableView:AndDict:]:WeChatCell.m">
       </ContextState>
       <ContextState
-         contextName = "-[MessageViewController setup]:MessageViewController.m">
+         contextName = "-[DetailController imagePickerController:didFinishPickingMediaWithInfo:]:DetailController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.nickName">
+               value = "[UserInfo sharedUserInfo].avatarImage">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[XmppTools userLogout]:XmppTools.m">
+         contextName = "-[DetailController tableView:cellForRowAtIndexPath:]:DetailController.m">
          <PersistentStrings>
             <PersistentString
-               value = "window.rootViewController">
+               value = "cell.tag">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -109,18 +150,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
+         contextName = "-[MessageViewController viewDidLoad]:MessageViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
-            </PersistentString>
-            <PersistentString
-               value = "friendJID">
+               value = "self.Jid">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MessageModel text]:MessageModel.h">
       </ContextState>
       <ContextState
          contextName = "__33-[RegisterView handleResultType:]_block_invoke:RegisterView.m">
@@ -134,34 +169,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailController tableView:cellForRowAtIndexPath:]:DetailController.m">
+         contextName = "-[DetailFriendController sendMessageClick]:DetailFriendController.m">
          <PersistentStrings>
             <PersistentString
-               value = "cell.tag">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[ContactController tableView:commitEditingStyle:forRowAtIndexPath:]:ContactController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "indexPath">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MessageViewController viewDidLoad]:MessageViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.Jid">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[AppDelegate addFriendsMethod:]:AppDelegate.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.addFriends">
+               value = "msgController.nickName">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -174,13 +185,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
+         contextName = "-[MessageModel text]:MessageModel.h">
+      </ContextState>
+      <ContextState
+         contextName = "-[MessageToolsView textView:shouldChangeTextInRange:replacementText:]:MessageToolsView.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.textField.text">
+               value = "[UserInfo sharedUserInfo].msgRecordArray">
             </PersistentString>
             <PersistentString
-               value = "self.cell.detailTextLabel.text">
+               value = "textView.hasText">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -189,17 +203,6 @@
          <PersistentStrings>
             <PersistentString
                value = "self.Jid">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[WeChatCell initWithStyle:reuseIdentifier:AndDict:]:WeChatCell.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "dict[@&quot;msgtext&quot;]">
-            </PersistentString>
-            <PersistentString
-               value = "self.text.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -218,10 +221,43 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "notification.userInfo">
+            </PersistentString>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
+            </PersistentString>
+            <PersistentString
+               value = "dict">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MessageViewCell setFrameMessage:]:MessageViewCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "model.messageType">
+            </PersistentString>
+            <PersistentString
+               value = "model.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[DetailController numberOfSectionsInTableView:]:DetailController.m">
          <PersistentStrings>
             <PersistentString
                value = "self.Groups.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ContactController tableView:commitEditingStyle:forRowAtIndexPath:]:ContactController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -234,21 +270,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "main:main.m">
+         contextName = "-[MessageViewController setup]:MessageViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "[UserInfo sharedUserInfo].addFriends">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[DetailController didFinishSave]:DetailController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "vCard.nickname">
-            </PersistentString>
-            <PersistentString
-               value = "[self getLabelTextFromCellSection:0 Row:1].detailTextLabel.text">
+               value = "self.nickName">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -257,20 +282,6 @@
          <PersistentStrings>
             <PersistentString
                value = "self.isRegisterOperation">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MessageToolsView sendMsgWithText:Time:bodyType:]:MessageToolsView.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[MessageViewCell setFrameMessage:]:MessageViewCell.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "model.messageType">
-            </PersistentString>
-            <PersistentString
-               value = "model.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

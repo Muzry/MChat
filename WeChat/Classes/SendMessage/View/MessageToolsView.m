@@ -138,6 +138,7 @@
     [self.viewController dismissViewControllerAnimated:YES completion:^{
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }];
+    
 }
 
 #pragma mark TextView的代理
