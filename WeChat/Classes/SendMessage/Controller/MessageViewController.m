@@ -48,10 +48,8 @@
 
 -(void)keyboardDidChangeFrame:(NSNotification *)notification
 {
-    
     NSDictionary *userInfo = notification.userInfo;
     CGRect keyBoardRect = [userInfo [UIKeyboardFrameEndUserInfoKey] CGRectValue];
-
     double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         self.view.y = keyBoardRect.origin.y - self.view.height;

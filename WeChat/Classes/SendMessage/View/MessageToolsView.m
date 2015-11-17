@@ -74,6 +74,7 @@
 
 -(void)pickImageClick
 {
+    [self.superview endEditing:YES];
     UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"请选择要发送的图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"从相机" otherButtonTitles:@"从相册", nil];
     [sheet showInView:self];
 }

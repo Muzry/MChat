@@ -17,10 +17,29 @@
 
 @property (nonatomic,strong) NSMutableArray *Groups;
 @property (nonatomic,weak) DetailCell * detailcell;
+@property (nonatomic,strong) NSDictionary *areaDict;
 
 @end
 
 @implementation DetailController
+
+
+
+-(NSDictionary *)areaDict
+{
+    if (!_areaDict)
+    {
+        NSString *areaPlist = [[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"];
+        _areaDict = [NSDictionary dictionaryWithContentsOfFile:areaPlist];
+    }
+    return _areaDict;
+}
+
+-(void)initPlistForCity
+{
+    NSString *areaPlist = [[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"];
+    self.areaDict = [NSDictionary dictionaryWithContentsOfFile:areaPlist];
+}
 
 -(NSMutableArray *)Groups
 {
@@ -63,7 +82,7 @@
         DetailModel *location = [[DetailModel alloc]init];
         location.titleName = @"地区";
         location.detailsContent = @"未设置";
-        location.tag = 1;
+        location.tag = 4;
         if (myVCard.note)
         {
             location.detailsContent = myVCard.note;
@@ -91,7 +110,7 @@
         DetailModel *birthday = [[DetailModel alloc]init];
         birthday.titleName = @"生日";
         birthday.detailsContent = @"未设置";
-        birthday.tag = 1;
+        birthday.tag = 5;
         if (myVCard.title)
         {
             birthday.detailsContent = myVCard.title;
@@ -128,15 +147,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    #warning Incomplete implementation, return the number of sections
     return self.Groups.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    #warning Incomplete implementation, return the number of rows
     NSArray *titiles = self.Groups[section];
-    
     return titiles.count;
 }
 
@@ -227,15 +243,45 @@
     else if (tag == 2)
     {
         UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"请选择" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"从相机" otherButtonTitles:@"从相册", nil];
-        [sheet showInView:self.view];
+        [sheet showInView:[[UIApplication sharedApplication].windows lastObject]];
         sheet.tag = 1;
 
     }
     else if (tag == 3)
     {
         UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"请选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"男" otherButtonTitles:@"女", nil];
-        [sheet showInView:self.view];
+        [sheet showInView:[[UIApplication sharedApplication].windows lastObject]];
         sheet.tag = 2;
+    }
+    else if (tag == 4)
+    {
+
+    }
+    else if (tag == 5)
+    {
+        UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM-dd";
+        
+        NSDate *maxDate = [dateFormatter dateFromString:@"2016-01-01"];
+        datePicker.maximumDate = maxDate;
+        
+        UIAlertController* alertVc=[UIAlertController alertControllerWithTitle:@"请选择\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
+        UIAlertAction* no=[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleDefault) handler:nil];
+        UIAlertAction* ok=[UIAlertAction actionWithTitle:@"确认" style:(UIAlertActionStyleDefault) handler:
+        ^(UIAlertAction *action) {
+            NSIndexPath *path = [NSIndexPath indexPathForRow:4 inSection:1];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:datePicker.date];
+            [self didFinishSave];
+        }];
+        [alertVc.view addSubview:datePicker];
+        [alertVc addAction:ok];
+        [alertVc addAction:no];
+
+        [self presentViewController:alertVc animated:YES completion:nil];
+        
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -295,7 +341,7 @@
              [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
          }];
     }
-    else
+    else if (actionSheet.tag == 2)
     {
         NSIndexPath *path = [NSIndexPath indexPathForRow:2 inSection:1];
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
@@ -308,10 +354,6 @@
             cell.detailTextLabel.text = @"女";
         }
         [self didFinishSave];
-        if ([self.delegate respondsToSelector:@selector(didUpdateInfo)])
-        {
-            [self.delegate didUpdateInfo];
-        }
     }
 }
 
