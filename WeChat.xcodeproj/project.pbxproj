@@ -21,8 +21,8 @@
 		D62B0C301BCE02FB0029186E /* SeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B0C2F1BCE02FB0029186E /* SeparatorView.m */; };
 		D62EDC911BCF2EDA00BD7351 /* NewFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62EDC901BCF2EDA00BD7351 /* NewFriendCell.m */; };
 		D62EDC941BCF2EF800BD7351 /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62EDC931BCF2EF800BD7351 /* FriendsCell.m */; };
-		D63EC32B1BFB11D60065C434 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = D63EC32A1BFB11D60065C434 /* area.plist */; };
 		D63EC32E1BFB25A40065C434 /* AreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63EC32D1BFB25A40065C434 /* AreaPickerView.m */; };
+		D63EC3301BFB3C990065C434 /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = D63EC32F1BFB3C990065C434 /* Address.plist */; };
 		D64C61E31BC3EC4900B5788C /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */; };
 		D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */; };
 		D64C61E51BC3EC4900B5788C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C61E21BC3EC4900B5788C /* MBProgressHUD.m */; };
@@ -257,9 +257,9 @@
 		D62EDC901BCF2EDA00BD7351 /* NewFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFriendCell.m; sourceTree = "<group>"; };
 		D62EDC921BCF2EF800BD7351 /* FriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsCell.h; sourceTree = "<group>"; };
 		D62EDC931BCF2EF800BD7351 /* FriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsCell.m; sourceTree = "<group>"; };
-		D63EC32A1BFB11D60065C434 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		D63EC32C1BFB25A40065C434 /* AreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaPickerView.h; sourceTree = "<group>"; };
 		D63EC32D1BFB25A40065C434 /* AreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaPickerView.m; sourceTree = "<group>"; };
+		D63EC32F1BFB3C990065C434 /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
 		D64C61DE1BC3EC4900B5788C /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
 		D64C61DF1BC3EC4900B5788C /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
 		D64C61E01BC3EC4900B5788C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -938,7 +938,7 @@
 		D6B2CAE91BBFE2240046AD26 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D63EC32A1BFB11D60065C434 /* area.plist */,
+				D63EC32F1BFB3C990065C434 /* Address.plist */,
 				D6B2CCF21BBFE43B0046AD26 /* WeChat.pch */,
 			);
 			name = "Supporting Files";
@@ -2036,8 +2036,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6B2CECA1BBFE80A0046AD26 /* README.txt in Resources */,
-				D63EC32B1BFB11D60065C434 /* area.plist in Resources */,
 				D64C61E41BC3EC4900B5788C /* MBProgressHUD.bundle in Resources */,
+				D63EC3301BFB3C990065C434 /* Address.plist in Resources */,
 				D6046C061BC7C421003D53D1 /* Assets.xcassets in Resources */,
 				D6B2CECF1BBFE80A0046AD26 /* build-libidn.sh in Resources */,
 			);

@@ -150,20 +150,28 @@
     self.nickName.x = self.avatar.x + self.avatar.width + 10;
     self.nickName.y = self.avatar.y + 5;
     self.nickName.height = 20;
-    self.nickName.width = 100;
+    self.nickName.width = [self setContorllerWidth:self.nickName.font andText:self.nickName.text];
     
     //设置时间位置
-    self.time.x = self.width - 100;
+
+    self.time.width = [self setContorllerWidth:self.time.font andText:self.time.text];
+    self.time.x = self.width - self.time.width - 10;
     self.time.y = self.nickName.y;
-    self.time.width = 200;
     self.time.height = 20;
     
     //设置文本位置
     
     self.text.x = self.nickName.x;
     self.text.y = self.nickName.y + self.nickName.height + 5;
-    self.text.width = 200;
+    self.text.width = [self setContorllerWidth:self.text.font andText:self.text.text];
     self.text.height = 20;
+}
+
+-(CGFloat)setContorllerWidth:(UIFont *)font andText:(NSString *)text
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    CGSize size = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, 0.0) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+    return size.width;
 }
 
 @end

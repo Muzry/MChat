@@ -22,15 +22,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[DetailController Groups]:DetailController.m">
+      </ContextState>
+      <ContextState
          contextName = "-[ContactController tableView:cellForRowAtIndexPath:]:ContactController.m">
          <PersistentStrings>
             <PersistentString
                value = "user.jid">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[DetailController Groups]:DetailController.m">
       </ContextState>
       <ContextState
          contextName = "-[LoginView initWithFrame:]:LoginView.m">
@@ -55,10 +55,24 @@
          contextName = "-[DetailProfileCrontroller textDidChange]:DetailProfileCrontroller.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.cell.detailTextLabel.text">
+               value = "self.textField.text">
             </PersistentString>
             <PersistentString
-               value = "self.textField.text">
+               value = "self.cell.detailTextLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AreaPickerView getPickerData]:AreaPickerView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.cityArray">
+            </PersistentString>
+            <PersistentString
+               value = " self.townArray">
+            </PersistentString>
+            <PersistentString
+               value = "self.provinceArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -93,10 +107,10 @@
          contextName = "-[AddFriendsController textFieldShouldReturn:]:AddFriendsController.m">
          <PersistentStrings>
             <PersistentString
-               value = "friendJID">
+               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
             </PersistentString>
             <PersistentString
-               value = "[[XmppTools sharedXmppTools].rosterStorage userExistsWithJID:friendJID xmppStream:[XmppTools sharedXmppTools].xmppStream]">
+               value = "friendJID">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -191,10 +205,24 @@
          contextName = "-[MessageToolsView textView:shouldChangeTextInRange:replacementText:]:MessageToolsView.m">
          <PersistentStrings>
             <PersistentString
-               value = "[UserInfo sharedUserInfo].msgRecordArray">
+               value = "textView.hasText">
             </PersistentString>
             <PersistentString
-               value = "textView.hasText">
+               value = "[UserInfo sharedUserInfo].msgRecordArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
+            </PersistentString>
+            <PersistentString
+               value = "dict">
+            </PersistentString>
+            <PersistentString
+               value = "notification.userInfo">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -217,20 +245,6 @@
             </PersistentString>
             <PersistentString
                value = "[UserInfo sharedUserInfo].msgRecordArray">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MainViewController receiveMessage:]:MainViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "notification.userInfo">
-            </PersistentString>
-            <PersistentString
-               value = "[UserInfo sharedUserInfo].msgRecordArray[i]">
-            </PersistentString>
-            <PersistentString
-               value = "dict">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

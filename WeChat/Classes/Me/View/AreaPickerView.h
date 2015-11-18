@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AreaPickerView : UIPickerView
-
+@property (nonatomic,strong) NSString * resultSting;
 @end

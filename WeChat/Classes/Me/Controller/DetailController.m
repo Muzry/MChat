@@ -12,34 +12,16 @@
 #import "DetailModel.h"
 #import "XMPPvCardTemp.h"
 #import "DetailProfileCrontroller.h"
+#import "AreaPickerView.h"
 
 @interface DetailController ()<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,DetailProfileCrontrollerDelegate>
 
 @property (nonatomic,strong) NSMutableArray *Groups;
 @property (nonatomic,weak) DetailCell * detailcell;
-@property (nonatomic,strong) NSDictionary *areaDict;
 
 @end
 
 @implementation DetailController
-
-
-
--(NSDictionary *)areaDict
-{
-    if (!_areaDict)
-    {
-        NSString *areaPlist = [[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"];
-        _areaDict = [NSDictionary dictionaryWithContentsOfFile:areaPlist];
-    }
-    return _areaDict;
-}
-
--(void)initPlistForCity
-{
-    NSString *areaPlist = [[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"];
-    self.areaDict = [NSDictionary dictionaryWithContentsOfFile:areaPlist];
-}
 
 -(NSMutableArray *)Groups
 {
@@ -256,6 +238,28 @@
     else if (tag == 4)
     {
 
+        
+        UIAlertController* alertVc=[UIAlertController alertControllerWithTitle:@"请选择\n\n\n\n\n\n\n" message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
+        AreaPickerView *areaPicker = [[AreaPickerView alloc] init];
+        areaPicker.x = 20;
+        areaPicker.y = -50;
+        
+        UIAlertAction* cancel=[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleDefault) handler:nil];
+        UIAlertAction* ok=[UIAlertAction actionWithTitle:@"确认" style:(UIAlertActionStyleDefault) handler:
+        ^(UIAlertAction *action)
+        {
+            NSIndexPath *path = [NSIndexPath indexPathForRow:1 inSection:1];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
+            cell.detailTextLabel.text = areaPicker.resultSting;
+            [self didFinishSave];
+        }];
+
+        [alertVc.view addSubview:areaPicker];
+        [alertVc addAction:ok];
+        [alertVc addAction:cancel];
+        
+        [self presentViewController:alertVc animated:YES completion:nil];
+
     }
     else if (tag == 5)
     {
@@ -266,11 +270,14 @@
         
         NSDate *maxDate = [dateFormatter dateFromString:@"2016-01-01"];
         datePicker.maximumDate = maxDate;
+        datePicker.x = 20;
+        datePicker.y = 25;
         
-        UIAlertController* alertVc=[UIAlertController alertControllerWithTitle:@"请选择\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
-        UIAlertAction* no=[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleDefault) handler:nil];
+        UIAlertController* alertVc=[UIAlertController alertControllerWithTitle:@"请选择\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
+        UIAlertAction* cancel=[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleDefault) handler:nil];
         UIAlertAction* ok=[UIAlertAction actionWithTitle:@"确认" style:(UIAlertActionStyleDefault) handler:
-        ^(UIAlertAction *action) {
+        ^(UIAlertAction *action)
+        {
             NSIndexPath *path = [NSIndexPath indexPathForRow:4 inSection:1];
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:path];
             cell.detailTextLabel.text = [dateFormatter stringFromDate:datePicker.date];
@@ -278,7 +285,8 @@
         }];
         [alertVc.view addSubview:datePicker];
         [alertVc addAction:ok];
-        [alertVc addAction:no];
+        [alertVc addAction:cancel];
+
 
         [self presentViewController:alertVc animated:YES completion:nil];
         
