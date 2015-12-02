@@ -11,7 +11,7 @@
 #import "MainViewController.h"
 #import "ContactController.h"
 #import "MeController.h"
-#import "FriendsController.h"
+#import "DiscoverController.h"
 
 @interface MainTabBarController ()
 
@@ -25,8 +25,8 @@
     [self addOneChildVc:mainVc title:@"微信" imageName:@"tabbar_mainframe" selectedImageName:@"tabbar_mainframeHL"];
     ContactController *contactVc = [[ContactController alloc]init];
     [self addOneChildVc:contactVc title:@"通讯录" imageName:@"tabbar_contacts" selectedImageName:@"tabbar_contactsHL"];
-    FriendsController *discoverVc = [[FriendsController alloc]init];
-    [self addOneChildVc:discoverVc title:@"朋友圈" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discoverHL"];
+    DiscoverController *discoverVc = [[DiscoverController alloc]init];
+    [self addOneChildVc:discoverVc title:@"发现" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discoverHL"];
     MeController *meVc = [[MeController alloc]init];
     [self addOneChildVc:meVc title:@"我" imageName:@"tabbar_me" selectedImageName:@"tabbar_meHL"];
     [self.tabBar setTintColor:SelfColor(9, 187, 7)];

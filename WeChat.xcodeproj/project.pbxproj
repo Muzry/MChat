@@ -201,7 +201,7 @@
 		D6C0A59A1BC2CC210033A2D5 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5971BC2CC210033A2D5 /* MainNavigationController.m */; };
 		D6C0A59B1BC2CC210033A2D5 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5991BC2CC210033A2D5 /* MainTabBarController.m */; };
 		D6C0A5A61BC2CF5D0033A2D5 /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */; };
-		D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */; };
+		D6C0A5B01BC2CF850033A2D5 /* DiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0A5AF1BC2CF850033A2D5 /* DiscoverController.m */; };
 		D6DF50E41BF41E9300215DBB /* WeChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DF50E31BF41E9300215DBB /* WeChatCell.m */; };
 		D6E00C861BE219AB00D65CBB /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E00C791BE219AB00D65CBB /* MessageViewController.m */; };
 		D6E00C871BE219AB00D65CBB /* MessageFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E00C7C1BE219AB00D65CBB /* MessageFrameModel.m */; };
@@ -628,8 +628,8 @@
 		D6C0A5991BC2CC210033A2D5 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		D6C0A5A41BC2CF5D0033A2D5 /* ContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactController.h; sourceTree = "<group>"; };
 		D6C0A5A51BC2CF5D0033A2D5 /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
-		D6C0A5AE1BC2CF850033A2D5 /* FriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsController.h; sourceTree = "<group>"; };
-		D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsController.m; sourceTree = "<group>"; };
+		D6C0A5AE1BC2CF850033A2D5 /* DiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverController.h; sourceTree = "<group>"; };
+		D6C0A5AF1BC2CF850033A2D5 /* DiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverController.m; sourceTree = "<group>"; };
 		D6DF50E21BF41E9300215DBB /* WeChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatCell.h; sourceTree = "<group>"; };
 		D6DF50E31BF41E9300215DBB /* WeChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatCell.m; sourceTree = "<group>"; };
 		D6E00C781BE219AB00D65CBB /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
@@ -970,7 +970,7 @@
 				D65E93941BCB8F340024A9FD /* Login */,
 				D64C61ED1BC576D400B5788C /* Me */,
 				D6C0A59C1BC2CF430033A2D5 /* Contact */,
-				D6C0A5A01BC2CF430033A2D5 /* Friends */,
+				D6C0A5A01BC2CF430033A2D5 /* Discover */,
 				D6B2CCF71BBFE8090046AD26 /* Lib */,
 				D6B2CE4C1BBFE80A0046AD26 /* Main */,
 			);
@@ -1853,21 +1853,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D6C0A5A01BC2CF430033A2D5 /* Friends */ = {
+		D6C0A5A01BC2CF430033A2D5 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
 				D6C0A5A11BC2CF430033A2D5 /* Controller */,
 				D6C0A5A21BC2CF430033A2D5 /* Model */,
 				D6C0A5A31BC2CF430033A2D5 /* View */,
 			);
+			name = Discover;
 			path = Friends;
 			sourceTree = "<group>";
 		};
 		D6C0A5A11BC2CF430033A2D5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D6C0A5AE1BC2CF850033A2D5 /* FriendsController.h */,
-				D6C0A5AF1BC2CF850033A2D5 /* FriendsController.m */,
+				D6C0A5AE1BC2CF850033A2D5 /* DiscoverController.h */,
+				D6C0A5AF1BC2CF850033A2D5 /* DiscoverController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2122,7 +2123,7 @@
 				D6A469E41BF8B9CC004EC837 /* SDWebImageDecoder.m in Sources */,
 				D65E93A51BCB8F340024A9FD /* OtherLoginController.m in Sources */,
 				D6B2CEA41BBFE80A0046AD26 /* XMPPCapabilities.m in Sources */,
-				D6C0A5B01BC2CF850033A2D5 /* FriendsController.m in Sources */,
+				D6C0A5B01BC2CF850033A2D5 /* DiscoverController.m in Sources */,
 				D65E93A91BCB8F340024A9FD /* RegisterView.m in Sources */,
 				D6B2CEC11BBFE80A0046AD26 /* XMPPStringPrep.m in Sources */,
 				D6B2CE8C1BBFE80A0046AD26 /* XMPPvCardTempAdr.m in Sources */,

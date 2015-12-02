@@ -41,11 +41,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (section == 1)
+    {
+        return 4;
+    }
     return 1;
 }
 
@@ -63,17 +67,56 @@
         [cell.contentView addSubview:topseparator];
         [cell.contentView addSubview:bottomseparator];
     }
-    else if(indexPath.section == 1)
+    else
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.textLabel.text = @"退出登录";
-        cell.textLabel.textColor = SelfColor(255, 97, 89);
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         SeparatorView *topseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
         SeparatorView *bottomseparator = [[SeparatorView alloc] initWithFrame:CGRectMake(0, cell.height, ScreenWidth, 0.5)];
         [cell.contentView addSubview:topseparator];
         [cell.contentView addSubview:bottomseparator];
-
+        if(indexPath.section == 1)
+        {
+            if (indexPath.row == 0)
+            {
+                cell.textLabel.text = @"相册";
+                [cell.imageView setImage:[UIImage imageNamed:@"MoreMyAlbum"]];
+            }
+            else if(indexPath.row == 1)
+            {
+                cell.textLabel.text = @"收藏";
+                [cell.imageView setImage:[UIImage imageNamed:@"MoreMyFavorites"]];
+            }
+            else if(indexPath.row == 2)
+            {
+                cell.textLabel.text = @"钱包";
+                [cell.imageView setImage:[UIImage imageNamed:@"MoreMyBankCard"]];
+            }
+            else if(indexPath.row == 3)
+            {
+                cell.textLabel.text = @"卡包";
+                [cell.imageView setImage:[UIImage imageNamed:@"MyCardPackageIcon"]];
+            }
+            
+        }
+        else if(indexPath.section == 2)
+        {
+            cell.textLabel.text = @"表情";
+            [cell.imageView setImage:[UIImage imageNamed:@"MoreExpressionShops"]];
+        }
+        else if(indexPath.section == 3)
+        {
+            cell.textLabel.text = @"设置";
+            [cell.imageView setImage:[UIImage imageNamed:@"MoreSetting"]];
+            cell.detailTextLabel.text = @"已保护";
+        }
+        else if(indexPath.section == 4)
+        {
+            cell.textLabel.text = @"退出登录";
+            cell.textLabel.textColor = SelfColor(255, 97, 89);
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     }
 
     return cell;
@@ -117,7 +160,7 @@
         [self.navigationController pushViewController:detailVc animated:YES];
         detailVc.delegate = self;
     }
-    else if (indexPath.section == 1)
+    else if (indexPath.section == 4)
     {
         UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"您真的要退出程序吗？" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"退出登录" otherButtonTitles:@"取消", nil];
         [sheet showInView:self.view];

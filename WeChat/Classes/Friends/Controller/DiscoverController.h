@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendsController : UITableViewController
+@interface DiscoverController : UITableViewController
 
 @end
