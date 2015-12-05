@@ -36,6 +36,13 @@
 
 }
 
+-(void)writeToFile
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filename = [NSString stringWithFormat:@"records%@.plist",[UserInfo sharedUserInfo].user];
+    [[UserInfo sharedUserInfo].msgRecordArray writeToFile:[[pathList objectAtIndex:0] stringByAppendingPathComponent:filename] atomically:YES];
+}
+
 #pragma mark - Table view data source
 
 
@@ -65,13 +72,6 @@
     return 70;
 }
 
--(NSString*)recordPath
-{
-    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *filename = [NSString stringWithFormat:@"records%@.plist",[UserInfo sharedUserInfo].user];
-    return [[pathList objectAtIndex:0] stringByAppendingPathComponent:filename];
-}
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     MessageViewController *msgController = [[MessageViewController alloc]init];
@@ -87,6 +87,19 @@
     
     [self.navigationController pushViewController:msgController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [[UserInfo sharedUserInfo].msgRecordArray removeObjectAtIndex:indexPath.row];
+        if ([UserInfo sharedUserInfo].msgRecordArray.count)
+        {
+            [self writeToFile];
+        }
+        [self.tableView reloadData];
+    }
 }
 
 

@@ -12,6 +12,7 @@
 #import "UIImage+ResizeImage.h"
 #import "XMPPvCardTemp.h"
 #import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
 
 @interface MessageViewCell()
 
@@ -130,6 +131,7 @@
         [self.textView sd_setImageWithURL:[NSURL URLWithString:model.text] forState:UIControlStateNormal];
         [self.textView addTarget:self action:@selector(imageClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.textView setTitle:nil forState:UIControlStateNormal];
+        
     }
     if (model.type == MessageModelMe)
     {

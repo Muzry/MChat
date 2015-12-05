@@ -183,16 +183,6 @@
 }
 
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete && indexPath.section == 1)
-    {
-        XMPPUserCoreDataStorageObject *friend = _resultsFriends.fetchedObjects[indexPath.row];
-        XMPPJID *friendJid = friend.jid;
-        [[XmppTools sharedXmppTools].roster removeUser:friendJid];
-    }
-}
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {

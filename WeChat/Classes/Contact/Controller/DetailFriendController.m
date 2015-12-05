@@ -13,7 +13,7 @@
 #import "MainTabBarController.h"
 
 
-@interface DetailFriendController()
+@interface DetailFriendController()<UIActionSheetDelegate>
 @end
 
 @implementation DetailFriendController
@@ -113,10 +113,11 @@
         [sendMessage setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [sendMessage addTarget:self action:@selector(sendMessageClick) forControlEvents:UIControlEventTouchUpInside];
         
-        UIButton *vedioMessage = [[UIButton alloc]init];
-        [vedioMessage setTitle:@"视频聊天" forState:UIControlStateNormal];
-        [vedioMessage setTitleColor:SelfColor(93, 93, 93) forState:UIControlStateNormal];
-        [vedioMessage addTarget:self action:@selector(vedioMessageClick) forControlEvents:UIControlEventTouchUpInside];
+        UIButton *deleteBtn = [[UIButton alloc]init];
+        [deleteBtn setTitle:@"删除好友" forState:UIControlStateNormal];
+        [deleteBtn setTitleColor:SelfColor(93, 93, 93) forState:UIControlStateNormal];
+        [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [deleteBtn addTarget:self action:@selector(deleteFriendClick) forControlEvents:UIControlEventTouchUpInside];
         
         sendMessage.x = 10;
         sendMessage.y = 15;
@@ -124,14 +125,14 @@
         sendMessage.height = 40;
         [sendMessage  setBackgroundImage:[UIImage resizeImageWihtImageName:@"GreenBigBtn"] forState:UIControlStateNormal];
         
-        vedioMessage.x = sendMessage.x;
-        vedioMessage.y = 15 * 2 + sendMessage.height;
-        vedioMessage.width = sendMessage.width;
-        vedioMessage.height = 40;
-        [vedioMessage setBackgroundImage:[UIImage resizeImageWihtImageName:@"WhiteBigBtn"] forState:UIControlStateNormal];
+        deleteBtn.x = sendMessage.x;
+        deleteBtn.y = 15 * 2 + sendMessage.height;
+        deleteBtn.width = sendMessage.width;
+        deleteBtn.height = 40;
+        [deleteBtn setBackgroundImage:[UIImage resizeImageWihtImageName:@"RedBigBtn"] forState:UIControlStateNormal];
         
         [cell.contentView addSubview:sendMessage];
-        [cell.contentView addSubview:vedioMessage];
+        [cell.contentView addSubview:deleteBtn];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }
@@ -178,9 +179,24 @@
         return view;
 }
 
--(void)vedioMessageClick
+-(void)deleteFriendClick
 {
-    NSLog(@"视频聊天");
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"您真的要删除该好友吗？" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+    [sheet showInView:self.view];
+
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        XMPPJID *friendJid = self.account;
+        [[XmppTools sharedXmppTools].roster removeUser:friendJid];
+    }
+    else
+    {
+        return ;
+    }
 }
 
 -(void)sendMessageClick
