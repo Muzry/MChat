@@ -4,4 +4,8 @@ iOS XMPP 模仿微信
 新手编写，难免有很多问题，请各位大牛轻喷
 
 ---
-### this repo need to recode
+### This Repo Need to Refactoring
+
+- Refactoring Server For Message with Python
+
+- Refactoring iOS Client with Object C
