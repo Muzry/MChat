@@ -8,4 +8,4 @@ iOS XMPP 模仿微信
 
 - Refactoring Server For Message with Python
 
-- Refactoring iOS Client with Object C
+- Refactoring iOS Client with Objective C
