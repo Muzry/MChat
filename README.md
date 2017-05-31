@@ -8,4 +8,6 @@ iOS XMPP 模仿微信
 
 - Refactoring Server For Message with Java
 
+  link to [WeChat_Server](https://github.com/Muzry/WeChat_Server)
+
 - Refactoring iOS Client with Objective C
