@@ -6,6 +6,6 @@ iOS XMPP 模仿微信
 ---
 ### This Repo Need to Refactoring
 
-- Refactoring Server For Message with Python
+- Refactoring Server For Message with Java
 
 - Refactoring iOS Client with Objective C
