@@ -4,10 +4,10 @@ iOS XMPP 模仿微信
 新手编写，难免有很多问题，请各位大牛轻喷
 
 ---
-### This Repo Need to Refactoring
+### This Repo Need to Refactor
 
-- Refactoring Server For Message with Java
+- Refactor Server For Message with Java
 
   link to [MChat_Server](https://github.com/Muzry/MChat_Server)
 
-- Refactoring iOS Client with Objective C
+- Refactor iOS Client with Objective C
